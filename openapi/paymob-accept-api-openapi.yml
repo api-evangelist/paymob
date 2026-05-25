@@ -1,0 +1,413 @@
+openapi: 3.0.3
+info:
+  title: Paymob Accept Legacy (v2) API
+  version: "2.0"
+  description: >-
+    The legacy Paymob Accept API uses a three-step flow: authenticate to receive
+    a bearer auth_token, register an order, then request a payment_key. The
+    payment_key is used either with the iframe redirect or the headless
+    /payments/pay endpoint. Refund, void, capture, transaction inquiry, and
+    saved-card MOTO operations are exposed on this surface.
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
+security:
+- BearerAuth: []
+paths:
+  /api/auth/tokens:
+    post:
+      summary: Authenticate Merchant
+      operationId: createAuthToken
+      tags: [Authentication]
+      description: Exchange the merchant API key for a short-lived auth_token (60 minutes).
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [api_key]
+              properties:
+                api_key:
+                  type: string
+      responses:
+        '201':
+          description: Token created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  profile:
+                    type: object
+                    additionalProperties: true
+  /api/ecommerce/orders:
+    post:
+      summary: Register Order
+      operationId: registerOrder
+      tags: [Orders]
+      description: Register an order on Paymob and obtain an order id for the payment key request.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [auth_token, amount_cents, currency]
+              properties:
+                auth_token:
+                  type: string
+                amount_cents:
+                  type: integer
+                currency:
+                  type: string
+                merchant_order_id:
+                  type: string
+                items:
+                  type: array
+                  items:
+                    type: object
+                    additionalProperties: true
+                delivery_needed:
+                  type: boolean
+                shipping_data:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+  /api/acceptance/payment_keys:
+    post:
+      summary: Request Payment Key
+      operationId: requestPaymentKey
+      tags: [Payment Keys]
+      description: >-
+        Request a payment_key for an order. The payment_key is bound to a single
+        integration_id and used by the iframe or the headless pay endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [auth_token, amount_cents, order_id, integration_id, billing_data, currency]
+              properties:
+                auth_token:
+                  type: string
+                amount_cents:
+                  type: integer
+                order_id:
+                  type: integer
+                integration_id:
+                  type: integer
+                billing_data:
+                  type: object
+                  additionalProperties: true
+                currency:
+                  type: string
+                expiration:
+                  type: integer
+                lock_order_when_paid:
+                  type: boolean
+      responses:
+        '201':
+          description: Payment key issued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+  /api/acceptance/payments/pay:
+    post:
+      summary: Pay With Payment Method
+      operationId: payWithPaymentMethod
+      tags: [Payments]
+      description: >-
+        Headless payment endpoint (MOTO / saved card / merchant-initiated
+        transactions). Submit a payment_key plus source object describing the
+        method (card, saved token, wallet, kiosk).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [source, payment_token]
+              properties:
+                payment_token:
+                  type: string
+                source:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Payment processed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /api/acceptance/capture:
+    post:
+      summary: Capture Authorized Transaction
+      operationId: captureTransaction
+      tags: [Capture, Refund, Void]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [transaction_id, amount_cents]
+              properties:
+                transaction_id:
+                  type: integer
+                amount_cents:
+                  type: integer
+      responses:
+        '200':
+          description: Capture result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /api/acceptance/void_refund/void:
+    post:
+      summary: Void Transaction
+      operationId: voidTransaction
+      tags: [Capture, Refund, Void]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [transaction_id]
+              properties:
+                transaction_id:
+                  type: integer
+      responses:
+        '200':
+          description: Void result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /api/acceptance/void_refund/refund:
+    post:
+      summary: Refund Transaction
+      operationId: refundTransaction
+      tags: [Capture, Refund, Void]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [transaction_id, amount_cents]
+              properties:
+                transaction_id:
+                  type: integer
+                amount_cents:
+                  type: integer
+      responses:
+        '200':
+          description: Refund result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /api/acceptance/transactions/{transaction_id}:
+    get:
+      summary: Retrieve Transaction By ID
+      operationId: retrieveTransactionById
+      tags: [Transactions]
+      parameters:
+      - name: transaction_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Transaction details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /api/ecommerce/orders/transaction_inquiry:
+    post:
+      summary: Transaction Inquiry By Merchant Order ID
+      operationId: transactionInquiryByOrderId
+      tags: [Transactions]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                merchant_order_id:
+                  type: string
+                order_id:
+                  type: integer
+      responses:
+        '200':
+          description: Transaction details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /api/ecommerce/payment-links:
+    post:
+      summary: Create Payment Link
+      operationId: createPaymentLink
+      tags: [Payment Links]
+      description: Create a sharable Quick Link (V2 Quick Link API) that customers can pay through a hosted URL.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [amount_cents, currency, integrations]
+              properties:
+                amount_cents:
+                  type: integer
+                currency:
+                  type: string
+                integrations:
+                  type: array
+                  items:
+                    type: integer
+                description:
+                  type: string
+                full_name:
+                  type: string
+                email:
+                  type: string
+                phone_number:
+                  type: string
+                redirection_url:
+                  type: string
+      responses:
+        '201':
+          description: Link created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  url:
+                    type: string
+                  client_url:
+                    type: string
+  /api/ecommerce/payment-links/cancel:
+    post:
+      summary: Cancel Payment Link
+      operationId: cancelPaymentLink
+      tags: [Payment Links]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [id]
+              properties:
+                id:
+                  type: string
+      responses:
+        '200':
+          description: Link cancelled
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).
+  schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        amount_cents:
+          type: integer
+        currency:
+          type: string
+        merchant_order_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: integer
+        pending:
+          type: boolean
+        amount_cents:
+          type: integer
+        success:
+          type: boolean
+        is_auth:
+          type: boolean
+        is_capture:
+          type: boolean
+        is_void:
+          type: boolean
+        is_refund:
+          type: boolean
+        is_3d_secure:
+          type: boolean
+        integration_id:
+          type: integer
+        order:
+          $ref: '#/components/schemas/Order'
+        currency:
+          type: string
+        source_data:
+          type: object
+          properties:
+            type:
+              type: string
+            sub_type:
+              type: string
+            pan:
+              type: string
+        merchant_commission:
+          type: integer
+        installment:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time

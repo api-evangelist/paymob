@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/paymob/json-schema/paymob-disbursement-schema.json",
+  "title": "Paymob Disbursement",
+  "type": "object",
+  "required": ["issuer", "amount"],
+  "properties": {
+    "transaction_id": {"type": "string"},
+    "issuer": {
+      "type": "string",
+      "enum": ["vodafone", "etisalat", "orange", "bank_wallet", "bank_card", "instant_bank"]
+    },
+    "amount": {"type": "number"},
+    "msisdn": {"type": "string"},
+    "full_name": {"type": "string"},
+    "bank_card_number": {"type": "string"},
+    "bank_code": {"type": "string"},
+    "bank_transaction_type": {
+      "type": "string",
+      "enum": ["salary", "credit_card", "prepaid_card", "cash_transfer"]
+    },
+    "reference": {"type": "string"},
+    "callback_url": {"type": "string", "format": "uri"},
+    "status": {
+      "type": "string",
+      "enum": ["pending", "successful", "failed"]
+    },
+    "disbursement_status": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

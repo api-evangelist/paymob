@@ -1,0 +1,145 @@
+openapi: 3.0.3
+info:
+  title: Paymob Card Tokens API
+  version: "1.0"
+  description: >-
+    The Card Tokens API exposes tokenisation operations for saved-card flows
+    (CIT / MIT) and recurring billing. A card token is created the first time a
+    cardholder pays with the "save card" flag enabled, then reused on subsequent
+    customer-initiated or merchant-initiated transactions.
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+security:
+- BearerAuth: []
+paths:
+  /api/acceptance/card_tokens:
+    get:
+      summary: List Card Tokens
+      operationId: listCardTokens
+      tags: [Card Tokens]
+      responses:
+        '200':
+          description: Card tokens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CardToken'
+  /api/acceptance/card_tokens/{token_id}:
+    delete:
+      summary: Delete Card Token
+      operationId: deleteCardToken
+      tags: [Card Tokens]
+      parameters:
+      - name: token_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Token deleted
+  /api/acceptance/payments/cit:
+    post:
+      summary: Customer-Initiated Transaction
+      operationId: customerInitiatedTransaction
+      tags: [Saved Card Payments]
+      description: Charge a saved card with the cardholder present (CIT).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavedCardPayment'
+      responses:
+        '200':
+          description: Charge result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /api/acceptance/payments/mit:
+    post:
+      summary: Merchant-Initiated Transaction
+      operationId: merchantInitiatedTransaction
+      tags: [Saved Card Payments]
+      description: Charge a saved card without the cardholder present (MIT).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavedCardPayment'
+      responses:
+        '200':
+          description: Charge result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    CardToken:
+      type: object
+      properties:
+        id:
+          type: string
+        token:
+          type: string
+        masked_pan:
+          type: string
+        card_subtype:
+          type: string
+        email:
+          type: string
+        order_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+    SavedCardPayment:
+      type: object
+      required: [payment_token, source]
+      properties:
+        payment_token:
+          type: string
+        source:
+          type: object
+          required: [identifier, subtype]
+          properties:
+            identifier:
+              type: string
+              description: Card token identifier from a previous transaction.
+            subtype:
+              type: string
+              enum: [TOKEN]
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: integer
+        success:
+          type: boolean
+        amount_cents:
+          type: integer
+        currency:
+          type: string
+        is_3d_secure:
+          type: boolean
+        source_data:
+          type: object
+          properties:
+            type:
+              type: string
+            sub_type:
+              type: string
+            pan:
+              type: string

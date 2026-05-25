@@ -1,0 +1,46 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Paymob
+providerId: paymob
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: false
+tags:
+  - Payments
+  - Rate Limiting
+  - Auth Token TTL
+description: >-
+  Rate-limit and token TTL policies for the Paymob Accept and Payouts (Send)
+  APIs. Paymob does not publish per-merchant RPS quotas in public docs; the
+  authoritative constraints are the auth token TTL (60 minutes) for both
+  surfaces and standard PCI-DSS / 3DS throughput practices. Production-grade
+  quotas are negotiated as part of the merchant agreement.
+sources:
+  - https://developers.paymob.com
+  - https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+algorithm: fixed-window
+responseCodes:
+  throttled: 429
+  unauthorized: 401
+limits:
+  - api: Accept (v2 legacy)
+    surface: /api/auth/tokens
+    description: Bearer auth_token lifetime. Token must be refreshed before expiry.
+    ttlMinutes: 60
+  - api: Payouts (Send)
+    surface: /api/auth/token/
+    description: OAuth2 access_token lifetime. Use refresh_token to mint a new access_token without re-authenticating.
+    ttlMinutes: 60
+  - api: Intentions (v1)
+    surface: /v1/intention/
+    description: client_secret expiration controlled by `expiration` field (default 3600 seconds).
+    expirationSecondsDefault: 3600
+  - api: Webhooks
+    surface: HMAC callbacks
+    description: Webhook deliveries are retried on non-2xx responses; merchants should respond within standard 30-second window.
+    retryPolicy: best-effort
+notes:
+  - Paymob authenticates against the merchant Secret Key for Intentions (v1) and against bearer auth_token for the legacy v2 surface.
+  - Payouts uses OAuth2 password-grant; access tokens expire every 60 minutes and must be refreshed.
+  - Per-merchant transaction velocity caps are configured per agreement and not exposed publicly.

@@ -1,0 +1,97 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "paymob": "https://accept.paymob.com/v1/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Intention": {
+      "@id": "paymob:Intention",
+      "@context": {
+        "id": {"@id": "paymob:Intention/id", "@type": "xsd:string"},
+        "client_secret": {"@id": "paymob:Intention/clientSecret", "@type": "xsd:string"},
+        "amount": {"@id": "schema:price", "@type": "xsd:integer"},
+        "currency": {"@id": "schema:priceCurrency", "@type": "xsd:string"},
+        "status": {"@id": "paymob:Intention/status", "@type": "xsd:string"},
+        "payment_methods": {"@id": "paymob:Intention/paymentMethods", "@container": "@list"},
+        "items": {"@id": "paymob:Intention/items", "@container": "@list"},
+        "billing_data": {"@id": "paymob:Intention/billingData", "@type": "@id"},
+        "customer": {"@id": "schema:customer", "@type": "@id"},
+        "created": {"@id": "dcterms:created", "@type": "xsd:dateTime"}
+      }
+    },
+
+    "Transaction": {
+      "@id": "paymob:Transaction",
+      "@context": {
+        "id": {"@id": "paymob:Transaction/id", "@type": "xsd:integer"},
+        "amount_cents": {"@id": "schema:price", "@type": "xsd:integer"},
+        "currency": {"@id": "schema:priceCurrency", "@type": "xsd:string"},
+        "success": {"@id": "paymob:Transaction/success", "@type": "xsd:boolean"},
+        "is_auth": {"@id": "paymob:Transaction/isAuth", "@type": "xsd:boolean"},
+        "is_capture": {"@id": "paymob:Transaction/isCapture", "@type": "xsd:boolean"},
+        "is_void": {"@id": "paymob:Transaction/isVoid", "@type": "xsd:boolean"},
+        "is_refund": {"@id": "paymob:Transaction/isRefund", "@type": "xsd:boolean"},
+        "integration_id": {"@id": "paymob:Transaction/integrationId", "@type": "xsd:integer"},
+        "order": {"@id": "paymob:Transaction/order", "@type": "@id"},
+        "source_data": {"@id": "paymob:Transaction/sourceData", "@type": "@id"},
+        "created_at": {"@id": "dcterms:created", "@type": "xsd:dateTime"}
+      }
+    },
+
+    "Order": {
+      "@id": "paymob:Order",
+      "@context": {
+        "id": {"@id": "paymob:Order/id", "@type": "xsd:integer"},
+        "amount_cents": {"@id": "schema:price", "@type": "xsd:integer"},
+        "currency": {"@id": "schema:priceCurrency", "@type": "xsd:string"},
+        "merchant_order_id": {"@id": "paymob:Order/merchantOrderId", "@type": "xsd:string"},
+        "items": {"@id": "paymob:Order/items", "@container": "@list"}
+      }
+    },
+
+    "SubscriptionPlan": {
+      "@id": "paymob:SubscriptionPlan",
+      "@context": {
+        "id": {"@id": "paymob:SubscriptionPlan/id", "@type": "xsd:string"},
+        "name": {"@id": "schema:name", "@type": "xsd:string"},
+        "amount_cents": {"@id": "schema:price", "@type": "xsd:integer"},
+        "frequency": {"@id": "paymob:SubscriptionPlan/frequency", "@type": "xsd:string"},
+        "status": {"@id": "paymob:SubscriptionPlan/status", "@type": "xsd:string"}
+      }
+    },
+
+    "Subscription": {
+      "@id": "paymob:Subscription",
+      "@context": {
+        "id": {"@id": "paymob:Subscription/id", "@type": "xsd:string"},
+        "plan_id": {"@id": "paymob:Subscription/planId", "@type": "xsd:string"},
+        "status": {"@id": "paymob:Subscription/status", "@type": "xsd:string"},
+        "next_billing_date": {"@id": "paymob:Subscription/nextBillingDate", "@type": "xsd:dateTime"}
+      }
+    },
+
+    "CardToken": {
+      "@id": "paymob:CardToken",
+      "@context": {
+        "id": {"@id": "paymob:CardToken/id", "@type": "xsd:string"},
+        "token": {"@id": "paymob:CardToken/token", "@type": "xsd:string"},
+        "masked_pan": {"@id": "paymob:CardToken/maskedPan", "@type": "xsd:string"}
+      }
+    },
+
+    "Disbursement": {
+      "@id": "paymob:Disbursement",
+      "@context": {
+        "transaction_id": {"@id": "paymob:Disbursement/transactionId", "@type": "xsd:string"},
+        "amount": {"@id": "schema:price", "@type": "xsd:number"},
+        "issuer": {"@id": "paymob:Disbursement/issuer", "@type": "xsd:string"},
+        "status": {"@id": "paymob:Disbursement/status", "@type": "xsd:string"},
+        "msisdn": {"@id": "schema:telephone", "@type": "xsd:string"},
+        "reference": {"@id": "paymob:Disbursement/reference", "@type": "xsd:string"}
+      }
+    }
+  }
+}

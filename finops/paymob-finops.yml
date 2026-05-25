@@ -1,0 +1,158 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Paymob
+providerId: paymob
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Payments
+  - Interchange
+description: >-
+  FOCUS-aligned FinOps definition for the Paymob Accept and Send platforms.
+  Charges are per-transaction merchant discount rate (MDR) plus fixed fees,
+  with optional monthly add-ons (daily settlement in the UAE). Payouts are
+  metered per disbursement and budget topup.
+sources:
+  - https://www.paymob.com/en/pricing
+  - https://paymob.ae/en/pricing
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Paymob
+serviceCategory: Payments and Financial Services
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: Local
+  chargeCategories:
+    - Usage
+    - Subscription
+    - Adjustment
+    - Refund
+    - Chargeback
+  primaryUnit: transaction
+  secondaryUnits:
+    - disbursement
+    - subscription
+    - month
+focusColumns:
+  ServiceName: Paymob Accept
+  ServiceCategory: Payments and Financial Services
+  ProviderName: Paymob
+  PublisherName: Paymob
+  InvoiceIssuerName: Paymob (regional entity)
+  PricingCategory: Usage-Based
+  PricingUnit: transaction
+  BillingCurrency: EGP|SAR|AED|OMR|PKR
+meters:
+  - name: transaction_count
+    unit: transaction
+    aggregation: sum
+    dimensions:
+      - currency
+      - country
+      - payment_method
+      - integration_id
+  - name: transaction_volume
+    unit: amount_minor_units
+    aggregation: sum
+    dimensions:
+      - currency
+      - country
+      - payment_method
+  - name: mdr_fee
+    unit: amount_minor_units
+    aggregation: sum
+    dimensions:
+      - currency
+      - country
+      - payment_method
+  - name: fixed_fee
+    unit: amount_minor_units
+    aggregation: sum
+    dimensions:
+      - currency
+      - country
+  - name: refund_count
+    unit: transaction
+    aggregation: sum
+    dimensions:
+      - currency
+      - country
+  - name: chargeback_count
+    unit: case
+    aggregation: sum
+    dimensions:
+      - currency
+      - country
+  - name: disbursement_count
+    unit: disbursement
+    aggregation: sum
+    dimensions:
+      - issuer
+      - currency
+  - name: disbursement_volume
+    unit: amount_minor_units
+    aggregation: sum
+    dimensions:
+      - issuer
+      - currency
+  - name: subscription_addons
+    unit: month
+    aggregation: sum
+    dimensions:
+      - addon
+      - country
+products:
+  - id: accept-online
+    name: Paymob Accept — Online Payments
+    pricingModel: percent_plus_fixed
+    notes: '2.75% + 3 EGP (Egypt); 2.9% + 1 AED (UAE local/international).'
+  - id: accept-pos
+    name: Paymob Accept — POS
+    pricingModel: percent_plus_fixed
+    notes: In-store card-present terminals; pricing varies by terminal and country.
+  - id: accept-payment-links
+    name: Paymob Accept — Payment Links / Quick Link
+    pricingModel: percent_plus_fixed
+  - id: accept-subscriptions
+    name: Paymob Accept — Subscriptions
+    pricingModel: percent_plus_fixed
+  - id: accept-installments
+    name: Paymob Accept — Installments
+    pricingModel: percent_plus_fixed
+    notes: BNPL routing to Tabby, Tamara, Aman, Souhoola, Forsa, valU.
+  - id: accept-marketplace
+    name: Paymob Accept — Marketplace Payouts
+    pricingModel: percent_plus_fixed
+  - id: send-payouts
+    name: Paymob Send — Mass Payouts
+    pricingModel: per_disbursement_plus_fx
+  - id: paymob-sync
+    name: Paymob Sync
+    pricingModel: contract
+  - id: digital-wallet
+    name: Paymob Digital Wallet
+    pricingModel: contract
+addOns:
+  - id: daily-settlement-uae
+    name: Daily Settlement (UAE)
+    price: 210
+    currency: AED
+    frequency: month
+exports:
+  - format: CSV
+    surface: Merchant dashboard
+    description: Transaction, settlement, refund, and chargeback exports per regional dashboard.
+notes:
+  - Paymob operates regional entities; settlement currency follows the merchant's market (EGP, SAR, AED, OMR, PKR).
+  - Marketplace payouts and Send disbursements support split-payout and bulk operations for platforms.
+  - Enterprise contracts adjust MDR, settlement cadence, and FX spreads.

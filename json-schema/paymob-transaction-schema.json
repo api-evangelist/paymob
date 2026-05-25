@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/paymob/json-schema/paymob-transaction-schema.json",
+  "title": "Paymob Transaction",
+  "type": "object",
+  "required": ["id", "amount_cents", "currency"],
+  "properties": {
+    "id": {"type": "integer"},
+    "pending": {"type": "boolean"},
+    "amount_cents": {"type": "integer"},
+    "success": {"type": "boolean"},
+    "is_auth": {"type": "boolean"},
+    "is_capture": {"type": "boolean"},
+    "is_void": {"type": "boolean"},
+    "is_refund": {"type": "boolean"},
+    "is_3d_secure": {"type": "boolean"},
+    "integration_id": {"type": "integer"},
+    "currency": {"type": "string"},
+    "order": {
+      "type": "object",
+      "properties": {
+        "id": {"type": "integer"},
+        "merchant_order_id": {"type": "string"}
+      }
+    },
+    "source_data": {
+      "type": "object",
+      "properties": {
+        "type": {"type": "string"},
+        "sub_type": {"type": "string"},
+        "pan": {"type": "string"}
+      }
+    },
+    "merchant_commission": {"type": "integer"},
+    "installment": {"type": "object"},
+    "created_at": {"type": "string", "format": "date-time"}
+  }
+}

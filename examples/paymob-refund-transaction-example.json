@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://accept.paymob.com/api/acceptance/void_refund/refund",
+    "headers": {
+      "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOi...",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "transaction_id": 555123456,
+      "amount_cents": 25000
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "id": 555123457,
+      "pending": false,
+      "amount_cents": 25000,
+      "success": true,
+      "is_refund": true,
+      "is_void": false,
+      "is_auth": false,
+      "is_capture": false,
+      "integration_id": 12345,
+      "currency": "EGP",
+      "order": {
+        "id": 987654321,
+        "merchant_order_id": "merchant-ref-2026-05-24-001"
+      },
+      "source_data": {
+        "type": "card",
+        "sub_type": "MasterCard",
+        "pan": "5123******2346"
+      },
+      "created_at": "2026-05-24T16:08:42Z"
+    }
+  }
+}

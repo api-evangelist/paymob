@@ -1,0 +1,183 @@
+vocabulary: Paymob
+provider: paymob
+version: '0.1'
+created: '2026-05-24'
+modified: '2026-05-24'
+description: >-
+  Controlled vocabulary mapping Paymob's operational and capability dimensions
+  across the Accept (acceptance), Send (payouts), Sync (cashless), and Digital
+  Wallet product lines. Anchors region, payment method, integration, lifecycle,
+  and FinOps concepts to a single naming surface.
+dimensions:
+  region:
+    description: Markets where Paymob has a regional entity and licensed acquiring.
+    terms:
+      - id: eg
+        label: Egypt
+        currency: EGP
+        baseUri: https://accept.paymob.com
+      - id: sa
+        label: Saudi Arabia
+        currency: SAR
+        baseUri: https://ksa.paymob.com
+      - id: ae
+        label: United Arab Emirates
+        currency: AED
+        baseUri: https://uae.paymob.com
+      - id: om
+        label: Oman
+        currency: OMR
+        baseUri: https://oman.paymob.com
+      - id: pk
+        label: Pakistan
+        currency: PKR
+        baseUri: https://pakistan.paymob.com
+      - id: qa
+        label: Qatar
+        currency: QAR
+        baseUri: https://qatar.paymob.com
+        status: announced
+  product:
+    description: Paymob product surfaces aggregating capabilities.
+    terms:
+      - id: accept
+        label: Paymob Accept
+        scope: Payment acceptance — online, POS, links, subscriptions, installments, marketplace
+      - id: send
+        label: Paymob Send
+        scope: Mass payouts and disbursements
+      - id: sync
+        label: Paymob Sync
+        scope: End-to-end cashless commerce platform
+      - id: wallet
+        label: Paymob Digital Wallet
+        scope: Consumer-facing wallet
+  paymentMethod:
+    description: Logical payment method types accepted by Paymob.
+    terms:
+      - id: card
+        label: Card (credit / debit)
+        networks: [visa, mastercard, mada, meeza]
+      - id: apple_pay
+        label: Apple Pay
+        regions: [eg, sa, ae]
+      - id: google_pay
+        label: Google Pay
+        regions: [eg, sa, ae]
+      - id: stc_pay
+        label: STC Pay
+        regions: [sa]
+      - id: oman_net
+        label: Oman Net
+        regions: [om]
+      - id: easypaisa
+        label: EasyPaisa
+        regions: [pk]
+      - id: jazzcash
+        label: JazzCash
+        regions: [pk]
+      - id: vodafone_cash
+        label: Vodafone Cash
+        regions: [eg]
+      - id: etisalat_cash
+        label: Etisalat Cash
+        regions: [eg]
+      - id: orange_money
+        label: Orange Money
+        regions: [eg]
+      - id: bank_wallet
+        label: Bank Wallet
+      - id: tabby
+        label: Tabby
+        category: bnpl
+        regions: [sa, ae]
+      - id: tamara
+        label: Tamara
+        category: bnpl
+        regions: [sa, ae]
+      - id: aman
+        label: Aman
+        category: cash_collection
+        regions: [eg]
+      - id: souhoola
+        label: Souhoola
+        category: installments
+        regions: [eg]
+      - id: forsa
+        label: Forsa
+        category: installments
+        regions: [eg]
+      - id: valu
+        label: valU
+        category: installments
+        regions: [eg]
+      - id: kiosk
+        label: Kiosk / cash voucher
+        regions: [eg]
+  integration:
+    description: How a merchant integrates Paymob.
+    terms:
+      - id: unified_checkout
+        label: Unified Checkout (hosted)
+      - id: pixel
+        label: Pixel (embeddable)
+      - id: standard_redirect
+        label: Standard Redirect (legacy iframe)
+      - id: headless
+        label: Headless (intentions confirm / payments pay)
+      - id: payment_link
+        label: Payment Link (Quick Link)
+      - id: pos_terminal
+        label: POS Terminal
+      - id: marketplace
+        label: Marketplace (split + payout)
+      - id: woocommerce
+        label: WooCommerce plugin
+      - id: magento
+        label: Magento plugin
+      - id: opencart
+        label: OpenCart plugin
+      - id: shopify
+        label: Shopify gateway
+      - id: odoo
+        label: Odoo connector
+      - id: flutter_sdk
+        label: Flutter SDK
+      - id: react_native_sdk
+        label: React Native SDK
+      - id: android_sdk
+        label: Android SDK
+      - id: ios_sdk
+        label: iOS Swift SDK
+      - id: node_sdk
+        label: Node SDK
+      - id: php_sdk
+        label: PHP SDK
+      - id: python_sdk
+        label: Python SDK
+      - id: java_sdk
+        label: Java SDK
+  transactionLifecycle:
+    description: States a transaction or intention can occupy.
+    terms:
+      - id: intended
+      - id: authorised
+      - id: captured
+      - id: paid
+      - id: voided
+      - id: refunded
+      - id: expired
+      - id: failed
+      - id: chargeback
+  finops:
+    description: Cost/billing concepts surfaced for FinOps reporting.
+    terms:
+      - id: mdr
+        label: Merchant Discount Rate
+      - id: fixed_fee
+        label: Fixed fee per transaction
+      - id: addon
+        label: Subscription add-on (e.g. daily settlement)
+      - id: chargeback_fee
+      - id: fx_spread
+      - id: payout_fee

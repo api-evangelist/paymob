@@ -1,0 +1,115 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Paymob
+providerId: paymob
+created: '2026-05-24'
+modified: '2026-05-24'
+reconciled: true
+tags:
+  - Payments
+  - MENA
+  - Egypt
+  - KSA
+  - UAE
+  - Pakistan
+  - Oman
+description: 'Reconciled per-transaction merchant pricing for Paymob Accept across MENAP markets. Sources: paymob.com/en/pricing and regional pricing pages.'
+sources:
+  - https://www.paymob.com/en/pricing
+  - https://paymob.ae/en/pricing
+plans:
+  - id: paymob-standard-egypt
+    name: Standard (Egypt)
+    type: usage-based
+    description: >-
+      Per-transaction pricing for startups, SMBs, and SMEs. No monthly or
+      subscription fees; settlement weekly to bank account.
+    entries:
+      - label: Local card transaction
+        name: local-transaction
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: EG
+        unit: 1
+        price: '2.75%+3.00'
+        currency: EGP
+        userMultiplied: false
+        description: 2.75% plus 3 EGP per local transaction.
+    elements:
+      - name: Payment links
+      - name: Subscriptions
+      - name: Built-in dashboards
+      - name: Secure payments
+      - name: Weekly settlement
+  - id: paymob-standard-uae
+    name: Standard (UAE)
+    type: usage-based
+    description: Per-transaction pricing for UAE merchants.
+    entries:
+      - label: Local card transaction
+        name: local-transaction
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: AE
+        unit: 1
+        price: '2.9%+1.00'
+        currency: AED
+        userMultiplied: false
+        description: 2.9% plus 1 AED per transaction.
+      - label: International card transaction
+        name: intl-transaction
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: AE
+        unit: 1
+        price: '2.9%+1.00'
+        currency: AED
+        userMultiplied: false
+        description: 2.9% plus 1 AED per international transaction.
+      - label: Daily settlement add-on
+        name: daily-settlement
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: AE
+        unit: 1
+        price: '210.00'
+        currency: AED
+        userMultiplied: false
+        description: Optional 210 AED/month add-on for daily settlement.
+    elements:
+      - name: Payment links
+      - name: Subscriptions
+      - name: Built-in dashboards
+      - name: Secure payments
+      - name: Weekly settlement (default)
+  - id: paymob-enterprise
+    name: Enterprise
+    type: custom
+    description: Custom MDR and SaaS terms for large-volume merchants and unique business models across all Paymob markets.
+    entries:
+      - label: Contact sales
+        name: enterprise
+        type: custom
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: contact
+        userMultiplied: false
+    elements:
+      - name: Volume-based pricing
+      - name: Dedicated account team
+      - name: Advanced fraud and risk tooling
+      - name: Multi-region settlement
+      - name: Marketplace and split payouts
+      - name: Custom SLA and integrations

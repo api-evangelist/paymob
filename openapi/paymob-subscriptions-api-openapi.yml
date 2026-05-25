@@ -1,0 +1,285 @@
+openapi: 3.0.3
+info:
+  title: Paymob Subscriptions API
+  version: "1.0"
+  description: >-
+    The Paymob Subscriptions Module manages subscription plans and recurring
+    subscriptions billed against tokenised cards. Plans define amount, interval,
+    and frequency; subscriptions attach a customer card to a plan. Lifecycle
+    operations include suspend, resume, cancel, secondary card attachment, and
+    transaction inspection.
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+security:
+- BearerAuth: []
+paths:
+  /api/acceptance/subscription-plans:
+    post:
+      summary: Create Subscription Plan
+      operationId: createSubscriptionPlan
+      tags: [Subscription Plans]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionPlanRequest'
+      responses:
+        '201':
+          description: Plan created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionPlan'
+    get:
+      summary: List Subscription Plans
+      operationId: listSubscriptionPlans
+      tags: [Subscription Plans]
+      responses:
+        '200':
+          description: List of plans
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SubscriptionPlan'
+  /api/acceptance/subscription-plans/{subscription_plan_id}:
+    put:
+      summary: Update Subscription Plan
+      operationId: updateSubscriptionPlan
+      tags: [Subscription Plans]
+      parameters:
+      - $ref: '#/components/parameters/PlanId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionPlanRequest'
+      responses:
+        '200':
+          description: Plan updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriptionPlan'
+  /api/acceptance/subscription-plans/{subscription_plan_id}/suspend:
+    post:
+      summary: Suspend Subscription Plan
+      operationId: suspendSubscriptionPlan
+      tags: [Subscription Plans]
+      parameters:
+      - $ref: '#/components/parameters/PlanId'
+      responses:
+        '200':
+          description: Plan suspended
+  /api/acceptance/subscription-plans/{subscription_plan_id}/resume:
+    post:
+      summary: Resume Subscription Plan
+      operationId: resumeSubscriptionPlan
+      tags: [Subscription Plans]
+      parameters:
+      - $ref: '#/components/parameters/PlanId'
+      responses:
+        '200':
+          description: Plan resumed
+  /api/acceptance/subscriptions/{subscription_id}:
+    get:
+      summary: Retrieve Subscription
+      operationId: retrieveSubscription
+      tags: [Subscriptions]
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      responses:
+        '200':
+          description: Subscription details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+    put:
+      summary: Update Subscription
+      operationId: updateSubscription
+      tags: [Subscriptions]
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        '200':
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subscription'
+  /api/acceptance/subscriptions/{subscription_id}/suspend:
+    post:
+      summary: Suspend Subscription
+      operationId: suspendSubscription
+      tags: [Subscriptions]
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      responses:
+        '200':
+          description: Suspended
+  /api/acceptance/subscriptions/{subscription_id}/resume:
+    post:
+      summary: Resume Subscription
+      operationId: resumeSubscription
+      tags: [Subscriptions]
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      responses:
+        '200':
+          description: Resumed
+  /api/acceptance/subscriptions/{subscription_id}/cancel:
+    post:
+      summary: Cancel Subscription
+      operationId: cancelSubscription
+      tags: [Subscriptions]
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      responses:
+        '200':
+          description: Cancelled
+  /api/acceptance/subscriptions/{subscription_id}/last-transaction:
+    get:
+      summary: Get Last Subscription Transaction
+      operationId: getLastSubscriptionTransaction
+      tags: [Subscriptions]
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      responses:
+        '200':
+          description: Last transaction
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+  /api/acceptance/subscriptions/{subscription_id}/transactions:
+    get:
+      summary: List Subscription Transactions
+      operationId: listSubscriptionTransactions
+      tags: [Subscriptions]
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      responses:
+        '200':
+          description: Transactions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+  /api/acceptance/subscriptions/{subscription_id}/card-tokens:
+    get:
+      summary: List Subscription Card Tokens
+      operationId: listSubscriptionCardTokens
+      tags: [Subscriptions]
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      responses:
+        '200':
+          description: Card tokens
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+components:
+  parameters:
+    PlanId:
+      name: subscription_plan_id
+      in: path
+      required: true
+      schema:
+        type: string
+    SubscriptionId:
+      name: subscription_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    SubscriptionPlanRequest:
+      type: object
+      required: [frequency, amount_cents, name]
+      properties:
+        name:
+          type: string
+        amount_cents:
+          type: integer
+        frequency:
+          type: string
+          enum: [day, week, month, year]
+        integration:
+          type: integer
+        reminder_days:
+          type: integer
+        retrial_days:
+          type: integer
+        number_of_deductions:
+          type: integer
+        plan_type:
+          type: string
+          enum: [renew, installment]
+    SubscriptionPlan:
+      allOf:
+      - $ref: '#/components/schemas/SubscriptionPlanRequest'
+      - type: object
+        properties:
+          id:
+            type: string
+          status:
+            type: string
+            enum: [active, suspended]
+          created_at:
+            type: string
+            format: date-time
+    Subscription:
+      type: object
+      properties:
+        id:
+          type: string
+        plan_id:
+          type: string
+        status:
+          type: string
+          enum: [active, suspended, cancelled, expired]
+        starts_at:
+          type: string
+          format: date-time
+        next_billing_date:
+          type: string
+          format: date-time
+        card_token:
+          type: string
+        primary_email:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string

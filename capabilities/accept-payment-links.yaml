@@ -1,0 +1,89 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Paymob Accept API — Payment Links
+  description: Paymob V2 Quick Link API for creating and cancelling sharable payment links.
+  tags:
+  - Paymob
+  - Accept
+  - Payment Links
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYMOB_AUTH_TOKEN: PAYMOB_AUTH_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: accept-payment-links
+    baseUri: https://accept.paymob.com
+    description: Paymob Quick Link API consumer.
+    resources:
+    - name: payment-links
+      path: /api/ecommerce/payment-links
+      operations:
+      - name: createpaymentlink
+        method: POST
+        description: Create a Quick Link.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: payment-link-cancel
+      path: /api/ecommerce/payment-links/cancel
+      operations:
+      - name: cancelpaymentlink
+        method: POST
+        description: Cancel a Quick Link.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Bearer {{env.PAYMOB_AUTH_TOKEN}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: accept-payment-links-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paymob Quick Link API.
+    tools:
+    - name: paymob-create-payment-link
+      description: Create a Paymob payment link.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: accept-payment-links.createpaymentlink
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paymob-cancel-payment-link
+      description: Cancel a Paymob payment link.
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: accept-payment-links.cancelpaymentlink
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

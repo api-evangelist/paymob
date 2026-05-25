@@ -1,0 +1,30 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://payouts.paymobsolutions.com/disburse/api/v1/disburse/instant_cashin/",
+    "headers": {
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cC...",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "issuer": "vodafone",
+      "amount": 750.00,
+      "msisdn": "+201001234567",
+      "full_name": "Ahmed Hassan",
+      "reference": "payroll-2026-05-24-emp-00042",
+      "callback_url": "https://merchant.example.com/payouts/webhook"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "transaction_id": "DSB-0192836547",
+      "status": "pending",
+      "amount": 750.00,
+      "msisdn": "+201001234567",
+      "reference": "payroll-2026-05-24-emp-00042",
+      "disbursement_status": "submitted_to_aggregator",
+      "created_at": "2026-05-24T09:11:03Z"
+    }
+  }
+}

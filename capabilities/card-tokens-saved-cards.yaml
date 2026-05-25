@@ -1,0 +1,128 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Paymob Card Tokens API — Saved Cards
+  description: Manage tokenised cards and run customer- and merchant-initiated transactions (CIT/MIT) against saved cards.
+  tags:
+  - Paymob
+  - Card Tokens
+  - Saved Cards
+  - CIT
+  - MIT
+  created: '2026-05-24'
+  modified: '2026-05-24'
+binds:
+- namespace: env
+  keys:
+    PAYMOB_AUTH_TOKEN: PAYMOB_AUTH_TOKEN
+capability:
+  consumes:
+  - type: http
+    namespace: card-tokens-saved-cards
+    baseUri: https://accept.paymob.com
+    description: Paymob Card Tokens consumer.
+    resources:
+    - name: card-tokens
+      path: /api/acceptance/card_tokens
+      operations:
+      - name: listcardtokens
+        method: GET
+        description: List saved card tokens.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: array
+          value: $.
+    - name: card-token-item
+      path: /api/acceptance/card_tokens/{token_id}
+      operations:
+      - name: deletecardtoken
+        method: DELETE
+        description: Delete a saved card token.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: token_id
+          in: path
+          type: string
+          required: true
+    - name: cit
+      path: /api/acceptance/payments/cit
+      operations:
+      - name: customerinitiatedtransaction
+        method: POST
+        description: Customer-initiated transaction against a saved card.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    - name: mit
+      path: /api/acceptance/payments/mit
+      operations:
+      - name: merchantinitiatedtransaction
+        method: POST
+        description: Merchant-initiated transaction against a saved card.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: 'Bearer {{env.PAYMOB_AUTH_TOKEN}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: card-tokens-saved-cards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Paymob saved cards.
+    tools:
+    - name: paymob-list-card-tokens
+      description: List Paymob saved card tokens.
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: card-tokens-saved-cards.listcardtokens
+      outputParameters:
+      - type: array
+        mapping: $.
+    - name: paymob-cit
+      description: Charge a Paymob saved card via CIT.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: card-tokens-saved-cards.customerinitiatedtransaction
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: paymob-mit
+      description: Charge a Paymob saved card via MIT.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: card-tokens-saved-cards.merchantinitiatedtransaction
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

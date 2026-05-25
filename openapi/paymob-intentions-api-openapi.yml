@@ -1,0 +1,366 @@
+openapi: 3.0.3
+info:
+  title: Paymob Intentions API
+  version: "1.0"
+  description: >-
+    The Paymob Intentions API is the recommended (v1) entry point for the Accept
+    platform. An intention is created from the merchant backend with the secret
+    API key and returns a client_secret used to redirect the customer to the
+    Unified Checkout, the Pixel component, or any other Accept payment
+    experience. Intentions support multiple payment methods (cards, mobile
+    wallets, Apple Pay, Google Pay, BNPL providers, STC Pay, EasyPaisa, JazzCash,
+    Oman Net, etc.) selected by integration_id and can be updated or retrieved
+    before payment completion.
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+  license:
+    name: Paymob Terms of Service
+    url: https://paymob.com/en/terms-conditions
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
+security:
+- SecretKey: []
+paths:
+  /v1/intention/:
+    post:
+      summary: Create Intention
+      operationId: createIntention
+      tags: [Intentions]
+      description: >-
+        Create a payment intention from your backend using your Secret Key.
+        Returns a client_secret used to launch Unified Checkout or the Pixel
+        component. The amount must equal the sum of items[].amount.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntentionRequest'
+      responses:
+        '201':
+          description: Intention created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Intention'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+  /v1/intention/{client_secret}:
+    put:
+      summary: Update Intention
+      operationId: updateIntention
+      tags: [Intentions]
+      description: Update an existing intention before it is paid.
+      parameters:
+      - $ref: '#/components/parameters/ClientSecret'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IntentionRequest'
+      responses:
+        '200':
+          description: Intention updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Intention'
+  /v1/intention/element/{public_key}/{client_secret}/:
+    get:
+      summary: Retrieve Intention
+      operationId: retrieveIntention
+      tags: [Intentions]
+      description: >-
+        Retrieve an intention using the merchant public key and the
+        intention-specific client_secret. Returns the available payment
+        methods, items, totals, and integration list for the intention.
+      security: []
+      parameters:
+      - name: public_key
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Merchant public key.
+      - $ref: '#/components/parameters/ClientSecret'
+      responses:
+        '200':
+          description: Intention details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Intention'
+  /v1/intentions/confirm/:
+    post:
+      summary: Confirm Payment Intention
+      operationId: confirmIntention
+      tags: [Intentions]
+      description: >-
+        Confirm an intention from a Pixel or headless integration. Submits the
+        selected payment method and the supporting payload (card, wallet, BNPL,
+        Apple Pay token, etc.) to complete the payment.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [client_secret, payment_method]
+              properties:
+                client_secret:
+                  type: string
+                payment_method:
+                  type: string
+                  description: Integration identifier or payment method slug.
+                payload:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Confirmation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /unifiedcheckout/:
+    get:
+      summary: Launch Unified Checkout
+      operationId: launchUnifiedCheckout
+      tags: [Checkout]
+      description: >-
+        Redirect the customer to the hosted Unified Checkout page for the given
+        intention.
+      security: []
+      parameters:
+      - name: publicKey
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: clientSecret
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '302':
+          description: Redirect to checkout
+components:
+  parameters:
+    ClientSecret:
+      name: client_secret
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Intention-specific client secret returned from create intention.
+  securitySchemes:
+    SecretKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: >-
+        Provide the merchant Secret Key as `Authorization: Token <secret_key>`
+        for backend calls.
+  responses:
+    BadRequest:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid credentials
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    IntentionRequest:
+      type: object
+      required: [amount, currency, payment_methods, items, billing_data]
+      properties:
+        amount:
+          type: integer
+          description: Total amount in the smallest currency unit (cents/piasters).
+          example: 25000
+        currency:
+          type: string
+          example: EGP
+          description: ISO 4217 currency code (EGP, SAR, AED, OMR, PKR).
+        payment_methods:
+          type: array
+          items:
+            oneOf:
+            - type: integer
+            - type: string
+          description: Integration IDs (cards, wallets) or string slugs (apple_pay, tabby, tamara, stc_pay, easypaisa, jazzcash).
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntentionItem'
+        billing_data:
+          $ref: '#/components/schemas/BillingData'
+        customer:
+          $ref: '#/components/schemas/Customer'
+        extras:
+          type: object
+          additionalProperties: true
+        special_reference:
+          type: string
+          description: Merchant-supplied unique reference for this intention.
+        expiration:
+          type: integer
+          description: Expiration in seconds (default 3600).
+        notification_url:
+          type: string
+          format: uri
+        redirection_url:
+          type: string
+          format: uri
+    Intention:
+      type: object
+      properties:
+        id:
+          type: string
+        client_secret:
+          type: string
+        intention_order_id:
+          type: integer
+        amount:
+          type: integer
+        currency:
+          type: string
+        status:
+          type: string
+          enum: [intended, paid, expired, voided, refunded]
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntentionItem'
+        payment_methods:
+          type: array
+          items:
+            type: object
+            properties:
+              integration_id:
+                type: integer
+              name:
+                type: string
+              method_type:
+                type: string
+              currency:
+                type: string
+        billing_data:
+          $ref: '#/components/schemas/BillingData'
+        customer:
+          $ref: '#/components/schemas/Customer'
+        created:
+          type: string
+          format: date-time
+    IntentionItem:
+      type: object
+      required: [name, amount]
+      properties:
+        name:
+          type: string
+        amount:
+          type: integer
+        description:
+          type: string
+        quantity:
+          type: integer
+          default: 1
+        image:
+          type: string
+          format: uri
+    BillingData:
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone_number:
+          type: string
+        country:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        postal_code:
+          type: string
+        street:
+          type: string
+        building:
+          type: string
+        floor:
+          type: string
+        apartment:
+          type: string
+    Customer:
+      type: object
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+          format: email
+        extras:
+          type: object
+          additionalProperties: true
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: integer
+        pending:
+          type: boolean
+        amount_cents:
+          type: integer
+        success:
+          type: boolean
+        is_auth:
+          type: boolean
+        is_capture:
+          type: boolean
+        is_void:
+          type: boolean
+        is_refund:
+          type: boolean
+        order:
+          type: object
+          additionalProperties: true
+        currency:
+          type: string
+        source_data:
+          type: object
+          additionalProperties: true
+        integration_id:
+          type: integer
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+        code:
+          type: string

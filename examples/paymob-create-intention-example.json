@@ -1,0 +1,60 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://accept.paymob.com/v1/intention/",
+    "headers": {
+      "Authorization": "Token sk_test_xxxxxxxxxxxxxxxxxxxx",
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "amount": 25000,
+      "currency": "EGP",
+      "payment_methods": [12345, "apple_pay", "tabby"],
+      "items": [
+        {
+          "name": "Premium Plan",
+          "amount": 25000,
+          "description": "Monthly premium subscription",
+          "quantity": 1
+        }
+      ],
+      "billing_data": {
+        "first_name": "Ahmed",
+        "last_name": "Hassan",
+        "email": "ahmed.hassan@example.com",
+        "phone_number": "+201001234567",
+        "country": "EG",
+        "city": "Cairo",
+        "street": "Tahrir Square",
+        "building": "1",
+        "floor": "1",
+        "apartment": "1"
+      },
+      "customer": {
+        "first_name": "Ahmed",
+        "last_name": "Hassan",
+        "email": "ahmed.hassan@example.com"
+      },
+      "special_reference": "merchant-ref-2026-05-24-001",
+      "notification_url": "https://merchant.example.com/paymob/webhook",
+      "redirection_url": "https://merchant.example.com/thank-you"
+    }
+  },
+  "response": {
+    "status": 201,
+    "body": {
+      "id": "01HYZK7XW3J5P8M5R4Q3T9V0E1",
+      "client_secret": "egy_csk_01HYZK7XW3J5P8M5R4Q3T9V0E1",
+      "intention_order_id": 987654321,
+      "amount": 25000,
+      "currency": "EGP",
+      "status": "intended",
+      "payment_methods": [
+        {"integration_id": 12345, "name": "Card", "method_type": "card", "currency": "EGP"},
+        {"integration_id": 12346, "name": "Apple Pay", "method_type": "wallet", "currency": "EGP"},
+        {"integration_id": 12347, "name": "Tabby", "method_type": "bnpl", "currency": "EGP"}
+      ],
+      "created": "2026-05-24T14:32:11Z"
+    }
+  }
+}

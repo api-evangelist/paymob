@@ -1,0 +1,63 @@
+extends: [[spectral:oas, recommended]]
+documentationUrl: https://developers.paymob.com
+functions: []
+rules:
+  paymob-operation-id-camel-case:
+    description: Operation IDs must be camelCase to match Paymob's documented conventions.
+    given: $.paths[*][*].operationId
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]+$'
+  paymob-summary-title-case:
+    description: Operation summaries must use Title Case per API Evangelist convention.
+    given: $.paths[*][*].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z]'
+  paymob-tags-required:
+    description: Every operation must have at least one tag.
+    given: $.paths[*][*]
+    severity: error
+    then:
+      field: tags
+      function: truthy
+  paymob-secure-base-uri:
+    description: All Paymob base URIs must use HTTPS.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: '^https://'
+  paymob-amount-units-documented:
+    description: Schemas exposing monetary amount fields must document the unit (cents/minor units).
+    given: $.components.schemas[?(@.properties)].properties[?(@property === 'amount_cents' || @property === 'amount')]
+    severity: warn
+    then:
+      field: description
+      function: truthy
+  paymob-currency-enum:
+    description: Currency fields should be ISO 4217 strings constrained to supported markets.
+    given: $.components.schemas..properties.currency
+    severity: warn
+    then:
+      field: type
+      function: truthy
+  paymob-no-pii-in-paths:
+    description: Path segments must not contain raw PII like email or phone.
+    given: $.paths
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '(email|phone|msisdn)'
+  paymob-bearer-or-token-auth:
+    description: At least one path must declare bearer or API key security.
+    given: $.components.securitySchemes
+    severity: error
+    then:
+      function: truthy

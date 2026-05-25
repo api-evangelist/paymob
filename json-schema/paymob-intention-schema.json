@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/paymob/json-schema/paymob-intention-schema.json",
+  "title": "Paymob Intention",
+  "type": "object",
+  "required": ["amount", "currency", "payment_methods", "items", "billing_data"],
+  "properties": {
+    "id": {"type": "string"},
+    "client_secret": {"type": "string"},
+    "intention_order_id": {"type": "integer"},
+    "amount": {"type": "integer", "description": "Total amount in smallest currency unit."},
+    "currency": {"type": "string", "enum": ["EGP", "SAR", "AED", "OMR", "PKR"]},
+    "status": {"type": "string", "enum": ["intended", "paid", "expired", "voided", "refunded"]},
+    "payment_methods": {
+      "type": "array",
+      "items": {"oneOf": [{"type": "integer"}, {"type": "string"}]}
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "amount"],
+        "properties": {
+          "name": {"type": "string"},
+          "amount": {"type": "integer"},
+          "description": {"type": "string"},
+          "quantity": {"type": "integer"},
+          "image": {"type": "string", "format": "uri"}
+        }
+      }
+    },
+    "billing_data": {
+      "type": "object",
+      "properties": {
+        "first_name": {"type": "string"},
+        "last_name": {"type": "string"},
+        "email": {"type": "string", "format": "email"},
+        "phone_number": {"type": "string"},
+        "country": {"type": "string"},
+        "city": {"type": "string"},
+        "state": {"type": "string"},
+        "postal_code": {"type": "string"},
+        "street": {"type": "string"},
+        "building": {"type": "string"},
+        "floor": {"type": "string"},
+        "apartment": {"type": "string"}
+      }
+    },
+    "customer": {
+      "type": "object",
+      "properties": {
+        "first_name": {"type": "string"},
+        "last_name": {"type": "string"},
+        "email": {"type": "string", "format": "email"}
+      }
+    },
+    "special_reference": {"type": "string"},
+    "expiration": {"type": "integer"},
+    "notification_url": {"type": "string", "format": "uri"},
+    "redirection_url": {"type": "string", "format": "uri"},
+    "created": {"type": "string", "format": "date-time"}
+  }
+}
