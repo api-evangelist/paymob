@@ -1,0 +1,264 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Subscriptions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscription Plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Subscription Plans",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/api/acceptance/subscription-plans"
+          },
+          "docs": "List Subscription Plans"
+        },
+        {
+          "info": {
+            "name": "Create Subscription Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/subscription-plans",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Subscription Plan"
+        },
+        {
+          "info": {
+            "name": "Update Subscription Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://accept.paymob.com/api/acceptance/subscription-plans/:subscription_plan_id",
+            "params": [
+              {
+                "name": "subscription_plan_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Subscription Plan"
+        },
+        {
+          "info": {
+            "name": "Suspend Subscription Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/subscription-plans/:subscription_plan_id/suspend",
+            "params": [
+              {
+                "name": "subscription_plan_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Suspend Subscription Plan"
+        },
+        {
+          "info": {
+            "name": "Resume Subscription Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/subscription-plans/:subscription_plan_id/resume",
+            "params": [
+              {
+                "name": "subscription_plan_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resume Subscription Plan"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/api/acceptance/subscriptions/:subscription_id",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve Subscription"
+        },
+        {
+          "info": {
+            "name": "Update Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://accept.paymob.com/api/acceptance/subscriptions/:subscription_id",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Subscription"
+        },
+        {
+          "info": {
+            "name": "Suspend Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/subscriptions/:subscription_id/suspend",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Suspend Subscription"
+        },
+        {
+          "info": {
+            "name": "Resume Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/subscriptions/:subscription_id/resume",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Resume Subscription"
+        },
+        {
+          "info": {
+            "name": "Cancel Subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/subscriptions/:subscription_id/cancel",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Cancel Subscription"
+        },
+        {
+          "info": {
+            "name": "Get Last Subscription Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/api/acceptance/subscriptions/:subscription_id/last-transaction",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Last Subscription Transaction"
+        },
+        {
+          "info": {
+            "name": "List Subscription Transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/api/acceptance/subscriptions/:subscription_id/transactions",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Subscription Transactions"
+        },
+        {
+          "info": {
+            "name": "List Subscription Card Tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/api/acceptance/subscriptions/:subscription_id/card-tokens",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List Subscription Card Tokens"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

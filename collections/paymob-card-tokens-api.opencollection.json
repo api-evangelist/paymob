@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Card Tokens API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Card Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Card Tokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/api/acceptance/card_tokens"
+          },
+          "docs": "List Card Tokens"
+        },
+        {
+          "info": {
+            "name": "Delete Card Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://accept.paymob.com/api/acceptance/card_tokens/:token_id",
+            "params": [
+              {
+                "name": "token_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete Card Token"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Saved Card Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Customer-Initiated Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/payments/cit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Charge a saved card with the cardholder present (CIT)."
+        },
+        {
+          "info": {
+            "name": "Merchant-Initiated Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/payments/mit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Charge a saved card without the cardholder present (MIT)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

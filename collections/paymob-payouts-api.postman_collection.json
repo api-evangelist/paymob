@@ -1,0 +1,1124 @@
+{
+  "item": [
+    {
+      "id": "1fc73ef7-f63c-428f-b30b-4ecb2bed8b6d",
+      "name": "Authentication",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7134c84d-5f0c-484b-bcc6-ab39ac447ca0",
+          "name": "Generate Access Token",
+          "request": {
+            "name": "Generate Access Token",
+            "description": {
+              "content": "Generate an OAuth2 access token. Token must be refreshed every 60 minutes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "token",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4e4faa2e-3d86-47d5-ae75-5e991f620e11",
+              "name": "Token issued",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "token",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "username",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "password",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"refresh_token\": \"string\",\n  \"expires_in\": 3486,\n  \"token_type\": \"string\",\n  \"scope\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79a2383a-d020-4767-b60d-6578039e7b4e",
+          "name": "Refresh Access Token",
+          "request": {
+            "name": "Refresh Access Token",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "auth",
+                "token",
+                "refresh",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff2d9a52-9db3-40b8-9720-d5d7c8653f70",
+              "name": "Token refreshed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "auth",
+                    "token",
+                    "refresh",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"refresh_token\": \"string\",\n  \"expires_in\": 3486,\n  \"token_type\": \"string\",\n  \"scope\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "899dc4f0-0c3d-4b48-b3f0-1b8c2a125668",
+      "name": "Disbursement",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a6c95e86-d73a-41f9-8fa0-ae997f7f2416",
+          "name": "Instant Cashin",
+          "request": {
+            "name": "Instant Cashin",
+            "description": {
+              "content": "Disburse e-money to anonymous recipients. Issuer choices include vodafone, etisalat, orange, bank_wallet, bank_card, and instant_bank.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "disburse",
+                "api",
+                "v1",
+                "disburse",
+                "instant_cashin",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"issuer\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"msisdn\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"bank_card_number\": \"<string>\",\n  \"bank_code\": \"<string>\",\n  \"bank_transaction_type\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"callback_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3e132f52-9ac1-419f-9c80-453df619711c",
+              "name": "Disbursement accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disburse",
+                    "api",
+                    "v1",
+                    "disburse",
+                    "instant_cashin",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"issuer\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"msisdn\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"bank_card_number\": \"<string>\",\n  \"bank_code\": \"<string>\",\n  \"bank_transaction_type\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"callback_url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transaction_id\": \"string\",\n  \"status\": \"failed\",\n  \"amount\": 7340.073495511148,\n  \"msisdn\": \"string\",\n  \"reference\": \"string\",\n  \"disbursement_status\": \"string\",\n  \"created_at\": \"2005-05-18T04:39:53.758Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e1c1eb4-39f7-4679-a917-5df0db4fa433",
+          "name": "Bulk Disbursement",
+          "request": {
+            "name": "Bulk Disbursement",
+            "description": {},
+            "url": {
+              "path": [
+                "disburse",
+                "api",
+                "v1",
+                "disburse",
+                "bulk_transaction",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transactions\": [\n    {\n      \"issuer\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"msisdn\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"bank_card_number\": \"<string>\",\n      \"bank_code\": \"<string>\",\n      \"bank_transaction_type\": \"<string>\",\n      \"reference\": \"<string>\",\n      \"callback_url\": \"<string>\"\n    },\n    {\n      \"issuer\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"msisdn\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"bank_card_number\": \"<string>\",\n      \"bank_code\": \"<string>\",\n      \"bank_transaction_type\": \"<string>\",\n      \"reference\": \"<string>\",\n      \"callback_url\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5e8edfc2-18f7-4406-ab5f-a5932597aa84",
+              "name": "Bulk accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disburse",
+                    "api",
+                    "v1",
+                    "disburse",
+                    "bulk_transaction",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transactions\": [\n    {\n      \"issuer\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"msisdn\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"bank_card_number\": \"<string>\",\n      \"bank_code\": \"<string>\",\n      \"bank_transaction_type\": \"<string>\",\n      \"reference\": \"<string>\",\n      \"callback_url\": \"<string>\"\n    },\n    {\n      \"issuer\": \"<string>\",\n      \"amount\": \"<number>\",\n      \"msisdn\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"bank_card_number\": \"<string>\",\n      \"bank_code\": \"<string>\",\n      \"bank_transaction_type\": \"<string>\",\n      \"reference\": \"<string>\",\n      \"callback_url\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a803bc0c-5a6b-4e4b-b201-1c5b1e3e4f0b",
+          "name": "Bulk Transaction Inquiry",
+          "request": {
+            "name": "Bulk Transaction Inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "disburse",
+                "api",
+                "v1",
+                "bulk_transaction",
+                "inquire",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transactions_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1367113d-f4b0-4aff-b451-b1d863403766",
+              "name": "Status list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disburse",
+                    "api",
+                    "v1",
+                    "bulk_transaction",
+                    "inquire",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transactions_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"transaction_id\": \"string\",\n    \"status\": \"pending\",\n    \"amount\": 3765.25719752698,\n    \"msisdn\": \"string\",\n    \"reference\": \"string\",\n    \"disbursement_status\": \"string\",\n    \"created_at\": \"2012-11-17T20:40:58.137Z\"\n  },\n  {\n    \"transaction_id\": \"string\",\n    \"status\": \"successful\",\n    \"amount\": 2082.534460165648,\n    \"msisdn\": \"string\",\n    \"reference\": \"string\",\n    \"disbursement_status\": \"string\",\n    \"created_at\": \"1956-07-15T20:04:16.820Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17c71cc5-5922-4a71-b929-2f07be20411a",
+          "name": "Bulk Transaction Inquiry By Reference",
+          "request": {
+            "name": "Bulk Transaction Inquiry By Reference",
+            "description": {},
+            "url": {
+              "path": [
+                "disburse",
+                "api",
+                "v1",
+                "bulk_transaction",
+                "inquire_by_reference",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"references\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9b99247f-2b1c-4656-b1ee-66ca0fb8607e",
+              "name": "Status list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disburse",
+                    "api",
+                    "v1",
+                    "bulk_transaction",
+                    "inquire_by_reference",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"references\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"transaction_id\": \"string\",\n    \"status\": \"pending\",\n    \"amount\": 3765.25719752698,\n    \"msisdn\": \"string\",\n    \"reference\": \"string\",\n    \"disbursement_status\": \"string\",\n    \"created_at\": \"2012-11-17T20:40:58.137Z\"\n  },\n  {\n    \"transaction_id\": \"string\",\n    \"status\": \"successful\",\n    \"amount\": 2082.534460165648,\n    \"msisdn\": \"string\",\n    \"reference\": \"string\",\n    \"disbursement_status\": \"string\",\n    \"created_at\": \"1956-07-15T20:04:16.820Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bed93c61-5217-4057-88f3-208b278e10ad",
+      "name": "Accounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "194ab3b4-75fe-4fdb-b808-4df2ee4a513d",
+          "name": "Budget Inquiry",
+          "request": {
+            "name": "Budget Inquiry",
+            "description": {
+              "content": "Inquire current balance/budget available to the merchant for payouts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "disburse",
+                "api",
+                "v1",
+                "budget",
+                "inquire",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd127e61-eecc-4625-ad19-6e296994c7dc",
+              "name": "Budget details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disburse",
+                    "api",
+                    "v1",
+                    "budget",
+                    "inquire",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"current_balance\": 540.0054090035677,\n  \"currency\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "da3b59e4-ad33-4215-99f0-5a3608f37005",
+      "name": "Topup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ca29fa82-cb37-41f0-8144-355386b9889a",
+          "name": "Topup Request",
+          "request": {
+            "name": "Topup Request",
+            "description": {
+              "content": "Initiate a topup via bank transfer or Accept balance transfer.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "disburse",
+                "api",
+                "v1",
+                "topup",
+                "request",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"transfer_type\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c9e2585-71f0-4472-a389-a80e05ef8478",
+              "name": "Topup created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disburse",
+                    "api",
+                    "v1",
+                    "topup",
+                    "request",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"transfer_type\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"topup_id\": \"string\",\n  \"status\": \"string\",\n  \"amount\": 5491.660420951033,\n  \"transfer_type\": \"string\",\n  \"reference\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "920f7019-e7d5-4239-a7dc-5a5e2f067ac6",
+          "name": "Topup Inquiry",
+          "request": {
+            "name": "Topup Inquiry",
+            "description": {},
+            "url": {
+              "path": [
+                "disburse",
+                "api",
+                "v1",
+                "topup",
+                "inquire",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0001713d-72fe-4892-89c6-3b7e021f43fc",
+              "name": "Topup status",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "disburse",
+                    "api",
+                    "v1",
+                    "topup",
+                    "inquire",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"topup_id\": \"string\",\n  \"status\": \"string\",\n  \"amount\": 5491.660420951033,\n  \"transfer_type\": \"string\",\n  \"reference\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://payouts.paymobsolutions.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8b5921f2-8459-4962-9608-17f501d452bc",
+    "name": "Paymob Payouts (Send) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Paymob Send is the mass-payout product used to disburse funds to suppliers, employees, gig workers, and consumers via mobile wallets, bank cards, and bank transfers across the MENAP region. The API uses OAuth2 (Generate & Refresh Token) to mint a 60-minute bearer token, supports instant cash-in, bulk transfer, topup, budget inquiry, and bulk transaction inquiry by reference, and delivers status updates via callback URLs.\n\nContact Support:\n Name: Paymob Payouts",
+      "type": "text/plain"
+    }
+  }
+}

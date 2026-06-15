@@ -1,0 +1,217 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Payouts (Send) API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://payouts.paymobsolutions.com/api/auth/token/",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Generate an OAuth2 access token. Token must be refreshed every 60 minutes."
+        },
+        {
+          "info": {
+            "name": "Refresh Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://payouts.paymobsolutions.com/api/auth/token/refresh/",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Refresh Access Token"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Disbursement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Instant Cashin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://payouts.paymobsolutions.com/disburse/api/v1/disburse/instant_cashin/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disburse e-money to anonymous recipients. Issuer choices include vodafone, etisalat, orange, bank_wallet, bank_card, and instant_bank."
+        },
+        {
+          "info": {
+            "name": "Bulk Disbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://payouts.paymobsolutions.com/disburse/api/v1/disburse/bulk_transaction/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Disbursement"
+        },
+        {
+          "info": {
+            "name": "Bulk Transaction Inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://payouts.paymobsolutions.com/disburse/api/v1/bulk_transaction/inquire/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Transaction Inquiry"
+        },
+        {
+          "info": {
+            "name": "Bulk Transaction Inquiry By Reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://payouts.paymobsolutions.com/disburse/api/v1/bulk_transaction/inquire_by_reference/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Transaction Inquiry By Reference"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Budget Inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://payouts.paymobsolutions.com/disburse/api/v1/budget/inquire/"
+          },
+          "docs": "Inquire current balance/budget available to the merchant for payouts."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Topup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Topup Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://payouts.paymobsolutions.com/disburse/api/v1/topup/request/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate a topup via bank transfer or Accept balance transfer."
+        },
+        {
+          "info": {
+            "name": "Topup Inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://payouts.paymobsolutions.com/disburse/api/v1/topup/inquire/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Topup Inquiry"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

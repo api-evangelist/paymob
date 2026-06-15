@@ -1,374 +1,353 @@
 aid: paymob
 url: https://raw.githubusercontent.com/api-evangelist/paymob/refs/heads/main/apis.yml
 apis:
-- aid: paymob:paymob-intentions-api
-  name: Paymob Intentions API
-  tags:
-  - Payments
-  - Intentions
-  - Checkout
-  - MENA
-  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
-  properties:
-  - url: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
-    type: Documentation
-  - url: https://docs.paymob.com/reference/next_v1_intentions_confirm_create
-    type: APIReference
-  - url: openapi/paymob-intentions-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paymob-intention-schema.json
-    type: JSONSchema
-  - url: examples/paymob-create-intention-example.json
-    type: Example
-  - url: capabilities/intentions-intentions.yaml
-    type: NaftikoCapability
-  description: >-
-    The v1 Intentions API is Paymob's modern entry point for payment
-    acceptance. The merchant backend creates an intention with the secret key
-    and an array of payment_methods (integration IDs or named methods like
-    apple_pay, tabby, tamara, stc_pay, easypaisa, jazzcash). Paymob returns a
-    client_secret used to launch the Unified Checkout, render the Pixel
-    component, or confirm the payment headlessly.
-- aid: paymob:paymob-accept-api
-  name: Paymob Accept API
-  tags:
-  - Payments
-  - Accept
-  - Transactions
-  - MENA
-  humanURL: https://developers.paymob.com/paymob-docs/integration-paths/apis
-  properties:
-  - url: https://developers.paymob.com/paymob-docs/integration-paths/apis
-    type: Documentation
-  - url: https://docs.paymob.com/docs/accept-standard-redirect
-    type: Documentation
-  - url: openapi/paymob-accept-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paymob-transaction-schema.json
-    type: JSONSchema
-  - url: examples/paymob-refund-transaction-example.json
-    type: Example
-  - url: capabilities/accept-transactions.yaml
-    type: NaftikoCapability
-  - url: capabilities/accept-payment-links.yaml
-    type: NaftikoCapability
-  description: >-
-    The legacy v2 Accept API uses the three-step authentication-order-payment
-    key flow plus operations for capture, void, refund, transaction inquiry by
-    id or merchant order id, and the V2 Quick Link API for sharable payment
-    links. Still actively used by merchants on the standard redirect, iframe,
-    and headless MOTO integrations.
-- aid: paymob:paymob-subscriptions-api
-  name: Paymob Subscriptions API
-  tags:
-  - Payments
-  - Subscriptions
-  - Recurring Billing
-  humanURL: https://developers.paymob.com
-  properties:
-  - url: https://developers.paymob.com
-    type: Documentation
-  - url: openapi/paymob-subscriptions-api-openapi.yml
-    type: OpenAPI
-  - url: capabilities/subscriptions-plans.yaml
-    type: NaftikoCapability
-  description: >-
-    The Subscriptions Module manages subscription plans (create, list, update,
-    suspend, resume) and per-customer subscriptions billed against tokenised
-    cards. Lifecycle operations cover suspend, resume, cancel, secondary card
-    attachment, and transaction inspection. Initial subscription creation
-    flows through /v1/intention/ for card capture.
-- aid: paymob:paymob-card-tokens-api
-  name: Paymob Card Tokens API
-  tags:
-  - Payments
-  - Card Tokens
-  - Saved Cards
-  - CIT
-  - MIT
-  humanURL: https://developers.paymob.com
-  properties:
-  - url: https://developers.paymob.com
-    type: Documentation
-  - url: openapi/paymob-card-tokens-api-openapi.yml
-    type: OpenAPI
-  - url: capabilities/card-tokens-saved-cards.yaml
-    type: NaftikoCapability
-  description: >-
-    Tokenisation surface for the Paymob "Pay with saved card" flow. Lists and
-    deletes tokenised cards and runs both customer-initiated (CIT) and
-    merchant-initiated (MIT) transactions against saved tokens for recurring,
-    on-demand, and one-click payments.
-- aid: paymob:paymob-payouts-api
-  name: Paymob Payouts (Send) API
-  tags:
-  - Payouts
-  - Disbursement
-  - Mass Payments
-  - MENA
-  humanURL: https://payouts.paymobsolutions.com/docs/
-  properties:
-  - url: https://payouts.paymobsolutions.com/docs/
-    type: Documentation
-  - url: https://payouts.paymobsolutions.com/docs/swagger-ui/
-    type: APIReference
-  - url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
-    type: Authentication
-  - url: openapi/paymob-payouts-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/paymob-disbursement-schema.json
-    type: JSONSchema
-  - url: examples/paymob-instant-cashin-example.json
-    type: Example
-  - url: capabilities/payouts-disbursement.yaml
-    type: NaftikoCapability
-  description: >-
-    Paymob Send is the mass-payout product used to disburse funds to suppliers,
-    employees, gig workers, and consumers via mobile wallets (Vodafone Cash,
-    Etisalat Cash, Orange Money), bank wallets, bank cards, and instant bank
-    rails. OAuth2 password-grant authentication; supports instant cashin, bulk
-    disbursement, budget inquiry, topup request/inquiry, and bulk transaction
-    inquiry by id or reference.
+  - aid: paymob:paymob-intentions-api
+    name: Paymob Intentions API
+    tags:
+      - Payments
+      - Intentions
+      - Checkout
+      - MENA
+    humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+    properties:
+      - url: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+        type: Documentation
+      - url: https://docs.paymob.com/reference/next_v1_intentions_confirm_create
+        type: APIReference
+      - url: openapi/paymob-intentions-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/paymob-intention-schema.json
+        type: JSONSchema
+      - url: examples/paymob-create-intention-example.json
+        type: Example
+    description: >-
+      The v1 Intentions API is Paymob's modern entry point for payment acceptance. The merchant backend creates an
+      intention with the secret key and an array of payment_methods (integration IDs or named methods like apple_pay,
+      tabby, tamara, stc_pay, easypaisa, jazzcash). Paymob returns a client_secret used to launch the Unified Checkout,
+      render the Pixel component, or confirm the payment headlessly.
+  - aid: paymob:paymob-accept-api
+    name: Paymob Accept API
+    tags:
+      - Payments
+      - Accept
+      - Transactions
+      - MENA
+    humanURL: https://developers.paymob.com/paymob-docs/integration-paths/apis
+    properties:
+      - url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+        type: Documentation
+      - url: https://docs.paymob.com/docs/accept-standard-redirect
+        type: Documentation
+      - url: openapi/paymob-accept-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/paymob-transaction-schema.json
+        type: JSONSchema
+      - url: examples/paymob-refund-transaction-example.json
+        type: Example
+    description: >-
+      The legacy v2 Accept API uses the three-step authentication-order-payment key flow plus operations for capture,
+      void, refund, transaction inquiry by id or merchant order id, and the V2 Quick Link API for sharable payment
+      links. Still actively used by merchants on the standard redirect, iframe, and headless MOTO integrations.
+  - aid: paymob:paymob-subscriptions-api
+    name: Paymob Subscriptions API
+    tags:
+      - Payments
+      - Subscriptions
+      - Recurring Billing
+    humanURL: https://developers.paymob.com
+    properties:
+      - url: https://developers.paymob.com
+        type: Documentation
+      - url: openapi/paymob-subscriptions-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      The Subscriptions Module manages subscription plans (create, list, update, suspend, resume) and per-customer
+      subscriptions billed against tokenised cards. Lifecycle operations cover suspend, resume, cancel, secondary card
+      attachment, and transaction inspection. Initial subscription creation flows through /v1/intention/ for card
+      capture.
+  - aid: paymob:paymob-card-tokens-api
+    name: Paymob Card Tokens API
+    tags:
+      - Payments
+      - Card Tokens
+      - Saved Cards
+      - CIT
+      - MIT
+    humanURL: https://developers.paymob.com
+    properties:
+      - url: https://developers.paymob.com
+        type: Documentation
+      - url: openapi/paymob-card-tokens-api-openapi.yml
+        type: OpenAPI
+    description: >-
+      Tokenisation surface for the Paymob "Pay with saved card" flow. Lists and deletes tokenised cards and runs both
+      customer-initiated (CIT) and merchant-initiated (MIT) transactions against saved tokens for recurring, on-demand,
+      and one-click payments.
+  - aid: paymob:paymob-payouts-api
+    name: Paymob Payouts (Send) API
+    tags:
+      - Payouts
+      - Disbursement
+      - Mass Payments
+      - MENA
+    humanURL: https://payouts.paymobsolutions.com/docs/
+    properties:
+      - url: https://payouts.paymobsolutions.com/docs/
+        type: Documentation
+      - url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+        type: APIReference
+      - url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+        type: Authentication
+      - url: openapi/paymob-payouts-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/paymob-disbursement-schema.json
+        type: JSONSchema
+      - url: examples/paymob-instant-cashin-example.json
+        type: Example
+    description: >-
+      Paymob Send is the mass-payout product used to disburse funds to suppliers, employees, gig workers, and consumers
+      via mobile wallets (Vodafone Cash, Etisalat Cash, Orange Money), bank wallets, bank cards, and instant bank rails.
+      OAuth2 password-grant authentication; supports instant cashin, bulk disbursement, budget inquiry, topup
+      request/inquiry, and bulk transaction inquiry by id or reference.
 name: Paymob
 tags:
-- Payments
-- Payment Gateway
-- Fintech
-- MENA
-- MENAP
-- Egypt
-- Saudi Arabia
-- UAE
-- Pakistan
-- Oman
-- Card Payments
-- Mobile Wallets
-- BNPL
-- Payouts
-- Subscriptions
+  - Payments
+  - Payment Gateway
+  - Fintech
+  - MENA
+  - MENAP
+  - Egypt
+  - Saudi Arabia
+  - UAE
+  - Pakistan
+  - Oman
+  - Card Payments
+  - Mobile Wallets
+  - BNPL
+  - Payouts
+  - Subscriptions
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- url: https://paymob.com
-  type: Portal
-- url: https://developers.paymob.com
-  name: Paymob Developer Portal
-  type: DeveloperPortal
-- url: https://developers.paymob.com/paymob-docs
-  name: Paymob Documentation
-  type: Documentation
-- url: https://developers.paymob.com/paymob-docs/getting-started/overview
-  name: Getting Started Overview
-  type: GettingStarted
-- url: https://developers.paymob.com/hub/egypt
-  name: Paymob Egypt Developer Hub
-  type: Hub
-- url: https://developers.paymob.com/hub/sa
-  name: Paymob Saudi Arabia Developer Hub
-  type: Hub
-- url: https://paymob.ae
-  name: Paymob UAE
-  type: Hub
-- url: https://docs.paymob.com
-  name: Paymob API Reference (Theneo)
-  type: APIReference
-- url: https://accept.paymob.com/portal2/en/login
-  name: Paymob Accept Dashboard
-  type: Console
-- url: https://accept.paymob.com/portal2/en/register
-  type: SignUp
-- url: https://www.paymob.com/en/pricing
-  name: Paymob Pricing (Egypt)
-  type: Pricing
-- url: https://paymob.ae/en/pricing
-  name: Paymob Pricing (UAE)
-  type: Pricing
-- url: plans/paymob-plans-pricing.yml
-  type: Plans
-- url: rate-limits/paymob-rate-limits.yml
-  type: RateLimits
-- url: finops/paymob-finops.yml
-  name: FinOps Definition
-  type: Documentation
-- url: rules/paymob-rules.yml
-  type: Documentation
-- url: vocabulary/paymob-vocabulary.yml
-  type: Documentation
-- url: json-ld/paymob-context.jsonld
-  type: JSONLD
-- url: https://github.com/PaymobAccept
-  type: GitHubOrganization
-- url: https://github.com/PaymobAccept/paymob-node
-  name: Node.js SDK
-  type: SDK
-- url: https://github.com/PaymobAccept/paymob-php
-  name: PHP SDK
-  type: SDK
-- url: https://github.com/PaymobAccept/paymob-python
-  name: Python SDK
-  type: SDK
-- url: https://github.com/PaymobAccept/paymob-java
-  name: Java SDK
-  type: SDK
-- url: https://github.com/PaymobAccept/paymob-js
-  name: Flash Checkout Handbook (JS)
-  type: SDK
-- url: https://github.com/PaymobAccept/flutter_sdk
-  name: Flutter SDK
-  type: SDK
-- url: https://github.com/PaymobAccept/paymob-reactnative-sdk
-  name: React Native SDK
-  type: SDK
-- url: https://github.com/PaymobAccept/Android-SDK
-  name: Android SDK
-  type: SDK
-- url: https://github.com/PaymobAccept/Swift-iOS
-  name: iOS Swift SDK
-  type: SDK
-- url: https://github.com/PaymobAccept/accept-woocommerce
-  name: WooCommerce Plugin
-  type: SDK
-- url: https://github.com/PaymobAccept/accept-magento2
-  name: Magento 2 Plugin
-  type: SDK
-- url: https://github.com/PaymobAccept/accept-opencart
-  name: OpenCart Plugin
-  type: SDK
-- url: https://github.com/PaymobAccept/API-Postman-Collections
-  name: Postman Collections
-  type: Documentation
-- url: https://github.com/PaymobAccept/Paymob-Claude-Integration-Skill
-  name: Paymob Claude Integration Skill
-  type: SDK
-- url: https://www.linkedin.com/company/paymobcompany
-  type: LinkedIn
-- url: https://paymob.com/en/about-us
-  name: About Paymob
-  type: Portal
-- url: https://paymob.com/en/contact-us
-  type: Contact
-- url: https://paymob.com/en/terms-conditions
-  type: TermsOfService
-- url: https://paymob.com/en/privacy-policy
-  type: PrivacyPolicy
-- type: Features
-  data:
-  - name: Unified Checkout
-    description: Hosted, fully-branded checkout supporting all regional payment methods from a single integration.
-  - name: Pixel
-    description: Embeddable checkout component for headless / custom-UI merchants.
-  - name: Intentions API (v1)
-    description: Modern backend-first intention creation with client_secret hand-off and multiple payment methods per intention.
-  - name: Quick Link
-    description: V2 sharable payment links for social, email, SMS, and WhatsApp collection flows.
-  - name: Subscriptions Module
-    description: Plan and subscription management with suspend/resume/cancel and secondary card support.
-  - name: Saved Cards (CIT / MIT)
-    description: Tokenised card storage and one-click / merchant-initiated transactions.
-  - name: Installments / BNPL routing
-    description: Native routing to Tabby, Tamara, valU, Souhoola, Forsa, Aman across regional markets.
-  - name: Marketplace Payouts
-    description: Split-payment and downstream payout automation for marketplaces and platforms.
-  - name: Paymob Send (Payouts)
-    description: Mass disbursement to wallets, bank wallets, and bank cards with bulk and instant rails.
-  - name: Paymob Sync
-    description: End-to-end cashless commerce platform combining acceptance, payouts, and reconciliation.
-  - name: PCI-DSS certified infrastructure
-    description: Card data tokenised and stored in PCI-certified vaults; 3DS2 across regions.
-  - name: Machine-learning fraud detection
-    description: Integrated risk engine scoring transactions in real time.
-  - name: Real-time merchant dashboards
-    description: Per-region Accept dashboards for transactions, settlements, refunds, payouts.
-  - name: Regional acquiring
-    description: Local entities in Egypt, KSA, UAE, Oman, Pakistan (Qatar announced) for in-country settlement.
-  - name: Webhooks
-    description: HMAC-signed callbacks for transaction lifecycle, disbursement status, and subscription events.
-  - name: Apple Pay, Google Pay, STC Pay, Oman Net, EasyPaisa, JazzCash
-    description: Native wallet integrations across MENAP markets.
-- type: UseCases
-  data:
-  - name: E-commerce checkout
-    description: Online stores accepting cards, wallets, and BNPL across MENAP through a single integration.
-  - name: SaaS subscription billing
-    description: Recurring billing for software and digital subscriptions with retry, suspend, and resume controls.
-  - name: Ride-hailing and delivery payouts
-    description: Mass payouts to drivers and couriers via instant cashin (Vodafone Cash, Etisalat Cash, bank wallets).
-  - name: Payroll and supplier disbursements
-    description: Bulk transfers to employees and suppliers across wallets and bank cards.
-  - name: Marketplace split payments
-    description: Automated split between platform and sellers with downstream payout.
-  - name: Bill payments and recurring collections
-    description: Subscription, utility, and installment collection across cards, wallets, and cash networks.
-  - name: Omnichannel retail
-    description: POS terminals plus online acceptance unified through Paymob Sync for end-to-end commerce.
-  - name: Cross-border MENAP expansion
-    description: Single contractual surface with regional acquiring across Egypt, KSA, UAE, Oman, Pakistan.
-- type: Integrations
-  data:
-  - name: WooCommerce
-    description: Official Accept Payments WooCommerce plugin.
-  - name: Magento 2
-    description: Official Magento 2 plugin for Accept Payments.
-  - name: OpenCart
-    description: Official OpenCart plugin.
-  - name: Shopify
-    description: Paymob payment gateway available on Shopify.
-  - name: Odoo
-    description: Paymob payment provider for Odoo 19.
-  - name: OpenEduCat
-    description: School fee payment integration.
-  - name: Xero
-    description: Xero backend integration repository.
-  - name: Tabby
-    description: BNPL routing in KSA and UAE checkout.
-  - name: Tamara
-    description: BNPL routing in KSA and UAE checkout.
-  - name: valU / Souhoola / Forsa / Aman
-    description: Installment and cash-collection partners across Egypt.
-  - name: Apple Pay / Google Pay
-    description: Native digital wallet acceptance across all live regions.
-  - name: STC Pay
-    description: National wallet acceptance in Saudi Arabia.
-  - name: Oman Net
-    description: Domestic acquiring in Oman.
-  - name: EasyPaisa / JazzCash
-    description: Pakistani mobile wallet acceptance.
-- type: Solutions
-  data:
-  - name: SMB Standard
-    description: Self-serve onboarding with per-transaction pricing for startups, SMBs, and SMEs.
-  - name: Enterprise
-    description: Custom MDR, dedicated account team, multi-region settlement, advanced fraud tooling.
-  - name: Marketplace
-    description: Split payments, multi-merchant onboarding, and automated downstream payouts.
-  - name: Platform / PSP
-    description: Sub-merchant onboarding and Paymob Sync for embedded payments.
-  - name: Payouts-only
-    description: Standalone Send deployment for businesses that need mass disbursement without acceptance.
-- type: Plans
-  url: plans/paymob-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/paymob-rate-limits.yml
-- type: Documentation
-  name: FinOps
-  url: finops/paymob-finops.yml
+  - url: https://paymob.com
+    type: Portal
+  - url: https://developers.paymob.com
+    name: Paymob Developer Portal
+    type: DeveloperPortal
+  - url: https://developers.paymob.com/paymob-docs
+    name: Paymob Documentation
+    type: Documentation
+  - url: https://developers.paymob.com/paymob-docs/getting-started/overview
+    name: Getting Started Overview
+    type: GettingStarted
+  - url: https://developers.paymob.com/hub/egypt
+    name: Paymob Egypt Developer Hub
+    type: Hub
+  - url: https://developers.paymob.com/hub/sa
+    name: Paymob Saudi Arabia Developer Hub
+    type: Hub
+  - url: https://paymob.ae
+    name: Paymob UAE
+    type: Hub
+  - url: https://docs.paymob.com
+    name: Paymob API Reference (Theneo)
+    type: APIReference
+  - url: https://accept.paymob.com/portal2/en/login
+    name: Paymob Accept Dashboard
+    type: Console
+  - url: https://accept.paymob.com/portal2/en/register
+    type: SignUp
+  - url: https://www.paymob.com/en/pricing
+    name: Paymob Pricing (Egypt)
+    type: Pricing
+  - url: https://paymob.ae/en/pricing
+    name: Paymob Pricing (UAE)
+    type: Pricing
+  - url: plans/paymob-plans-pricing.yml
+    type: Plans
+  - url: rate-limits/paymob-rate-limits.yml
+    type: RateLimits
+  - url: finops/paymob-finops.yml
+    name: FinOps Definition
+    type: Documentation
+  - url: rules/paymob-rules.yml
+    type: Documentation
+  - url: vocabulary/paymob-vocabulary.yml
+    type: Documentation
+  - url: json-ld/paymob-context.jsonld
+    type: JSONLD
+  - url: https://github.com/PaymobAccept
+    type: GitHubOrganization
+  - url: https://github.com/PaymobAccept/paymob-node
+    name: Node.js SDK
+    type: SDK
+  - url: https://github.com/PaymobAccept/paymob-php
+    name: PHP SDK
+    type: SDK
+  - url: https://github.com/PaymobAccept/paymob-python
+    name: Python SDK
+    type: SDK
+  - url: https://github.com/PaymobAccept/paymob-java
+    name: Java SDK
+    type: SDK
+  - url: https://github.com/PaymobAccept/paymob-js
+    name: Flash Checkout Handbook (JS)
+    type: SDK
+  - url: https://github.com/PaymobAccept/flutter_sdk
+    name: Flutter SDK
+    type: SDK
+  - url: https://github.com/PaymobAccept/paymob-reactnative-sdk
+    name: React Native SDK
+    type: SDK
+  - url: https://github.com/PaymobAccept/Android-SDK
+    name: Android SDK
+    type: SDK
+  - url: https://github.com/PaymobAccept/Swift-iOS
+    name: iOS Swift SDK
+    type: SDK
+  - url: https://github.com/PaymobAccept/accept-woocommerce
+    name: WooCommerce Plugin
+    type: SDK
+  - url: https://github.com/PaymobAccept/accept-magento2
+    name: Magento 2 Plugin
+    type: SDK
+  - url: https://github.com/PaymobAccept/accept-opencart
+    name: OpenCart Plugin
+    type: SDK
+  - url: https://github.com/PaymobAccept/API-Postman-Collections
+    name: Postman Collections
+    type: Documentation
+  - url: https://github.com/PaymobAccept/Paymob-Claude-Integration-Skill
+    name: Paymob Claude Integration Skill
+    type: SDK
+  - url: https://www.linkedin.com/company/paymobcompany
+    type: LinkedIn
+  - url: https://paymob.com/en/about-us
+    name: About Paymob
+    type: Portal
+  - url: https://paymob.com/en/contact-us
+    type: Contact
+  - url: https://paymob.com/en/terms-conditions
+    type: TermsOfService
+  - url: https://paymob.com/en/privacy-policy
+    type: PrivacyPolicy
+  - type: Features
+    data:
+      - name: Unified Checkout
+        description: Hosted, fully-branded checkout supporting all regional payment methods from a single integration.
+      - name: Pixel
+        description: Embeddable checkout component for headless / custom-UI merchants.
+      - name: Intentions API (v1)
+        description: >-
+          Modern backend-first intention creation with client_secret hand-off and multiple payment methods per
+          intention.
+      - name: Quick Link
+        description: V2 sharable payment links for social, email, SMS, and WhatsApp collection flows.
+      - name: Subscriptions Module
+        description: Plan and subscription management with suspend/resume/cancel and secondary card support.
+      - name: Saved Cards (CIT / MIT)
+        description: Tokenised card storage and one-click / merchant-initiated transactions.
+      - name: Installments / BNPL routing
+        description: Native routing to Tabby, Tamara, valU, Souhoola, Forsa, Aman across regional markets.
+      - name: Marketplace Payouts
+        description: Split-payment and downstream payout automation for marketplaces and platforms.
+      - name: Paymob Send (Payouts)
+        description: Mass disbursement to wallets, bank wallets, and bank cards with bulk and instant rails.
+      - name: Paymob Sync
+        description: End-to-end cashless commerce platform combining acceptance, payouts, and reconciliation.
+      - name: PCI-DSS certified infrastructure
+        description: Card data tokenised and stored in PCI-certified vaults; 3DS2 across regions.
+      - name: Machine-learning fraud detection
+        description: Integrated risk engine scoring transactions in real time.
+      - name: Real-time merchant dashboards
+        description: Per-region Accept dashboards for transactions, settlements, refunds, payouts.
+      - name: Regional acquiring
+        description: Local entities in Egypt, KSA, UAE, Oman, Pakistan (Qatar announced) for in-country settlement.
+      - name: Webhooks
+        description: HMAC-signed callbacks for transaction lifecycle, disbursement status, and subscription events.
+      - name: Apple Pay, Google Pay, STC Pay, Oman Net, EasyPaisa, JazzCash
+        description: Native wallet integrations across MENAP markets.
+  - type: UseCases
+    data:
+      - name: E-commerce checkout
+        description: Online stores accepting cards, wallets, and BNPL across MENAP through a single integration.
+      - name: SaaS subscription billing
+        description: Recurring billing for software and digital subscriptions with retry, suspend, and resume controls.
+      - name: Ride-hailing and delivery payouts
+        description: Mass payouts to drivers and couriers via instant cashin (Vodafone Cash, Etisalat Cash, bank wallets).
+      - name: Payroll and supplier disbursements
+        description: Bulk transfers to employees and suppliers across wallets and bank cards.
+      - name: Marketplace split payments
+        description: Automated split between platform and sellers with downstream payout.
+      - name: Bill payments and recurring collections
+        description: Subscription, utility, and installment collection across cards, wallets, and cash networks.
+      - name: Omnichannel retail
+        description: POS terminals plus online acceptance unified through Paymob Sync for end-to-end commerce.
+      - name: Cross-border MENAP expansion
+        description: Single contractual surface with regional acquiring across Egypt, KSA, UAE, Oman, Pakistan.
+  - type: Integrations
+    data:
+      - name: WooCommerce
+        description: Official Accept Payments WooCommerce plugin.
+      - name: Magento 2
+        description: Official Magento 2 plugin for Accept Payments.
+      - name: OpenCart
+        description: Official OpenCart plugin.
+      - name: Shopify
+        description: Paymob payment gateway available on Shopify.
+      - name: Odoo
+        description: Paymob payment provider for Odoo 19.
+      - name: OpenEduCat
+        description: School fee payment integration.
+      - name: Xero
+        description: Xero backend integration repository.
+      - name: Tabby
+        description: BNPL routing in KSA and UAE checkout.
+      - name: Tamara
+        description: BNPL routing in KSA and UAE checkout.
+      - name: valU / Souhoola / Forsa / Aman
+        description: Installment and cash-collection partners across Egypt.
+      - name: Apple Pay / Google Pay
+        description: Native digital wallet acceptance across all live regions.
+      - name: STC Pay
+        description: National wallet acceptance in Saudi Arabia.
+      - name: Oman Net
+        description: Domestic acquiring in Oman.
+      - name: EasyPaisa / JazzCash
+        description: Pakistani mobile wallet acceptance.
+  - type: Solutions
+    data:
+      - name: SMB Standard
+        description: Self-serve onboarding with per-transaction pricing for startups, SMBs, and SMEs.
+      - name: Enterprise
+        description: Custom MDR, dedicated account team, multi-region settlement, advanced fraud tooling.
+      - name: Marketplace
+        description: Split payments, multi-merchant onboarding, and automated downstream payouts.
+      - name: Platform / PSP
+        description: Sub-merchant onboarding and Paymob Sync for embedded payments.
+      - name: Payouts-only
+        description: Standalone Send deployment for businesses that need mass disbursement without acceptance.
+  - type: Plans
+    url: plans/paymob-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/paymob-rate-limits.yml
+  - type: Documentation
+    name: FinOps
+    url: finops/paymob-finops.yml
 created: '2026-05-24'
 modified: '2026-05-24'
 position: Consuming
 description: >-
-  Paymob is a Cairo-headquartered, licensed payment infrastructure provider for
-  the MENAP region. Serving roughly 390,000 merchants across Egypt, Saudi
-  Arabia, the United Arab Emirates, Oman, and Pakistan (with Qatar announced),
-  Paymob unifies card acquiring, regional mobile wallets (Vodafone Cash,
-  Etisalat Cash, Orange Money, STC Pay, Oman Net, EasyPaisa, JazzCash), BNPL
-  rails (Tabby, Tamara, valU, Souhoola, Forsa, Aman), Apple Pay, Google Pay,
-  POS terminals, subscriptions, installments, marketplace payouts, mass
-  disbursement (Paymob Send), and an end-to-end cashless commerce platform
-  (Paymob Sync) behind a single Accept / Intentions API surface.
+  Paymob is a Cairo-headquartered, licensed payment infrastructure provider for the MENAP region. Serving roughly
+  390,000 merchants across Egypt, Saudi Arabia, the United Arab Emirates, Oman, and Pakistan (with Qatar announced),
+  Paymob unifies card acquiring, regional mobile wallets (Vodafone Cash, Etisalat Cash, Orange Money, STC Pay, Oman Net,
+  EasyPaisa, JazzCash), BNPL rails (Tabby, Tamara, valU, Souhoola, Forsa, Aman), Apple Pay, Google Pay, POS terminals,
+  subscriptions, installments, marketplace payouts, mass disbursement (Paymob Send), and an end-to-end cashless commerce
+  platform (Paymob Sync) behind a single Accept / Intentions API surface.
 maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  X: apievangelist
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    X: apievangelist
+    url: https://apievangelist.com
 specificationVersion: '0.16'

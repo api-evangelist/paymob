@@ -1,0 +1,703 @@
+{
+  "item": [
+    {
+      "id": "87fd8f66-64ce-4a5c-b268-503a93122d88",
+      "name": "Intentions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c46090d4-3aa8-488c-a7f6-c760dee85f3f",
+          "name": "Create Intention",
+          "request": {
+            "name": "Create Intention",
+            "description": {
+              "content": "Create a payment intention from your backend using your Secret Key. Returns a client_secret used to launch Unified Checkout or the Pixel component. The amount must equal the sum of items[].amount.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "intention",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 2291,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": 2458.028183825073\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bf25e5f0-6d9a-4cb6-a4f4-88d574d10991",
+              "name": "Intention created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "intention",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 9817,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"client_secret\": \"string\",\n  \"intention_order_id\": 8157,\n  \"amount\": 3406,\n  \"currency\": \"string\",\n  \"status\": \"voided\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": 4575,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"integration_id\": 7725,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": true\n    }\n  },\n  \"created\": \"2019-04-08T00:13:21.770Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4cbff19-c7ac-475b-8fea-9cb568bb3cf7",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "intention",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 9817,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80bec1e6-0ede-4199-b5f1-460e47082e24",
+              "name": "Missing or invalid credentials",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "intention",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 9817,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": \"string\",\n  \"code\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b108b946-2fd8-495c-8d95-3f328f5f279c",
+          "name": "Update Intention",
+          "request": {
+            "name": "Update Intention",
+            "description": {
+              "content": "Update an existing intention before it is paid.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "intention",
+                ":client_secret"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "client_secret",
+                  "description": "(Required) Intention-specific client secret returned from create intention."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": \"string\",\n      \"key_1\": false,\n      \"key_2\": 1744\n    }\n  },\n  \"extras\": {\n    \"key_0\": 4483\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df00a178-7790-4808-85d2-724d7923253c",
+              "name": "Intention updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "intention",
+                    ":client_secret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "client_secret",
+                      "description": "(Required) Intention-specific client secret returned from create intention."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 9817,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"client_secret\": \"string\",\n  \"intention_order_id\": 4959,\n  \"amount\": 5177,\n  \"currency\": \"string\",\n  \"status\": \"paid\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": 4550,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"integration_id\": 1708,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  },\n  \"created\": \"2015-01-23T03:02:27.058Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a537f99-fc34-4b9e-83e1-93c185871bd3",
+          "name": "Retrieve Intention",
+          "request": {
+            "name": "Retrieve Intention",
+            "description": {
+              "content": "Retrieve an intention using the merchant public key and the intention-specific client_secret. Returns the available payment methods, items, totals, and integration list for the intention.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "intention",
+                "element",
+                ":public_key",
+                ":client_secret",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "public_key",
+                  "description": "(Required) Merchant public key."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "client_secret",
+                  "description": "(Required) Intention-specific client secret returned from create intention."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d4745777-b116-480e-8fad-d849e8cb97f1",
+              "name": "Intention details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "intention",
+                    "element",
+                    ":public_key",
+                    ":client_secret",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "public_key",
+                      "description": "(Required) Merchant public key."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "client_secret",
+                      "description": "(Required) Intention-specific client secret returned from create intention."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"client_secret\": \"string\",\n  \"intention_order_id\": 4959,\n  \"amount\": 5177,\n  \"currency\": \"string\",\n  \"status\": \"paid\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": 4550,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"integration_id\": 1708,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  },\n  \"created\": \"2015-01-23T03:02:27.058Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3e09555f-3686-4cab-8c10-e3f6e83a6f65",
+          "name": "Confirm Payment Intention",
+          "request": {
+            "name": "Confirm Payment Intention",
+            "description": {
+              "content": "Confirm an intention from a Pixel or headless integration. Submits the selected payment method and the supporting payload (card, wallet, BNPL, Apple Pay token, etc.) to complete the payment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "intentions",
+                "confirm",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_secret\": \"<string>\",\n  \"payment_method\": \"<string>\",\n  \"payload\": {\n    \"key_0\": 6203,\n    \"key_1\": 3154,\n    \"key_2\": 9550.525087023896\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "504cb0b9-db29-4b46-b89b-8de5db21d22c",
+              "name": "Confirmation result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "intentions",
+                    "confirm",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_secret\": \"<string>\",\n  \"payment_method\": \"<string>\",\n  \"payload\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 338,\n  \"pending\": false,\n  \"amount_cents\": 7406,\n  \"success\": true,\n  \"is_auth\": false,\n  \"is_capture\": false,\n  \"is_void\": true,\n  \"is_refund\": true,\n  \"order\": {\n    \"key_0\": false,\n    \"key_1\": 8337.995958612435\n  },\n  \"currency\": \"string\",\n  \"source_data\": {\n    \"key_0\": 1145.1496931579775,\n    \"key_1\": true\n  },\n  \"integration_id\": 7921\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1d7ddb0d-e9fe-428f-a6b0-a96ed1c48c32",
+      "name": "Checkout",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ebe13447-11f9-435d-bbbc-33a59c71af8e",
+          "name": "Launch Unified Checkout",
+          "request": {
+            "name": "Launch Unified Checkout",
+            "description": {
+              "content": "Redirect the customer to the hosted Unified Checkout page for the given intention.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "unifiedcheckout",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "publicKey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "clientSecret",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1332b7b-3ba5-46a9-98ab-f7ddf760e6b0",
+              "name": "Redirect to checkout",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "unifiedcheckout",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "publicKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "clientSecret",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Found",
+              "code": 302,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://accept.paymob.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "82528b94-e11a-4e67-a3a0-785a10618970",
+    "name": "Paymob Intentions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Paymob Intentions API is the recommended (v1) entry point for the Accept platform. An intention is created from the merchant backend with the secret API key and returns a client_secret used to redirect the customer to the Unified Checkout, the Pixel component, or any other Accept payment experience. Intentions support multiple payment methods (cards, mobile wallets, Apple Pay, Google Pay, BNPL providers, STC Pay, EasyPaisa, JazzCash, Oman Net, etc.) selected by integration_id and can be updated or retrieved before payment completion.\n\nContact Support:\n Name: Paymob Developers",
+      "type": "text/plain"
+    }
+  }
+}

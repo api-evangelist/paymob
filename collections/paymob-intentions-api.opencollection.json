@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Intentions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Intentions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Intention",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/v1/intention/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a payment intention from your backend using your Secret Key. Returns a client_secret used to launch Unified Checkout or the Pixel component. The amount must equal the sum of items[].amount."
+        },
+        {
+          "info": {
+            "name": "Update Intention",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://accept.paymob.com/v1/intention/:client_secret",
+            "params": [
+              {
+                "name": "client_secret",
+                "value": "",
+                "type": "path",
+                "description": "Intention-specific client secret returned from create intention."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing intention before it is paid."
+        },
+        {
+          "info": {
+            "name": "Retrieve Intention",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/v1/intention/element/:public_key/:client_secret/",
+            "params": [
+              {
+                "name": "public_key",
+                "value": "",
+                "type": "path",
+                "description": "Merchant public key."
+              },
+              {
+                "name": "client_secret",
+                "value": "",
+                "type": "path",
+                "description": "Intention-specific client secret returned from create intention."
+              }
+            ]
+          },
+          "docs": "Retrieve an intention using the merchant public key and the intention-specific client_secret. Returns the available payment methods, items, totals, and integration list for the intention."
+        },
+        {
+          "info": {
+            "name": "Confirm Payment Intention",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/v1/intentions/confirm/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Confirm an intention from a Pixel or headless integration. Submits the selected payment method and the supporting payload (card, wallet, BNPL, Apple Pay token, etc.) to complete the payment."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Checkout",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Launch Unified Checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/unifiedcheckout/",
+            "params": [
+              {
+                "name": "publicKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "clientSecret",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Redirect the customer to the hosted Unified Checkout page for the given intention."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
