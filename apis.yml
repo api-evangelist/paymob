@@ -19,7 +19,7 @@ apis:
       - url: json-schema/paymob-intention-schema.json
         type: JSONSchema
       - url: examples/paymob-create-intention-example.json
-        type: Example
+        type: Examples
     description: >-
       The v1 Intentions API is Paymob's modern entry point for payment acceptance. The merchant backend creates an
       intention with the secret key and an array of payment_methods (integration IDs or named methods like apple_pay,
@@ -43,7 +43,7 @@ apis:
       - url: json-schema/paymob-transaction-schema.json
         type: JSONSchema
       - url: examples/paymob-refund-transaction-example.json
-        type: Example
+        type: Examples
     description: >-
       The legacy v2 Accept API uses the three-step authentication-order-payment key flow plus operations for capture,
       void, refund, transaction inquiry by id or merchant order id, and the V2 Quick Link API for sharable payment
@@ -103,7 +103,7 @@ apis:
       - url: json-schema/paymob-disbursement-schema.json
         type: JSONSchema
       - url: examples/paymob-instant-cashin-example.json
-        type: Example
+        type: Examples
     description: >-
       Paymob Send is the mass-payout product used to disburse funds to suppliers, employees, gig workers, and consumers
       via mobile wallets (Vodafone Cash, Etisalat Cash, Orange Money), bank wallets, bank cards, and instant bank rails.
@@ -157,7 +157,7 @@ common:
     name: Paymob Accept Dashboard
     type: Console
   - url: https://accept.paymob.com/portal2/en/register
-    type: SignUp
+    type: Signup
   - url: https://www.paymob.com/en/pricing
     name: Paymob Pricing (Egypt)
     type: Pricing
@@ -181,46 +181,46 @@ common:
     type: GitHubOrganization
   - url: https://github.com/PaymobAccept/paymob-node
     name: Node.js SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/paymob-php
     name: PHP SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/paymob-python
     name: Python SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/paymob-java
     name: Java SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/paymob-js
     name: Flash Checkout Handbook (JS)
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/flutter_sdk
     name: Flutter SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/paymob-reactnative-sdk
     name: React Native SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/Android-SDK
     name: Android SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/Swift-iOS
     name: iOS Swift SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/accept-woocommerce
     name: WooCommerce Plugin
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/accept-magento2
     name: Magento 2 Plugin
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/accept-opencart
     name: OpenCart Plugin
-    type: SDK
+    type: SDKs
   - url: https://github.com/PaymobAccept/API-Postman-Collections
     name: Postman Collections
     type: Documentation
   - url: https://github.com/PaymobAccept/Paymob-Claude-Integration-Skill
     name: Paymob Claude Integration Skill
-    type: SDK
+    type: SDKs
   - url: https://www.linkedin.com/company/paymobcompany
     type: LinkedIn
   - url: https://paymob.com/en/about-us
