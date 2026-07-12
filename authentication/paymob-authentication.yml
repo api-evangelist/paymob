@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/paymob-accept-api-openapi.yml, openapi/paymob-card-tokens-api-openapi.yml, openapi/paymob-intentions-api-openapi.yml,
+  openapi/paymob-payouts-api-openapi.yml, openapi/paymob-subscriptions-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: Bearer auth_token from /api/auth/tokens (60-minute TTL).
+  sources:
+  - openapi/paymob-accept-api-openapi.yml
+  - openapi/paymob-card-tokens-api-openapi.yml
+  - openapi/paymob-payouts-api-openapi.yml
+  - openapi/paymob-subscriptions-api-openapi.yml
+- name: SecretKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: 'Provide the merchant Secret Key as `Authorization: Token <secret_key>` for backend
+    calls.'
+  sources:
+  - openapi/paymob-intentions-api-openapi.yml
