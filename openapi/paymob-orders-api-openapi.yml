@@ -1,0 +1,93 @@
+openapi: 3.0.3
+info:
+  title: Paymob Accept Legacy (v2) Accounts Orders API
+  version: '2.0'
+  description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
+security:
+- BearerAuth: []
+tags:
+- name: Orders
+paths:
+  /api/ecommerce/orders:
+    post:
+      summary: Register Order
+      operationId: registerOrder
+      tags:
+      - Orders
+      description: Register an order on Paymob and obtain an order id for the payment key request.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - auth_token
+              - amount_cents
+              - currency
+              properties:
+                auth_token:
+                  type: string
+                amount_cents:
+                  type: integer
+                currency:
+                  type: string
+                merchant_order_id:
+                  type: string
+                items:
+                  type: array
+                  items:
+                    type: object
+                    additionalProperties: true
+                delivery_needed:
+                  type: boolean
+                shipping_data:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '201':
+          description: Order created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        amount_cents:
+          type: integer
+        currency:
+          type: string
+        merchant_order_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).

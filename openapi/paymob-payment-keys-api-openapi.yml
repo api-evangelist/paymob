@@ -1,0 +1,78 @@
+openapi: 3.0.3
+info:
+  title: Paymob Accept Legacy (v2) Accounts Payment Keys API
+  version: '2.0'
+  description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
+security:
+- BearerAuth: []
+tags:
+- name: Payment Keys
+paths:
+  /api/acceptance/payment_keys:
+    post:
+      summary: Request Payment Key
+      operationId: requestPaymentKey
+      tags:
+      - Payment Keys
+      description: Request a payment_key for an order. The payment_key is bound to a single integration_id and used by the iframe or the headless pay endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - auth_token
+              - amount_cents
+              - order_id
+              - integration_id
+              - billing_data
+              - currency
+              properties:
+                auth_token:
+                  type: string
+                amount_cents:
+                  type: integer
+                order_id:
+                  type: integer
+                integration_id:
+                  type: integer
+                billing_data:
+                  type: object
+                  additionalProperties: true
+                currency:
+                  type: string
+                expiration:
+                  type: integer
+                lock_order_when_paid:
+                  type: boolean
+      responses:
+        '201':
+          description: Payment key issued
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).

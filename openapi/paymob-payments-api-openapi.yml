@@ -1,0 +1,123 @@
+openapi: 3.0.3
+info:
+  title: Paymob Accept Legacy (v2) Accounts Payments API
+  version: '2.0'
+  description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
+security:
+- BearerAuth: []
+tags:
+- name: Payments
+paths:
+  /api/acceptance/payments/pay:
+    post:
+      summary: Pay With Payment Method
+      operationId: payWithPaymentMethod
+      tags:
+      - Payments
+      description: Headless payment endpoint (MOTO / saved card / merchant-initiated transactions). Submit a payment_key plus source object describing the method (card, saved token, wallet, kiosk).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - source
+              - payment_token
+              properties:
+                payment_token:
+                  type: string
+                source:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Payment processed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+components:
+  schemas:
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: integer
+        pending:
+          type: boolean
+        amount_cents:
+          type: integer
+        success:
+          type: boolean
+        is_auth:
+          type: boolean
+        is_capture:
+          type: boolean
+        is_void:
+          type: boolean
+        is_refund:
+          type: boolean
+        is_3d_secure:
+          type: boolean
+        integration_id:
+          type: integer
+        order:
+          $ref: '#/components/schemas/Order'
+        currency:
+          type: string
+        source_data:
+          type: object
+          properties:
+            type:
+              type: string
+            sub_type:
+              type: string
+            pan:
+              type: string
+        merchant_commission:
+          type: integer
+        installment:
+          type: object
+          additionalProperties: true
+        created_at:
+          type: string
+          format: date-time
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        amount_cents:
+          type: integer
+        currency:
+          type: string
+        merchant_order_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).

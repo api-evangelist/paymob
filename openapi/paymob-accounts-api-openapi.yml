@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Paymob Accept Legacy (v2) Accounts Card Tokens API
+  title: Paymob Accept Legacy (v2) Accounts API
   version: '2.0'
   description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
   contact:
@@ -20,58 +20,28 @@ servers:
 security:
 - BearerAuth: []
 tags:
-- name: Card Tokens
+- name: Accounts
 paths:
-  /api/acceptance/card_tokens:
+  /disburse/api/v1/budget/inquire/:
     get:
-      summary: List Card Tokens
-      operationId: listCardTokens
+      summary: Budget Inquiry
+      operationId: budgetInquiry
       tags:
-      - Card Tokens
+      - Accounts
+      description: Inquire current balance/budget available to the merchant for payouts.
       responses:
         '200':
-          description: Card tokens
+          description: Budget details
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/CardToken'
-  /api/acceptance/card_tokens/{token_id}:
-    delete:
-      summary: Delete Card Token
-      operationId: deleteCardToken
-      tags:
-      - Card Tokens
-      parameters:
-      - name: token_id
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        '204':
-          description: Token deleted
+                type: object
+                properties:
+                  current_balance:
+                    type: number
+                  currency:
+                    type: string
 components:
-  schemas:
-    CardToken:
-      type: object
-      properties:
-        id:
-          type: string
-        token:
-          type: string
-        masked_pan:
-          type: string
-        card_subtype:
-          type: string
-        email:
-          type: string
-        order_id:
-          type: integer
-        created_at:
-          type: string
-          format: date-time
   securitySchemes:
     BearerAuth:
       type: http

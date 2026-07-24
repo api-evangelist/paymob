@@ -1,0 +1,99 @@
+openapi: 3.0.3
+info:
+  title: Paymob Accept Legacy (v2) Accounts Topup API
+  version: '2.0'
+  description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
+security:
+- BearerAuth: []
+tags:
+- name: Topup
+paths:
+  /disburse/api/v1/topup/request/:
+    post:
+      summary: Topup Request
+      operationId: topupRequest
+      tags:
+      - Topup
+      description: Initiate a topup via bank transfer or Accept balance transfer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - amount
+              - transfer_type
+              properties:
+                amount:
+                  type: number
+                transfer_type:
+                  type: string
+                  enum:
+                  - bank_transfer
+                  - accept_balance
+                reference:
+                  type: string
+      responses:
+        '200':
+          description: Topup created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopupResponse'
+  /disburse/api/v1/topup/inquire/:
+    post:
+      summary: Topup Inquiry
+      operationId: topupInquiry
+      tags:
+      - Topup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reference:
+                  type: string
+      responses:
+        '200':
+          description: Topup status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopupResponse'
+components:
+  schemas:
+    TopupResponse:
+      type: object
+      properties:
+        topup_id:
+          type: string
+        status:
+          type: string
+        amount:
+          type: number
+        transfer_type:
+          type: string
+        reference:
+          type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).

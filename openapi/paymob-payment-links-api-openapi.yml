@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: Paymob Accept Legacy (v2) Accounts Payment Links API
+  version: '2.0'
+  description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
+security:
+- BearerAuth: []
+tags:
+- name: Payment Links
+paths:
+  /api/ecommerce/payment-links:
+    post:
+      summary: Create Payment Link
+      operationId: createPaymentLink
+      tags:
+      - Payment Links
+      description: Create a sharable Quick Link (V2 Quick Link API) that customers can pay through a hosted URL.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - amount_cents
+              - currency
+              - integrations
+              properties:
+                amount_cents:
+                  type: integer
+                currency:
+                  type: string
+                integrations:
+                  type: array
+                  items:
+                    type: integer
+                description:
+                  type: string
+                full_name:
+                  type: string
+                email:
+                  type: string
+                phone_number:
+                  type: string
+                redirection_url:
+                  type: string
+      responses:
+        '201':
+          description: Link created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  url:
+                    type: string
+                  client_url:
+                    type: string
+  /api/ecommerce/payment-links/cancel:
+    post:
+      summary: Cancel Payment Link
+      operationId: cancelPaymentLink
+      tags:
+      - Payment Links
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - id
+              properties:
+                id:
+                  type: string
+      responses:
+        '200':
+          description: Link cancelled
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).

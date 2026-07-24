@@ -1,0 +1,189 @@
+openapi: 3.0.3
+info:
+  title: Paymob Accept Legacy (v2) Accounts Disbursement API
+  version: '2.0'
+  description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
+security:
+- BearerAuth: []
+tags:
+- name: Disbursement
+paths:
+  /disburse/api/v1/disburse/instant_cashin/:
+    post:
+      summary: Instant Cashin
+      operationId: instantCashin
+      tags:
+      - Disbursement
+      description: Disburse e-money to anonymous recipients. Issuer choices include vodafone, etisalat, orange, bank_wallet, bank_card, and instant_bank.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InstantCashinRequest'
+      responses:
+        '200':
+          description: Disbursement accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisbursementResponse'
+  /disburse/api/v1/disburse/bulk_transaction/:
+    post:
+      summary: Bulk Disbursement
+      operationId: bulkDisbursement
+      tags:
+      - Disbursement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - transactions
+              properties:
+                transactions:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/InstantCashinRequest'
+      responses:
+        '200':
+          description: Bulk accepted
+  /disburse/api/v1/bulk_transaction/inquire/:
+    post:
+      summary: Bulk Transaction Inquiry
+      operationId: bulkTransactionInquiry
+      tags:
+      - Disbursement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - transactions_ids
+              properties:
+                transactions_ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Status list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DisbursementResponse'
+  /disburse/api/v1/bulk_transaction/inquire_by_reference/:
+    post:
+      summary: Bulk Transaction Inquiry By Reference
+      operationId: bulkTransactionInquiryByReference
+      tags:
+      - Disbursement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - references
+              properties:
+                references:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Status list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DisbursementResponse'
+components:
+  schemas:
+    DisbursementResponse:
+      type: object
+      properties:
+        transaction_id:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - successful
+          - failed
+        amount:
+          type: number
+        msisdn:
+          type: string
+        reference:
+          type: string
+        disbursement_status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    InstantCashinRequest:
+      type: object
+      required:
+      - issuer
+      - amount
+      - msisdn
+      properties:
+        issuer:
+          type: string
+          enum:
+          - vodafone
+          - etisalat
+          - orange
+          - bank_wallet
+          - bank_card
+          - instant_bank
+        amount:
+          type: number
+        msisdn:
+          type: string
+          description: Mobile number for wallet issuers.
+        full_name:
+          type: string
+        bank_card_number:
+          type: string
+        bank_code:
+          type: string
+        bank_transaction_type:
+          type: string
+          enum:
+          - salary
+          - credit_card
+          - prepaid_card
+          - cash_transfer
+        reference:
+          type: string
+        callback_url:
+          type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).

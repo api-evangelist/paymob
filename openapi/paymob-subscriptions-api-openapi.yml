@@ -1,13 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Paymob Subscriptions API
-  version: "1.0"
-  description: >-
-    The Paymob Subscriptions Module manages subscription plans and recurring
-    subscriptions billed against tokenised cards. Plans define amount, interval,
-    and frequency; subscriptions attach a customer card to a plan. Lifecycle
-    operations include suspend, resume, cancel, secondary card attachment, and
-    transaction inspection.
+  title: Paymob Accept Legacy (v2) Accounts Subscriptions API
+  version: '2.0'
+  description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
   contact:
     name: Paymob Developers
     url: https://developers.paymob.com
@@ -18,85 +13,21 @@ servers:
   description: Saudi Arabia production
 - url: https://uae.paymob.com
   description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
 security:
 - BearerAuth: []
+tags:
+- name: Subscriptions
 paths:
-  /api/acceptance/subscription-plans:
-    post:
-      summary: Create Subscription Plan
-      operationId: createSubscriptionPlan
-      tags: [Subscription Plans]
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SubscriptionPlanRequest'
-      responses:
-        '201':
-          description: Plan created
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SubscriptionPlan'
-    get:
-      summary: List Subscription Plans
-      operationId: listSubscriptionPlans
-      tags: [Subscription Plans]
-      responses:
-        '200':
-          description: List of plans
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/SubscriptionPlan'
-  /api/acceptance/subscription-plans/{subscription_plan_id}:
-    put:
-      summary: Update Subscription Plan
-      operationId: updateSubscriptionPlan
-      tags: [Subscription Plans]
-      parameters:
-      - $ref: '#/components/parameters/PlanId'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SubscriptionPlanRequest'
-      responses:
-        '200':
-          description: Plan updated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SubscriptionPlan'
-  /api/acceptance/subscription-plans/{subscription_plan_id}/suspend:
-    post:
-      summary: Suspend Subscription Plan
-      operationId: suspendSubscriptionPlan
-      tags: [Subscription Plans]
-      parameters:
-      - $ref: '#/components/parameters/PlanId'
-      responses:
-        '200':
-          description: Plan suspended
-  /api/acceptance/subscription-plans/{subscription_plan_id}/resume:
-    post:
-      summary: Resume Subscription Plan
-      operationId: resumeSubscriptionPlan
-      tags: [Subscription Plans]
-      parameters:
-      - $ref: '#/components/parameters/PlanId'
-      responses:
-        '200':
-          description: Plan resumed
   /api/acceptance/subscriptions/{subscription_id}:
     get:
       summary: Retrieve Subscription
       operationId: retrieveSubscription
-      tags: [Subscriptions]
+      tags:
+      - Subscriptions
       parameters:
       - $ref: '#/components/parameters/SubscriptionId'
       responses:
@@ -109,7 +40,8 @@ paths:
     put:
       summary: Update Subscription
       operationId: updateSubscription
-      tags: [Subscriptions]
+      tags:
+      - Subscriptions
       parameters:
       - $ref: '#/components/parameters/SubscriptionId'
       requestBody:
@@ -130,7 +62,8 @@ paths:
     post:
       summary: Suspend Subscription
       operationId: suspendSubscription
-      tags: [Subscriptions]
+      tags:
+      - Subscriptions
       parameters:
       - $ref: '#/components/parameters/SubscriptionId'
       responses:
@@ -140,7 +73,8 @@ paths:
     post:
       summary: Resume Subscription
       operationId: resumeSubscription
-      tags: [Subscriptions]
+      tags:
+      - Subscriptions
       parameters:
       - $ref: '#/components/parameters/SubscriptionId'
       responses:
@@ -150,7 +84,8 @@ paths:
     post:
       summary: Cancel Subscription
       operationId: cancelSubscription
-      tags: [Subscriptions]
+      tags:
+      - Subscriptions
       parameters:
       - $ref: '#/components/parameters/SubscriptionId'
       responses:
@@ -160,7 +95,8 @@ paths:
     get:
       summary: Get Last Subscription Transaction
       operationId: getLastSubscriptionTransaction
-      tags: [Subscriptions]
+      tags:
+      - Subscriptions
       parameters:
       - $ref: '#/components/parameters/SubscriptionId'
       responses:
@@ -175,7 +111,8 @@ paths:
     get:
       summary: List Subscription Transactions
       operationId: listSubscriptionTransactions
-      tags: [Subscriptions]
+      tags:
+      - Subscriptions
       parameters:
       - $ref: '#/components/parameters/SubscriptionId'
       responses:
@@ -192,7 +129,8 @@ paths:
     get:
       summary: List Subscription Card Tokens
       operationId: listSubscriptionCardTokens
-      tags: [Subscriptions]
+      tags:
+      - Subscriptions
       parameters:
       - $ref: '#/components/parameters/SubscriptionId'
       responses:
@@ -206,59 +144,7 @@ paths:
                   type: object
                   additionalProperties: true
 components:
-  parameters:
-    PlanId:
-      name: subscription_plan_id
-      in: path
-      required: true
-      schema:
-        type: string
-    SubscriptionId:
-      name: subscription_id
-      in: path
-      required: true
-      schema:
-        type: string
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
   schemas:
-    SubscriptionPlanRequest:
-      type: object
-      required: [frequency, amount_cents, name]
-      properties:
-        name:
-          type: string
-        amount_cents:
-          type: integer
-        frequency:
-          type: string
-          enum: [day, week, month, year]
-        integration:
-          type: integer
-        reminder_days:
-          type: integer
-        retrial_days:
-          type: integer
-        number_of_deductions:
-          type: integer
-        plan_type:
-          type: string
-          enum: [renew, installment]
-    SubscriptionPlan:
-      allOf:
-      - $ref: '#/components/schemas/SubscriptionPlanRequest'
-      - type: object
-        properties:
-          id:
-            type: string
-          status:
-            type: string
-            enum: [active, suspended]
-          created_at:
-            type: string
-            format: date-time
     Subscription:
       type: object
       properties:
@@ -268,7 +154,11 @@ components:
           type: string
         status:
           type: string
-          enum: [active, suspended, cancelled, expired]
+          enum:
+          - active
+          - suspended
+          - cancelled
+          - expired
         starts_at:
           type: string
           format: date-time
@@ -283,3 +173,15 @@ components:
           type: string
         last_name:
           type: string
+  parameters:
+    SubscriptionId:
+      name: subscription_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).

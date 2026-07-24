@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: Paymob Accept Legacy (v2) Accounts Saved Card Payments API
+  version: '2.0'
+  description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
+  contact:
+    name: Paymob Developers
+    url: https://developers.paymob.com
+servers:
+- url: https://accept.paymob.com
+  description: Egypt production
+- url: https://ksa.paymob.com
+  description: Saudi Arabia production
+- url: https://uae.paymob.com
+  description: UAE production
+- url: https://oman.paymob.com
+  description: Oman production
+- url: https://pakistan.paymob.com
+  description: Pakistan production
+security:
+- BearerAuth: []
+tags:
+- name: Saved Card Payments
+paths:
+  /api/acceptance/payments/cit:
+    post:
+      summary: Customer-Initiated Transaction
+      operationId: customerInitiatedTransaction
+      tags:
+      - Saved Card Payments
+      description: Charge a saved card with the cardholder present (CIT).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavedCardPayment'
+      responses:
+        '200':
+          description: Charge result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+  /api/acceptance/payments/mit:
+    post:
+      summary: Merchant-Initiated Transaction
+      operationId: merchantInitiatedTransaction
+      tags:
+      - Saved Card Payments
+      description: Charge a saved card without the cardholder present (MIT).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SavedCardPayment'
+      responses:
+        '200':
+          description: Charge result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Transaction'
+components:
+  schemas:
+    Transaction:
+      type: object
+      properties:
+        id:
+          type: integer
+        success:
+          type: boolean
+        amount_cents:
+          type: integer
+        currency:
+          type: string
+        is_3d_secure:
+          type: boolean
+        source_data:
+          type: object
+          properties:
+            type:
+              type: string
+            sub_type:
+              type: string
+            pan:
+              type: string
+    SavedCardPayment:
+      type: object
+      required:
+      - payment_token
+      - source
+      properties:
+        payment_token:
+          type: string
+        source:
+          type: object
+          required:
+          - identifier
+          - subtype
+          properties:
+            identifier:
+              type: string
+              description: Card token identifier from a previous transaction.
+            subtype:
+              type: string
+              enum:
+              - TOKEN
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).
