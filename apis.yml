@@ -1,114 +1,470 @@
 aid: paymob
 url: https://raw.githubusercontent.com/api-evangelist/paymob/refs/heads/main/apis.yml
 apis:
-  - aid: paymob:paymob-intentions-api
-    name: Paymob Intentions API
-    tags:
-      - Payments
-      - Intentions
-      - Checkout
-      - MENA
-    humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
-    properties:
-      - url: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
-        type: Documentation
-      - url: https://docs.paymob.com/reference/next_v1_intentions_confirm_create
-        type: APIReference
-      - url: openapi/paymob-intentions-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/paymob-intention-schema.json
-        type: JSONSchema
-      - url: examples/paymob-create-intention-example.json
-        type: Examples
-    description: >-
-      The v1 Intentions API is Paymob's modern entry point for payment acceptance. The merchant backend creates an
-      intention with the secret key and an array of payment_methods (integration IDs or named methods like apple_pay,
-      tabby, tamara, stc_pay, easypaisa, jazzcash). Paymob returns a client_secret used to launch the Unified Checkout,
-      render the Pixel component, or confirm the payment headlessly.
-  - aid: paymob:paymob-accept-api
-    name: Paymob Accept API
-    tags:
-      - Payments
-      - Accept
-      - Transactions
-      - MENA
-    humanURL: https://developers.paymob.com/paymob-docs/integration-paths/apis
-    properties:
-      - url: https://developers.paymob.com/paymob-docs/integration-paths/apis
-        type: Documentation
-      - url: https://docs.paymob.com/docs/accept-standard-redirect
-        type: Documentation
-      - url: openapi/paymob-accept-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/paymob-transaction-schema.json
-        type: JSONSchema
-      - url: examples/paymob-refund-transaction-example.json
-        type: Examples
-    description: >-
-      The legacy v2 Accept API uses the three-step authentication-order-payment key flow plus operations for capture,
-      void, refund, transaction inquiry by id or merchant order id, and the V2 Quick Link API for sharable payment
-      links. Still actively used by merchants on the standard redirect, iframe, and headless MOTO integrations.
-  - aid: paymob:paymob-subscriptions-api
-    name: Paymob Subscriptions API
-    tags:
-      - Payments
-      - Subscriptions
-      - Recurring Billing
-    humanURL: https://developers.paymob.com
-    properties:
-      - url: https://developers.paymob.com
-        type: Documentation
-      - url: openapi/paymob-subscriptions-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      The Subscriptions Module manages subscription plans (create, list, update, suspend, resume) and per-customer
-      subscriptions billed against tokenised cards. Lifecycle operations cover suspend, resume, cancel, secondary card
-      attachment, and transaction inspection. Initial subscription creation flows through /v1/intention/ for card
-      capture.
-  - aid: paymob:paymob-card-tokens-api
-    name: Paymob Card Tokens API
-    tags:
-      - Payments
-      - Card Tokens
-      - Saved Cards
-      - CIT
-      - MIT
-    humanURL: https://developers.paymob.com
-    properties:
-      - url: https://developers.paymob.com
-        type: Documentation
-      - url: openapi/paymob-card-tokens-api-openapi.yml
-        type: OpenAPI
-    description: >-
-      Tokenisation surface for the Paymob "Pay with saved card" flow. Lists and deletes tokenised cards and runs both
-      customer-initiated (CIT) and merchant-initiated (MIT) transactions against saved tokens for recurring, on-demand,
-      and one-click payments.
-  - aid: paymob:paymob-payouts-api
-    name: Paymob Payouts (Send) API
-    tags:
-      - Payouts
-      - Disbursement
-      - Mass Payments
-      - MENA
-    humanURL: https://payouts.paymobsolutions.com/docs/
-    properties:
-      - url: https://payouts.paymobsolutions.com/docs/
-        type: Documentation
-      - url: https://payouts.paymobsolutions.com/docs/swagger-ui/
-        type: APIReference
-      - url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
-        type: Authentication
-      - url: openapi/paymob-payouts-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/paymob-disbursement-schema.json
-        type: JSONSchema
-      - url: examples/paymob-instant-cashin-example.json
-        type: Examples
-    description: >-
-      Paymob Send is the mass-payout product used to disburse funds to suppliers, employees, gig workers, and consumers
-      via mobile wallets (Vodafone Cash, Etisalat Cash, Orange Money), bank wallets, bank cards, and instant bank rails.
-      OAuth2 password-grant authentication; supports instant cashin, bulk disbursement, budget inquiry, topup
-      request/inquiry, and bulk transaction inquiry by id or reference.
+- aid: paymob:paymob-intentions-api
+  name: Paymob Intentions API
+  tags:
+  - Payments
+  - Intentions
+  - Checkout
+  - MENA
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  properties:
+  - url: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+    type: Documentation
+  - url: https://docs.paymob.com/reference/next_v1_intentions_confirm_create
+    type: APIReference
+  - url: openapi/paymob-intentions-api-openapi.yml
+    type: OpenAPI
+  - url: json-schema/paymob-intention-schema.json
+    type: JSONSchema
+  - url: examples/paymob-create-intention-example.json
+    type: Examples
+  description: >-
+    The v1 Intentions API is Paymob's modern entry point for payment acceptance. The merchant backend
+    creates an intention with the secret key and an array of payment_methods (integration IDs or named
+    methods like apple_pay, tabby, tamara, stc_pay, easypaisa, jazzcash). Paymob returns a client_secret
+    used to launch the Unified Checkout, render the Pixel component, or confirm the payment headlessly.
+- aid: paymob:paymob-subscriptions-api
+  name: Paymob Subscriptions API
+  tags:
+  - Payments
+  - Subscriptions
+  - Recurring Billing
+  humanURL: https://developers.paymob.com
+  properties:
+  - url: https://developers.paymob.com
+    type: Documentation
+  - url: openapi/paymob-subscriptions-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    The Subscriptions Module manages subscription plans (create, list, update, suspend, resume) and per-customer
+    subscriptions billed against tokenised cards. Lifecycle operations cover suspend, resume, cancel,
+    secondary card attachment, and transaction inspection. Initial subscription creation flows through
+    /v1/intention/ for card capture.
+- aid: paymob:paymob-card-tokens-api
+  name: Paymob Card Tokens API
+  tags:
+  - Payments
+  - Card Tokens
+  - Saved Cards
+  - CIT
+  - MIT
+  humanURL: https://developers.paymob.com
+  properties:
+  - url: https://developers.paymob.com
+    type: Documentation
+  - url: openapi/paymob-card-tokens-api-openapi.yml
+    type: OpenAPI
+  description: >-
+    Tokenisation surface for the Paymob "Pay with saved card" flow. Lists and deletes tokenised cards
+    and runs both customer-initiated (CIT) and merchant-initiated (MIT) transactions against saved tokens
+    for recurring, on-demand, and one-click payments.
+- aid: paymob:paymob-accounts-api
+  name: Paymob Accounts API
+  description: The Accounts API from Paymob — 1 operation(s) for accounts.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-authentication-api
+  name: Paymob Authentication API
+  description: The Authentication API from Paymob — 3 operation(s) for authentication.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-capture-api
+  name: Paymob Capture API
+  description: The Capture API from Paymob — 3 operation(s) for capture.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Capture
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-capture-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-checkout-api
+  name: Paymob Checkout API
+  description: The Checkout API from Paymob — 1 operation(s) for checkout.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Checkout
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-checkout-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-disbursement-api
+  name: Paymob Disbursement API
+  description: The Disbursement API from Paymob — 4 operation(s) for disbursement.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Disbursement
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-disbursement-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-orders-api
+  name: Paymob Orders API
+  description: The Orders API from Paymob — 1 operation(s) for orders.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-payment-keys-api
+  name: Paymob Payment Keys API
+  description: The Payment Keys API from Paymob — 1 operation(s) for payment keys.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Payment Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-payment-keys-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-payment-links-api
+  name: Paymob Payment Links API
+  description: The Payment Links API from Paymob — 2 operation(s) for payment links.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Payment Links
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-payment-links-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-payments-api
+  name: Paymob Payments API
+  description: The Payments API from Paymob — 1 operation(s) for payments.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-refund-api
+  name: Paymob Refund API
+  description: The Refund API from Paymob — 3 operation(s) for refund.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Refund
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-refund-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-saved-card-payments-api
+  name: Paymob Saved Card Payments API
+  description: The Saved Card Payments API from Paymob — 2 operation(s) for saved card payments.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Saved Card Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-saved-card-payments-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-subscription-plans-api
+  name: Paymob Subscription Plans API
+  description: The Subscription Plans API from Paymob — 4 operation(s) for subscription plans.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Subscription Plans
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-subscription-plans-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-topup-api
+  name: Paymob Topup API
+  description: The Topup API from Paymob — 2 operation(s) for topup.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Topup
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-topup-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-transactions-api
+  name: Paymob Transactions API
+  description: The Transactions API from Paymob — 2 operation(s) for transactions.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
+- aid: paymob:paymob-void-api
+  name: Paymob Void API
+  description: The Void API from Paymob — 3 operation(s) for void.
+  humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
+  tags:
+  - Void
+  properties:
+  - type: OpenAPI
+    url: openapi/paymob-void-api-openapi.yml
+  - type: Documentation
+    url: https://developers.paymob.com/paymob-docs/integration-paths/apis
+  - type: Documentation
+    url: https://docs.paymob.com/docs/accept-standard-redirect
+  - type: JSONSchema
+    url: json-schema/paymob-transaction-schema.json
+  - type: Examples
+    url: examples/paymob-refund-transaction-example.json
+  - type: Documentation
+    url: https://payouts.paymobsolutions.com/docs/
+  - type: APIReference
+    url: https://payouts.paymobsolutions.com/docs/swagger-ui/
+  - type: Authentication
+    url: https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/
+  - type: JSONSchema
+    url: json-schema/paymob-disbursement-schema.json
+  - type: Examples
+    url: examples/paymob-instant-cashin-example.json
 name: Paymob
 tags:
   - Payments
@@ -127,9 +483,24 @@ tags:
   - Payouts
   - Subscriptions
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paymob.png
 access: 3rd-Party
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/paymob/overview
   - type: AgenticAccess
     url: agentic-access/paymob-agentic-access.yml
   - type: DomainSecurity
