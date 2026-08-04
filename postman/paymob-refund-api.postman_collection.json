@@ -1,0 +1,400 @@
+{
+  "info": {
+    "_postman_id": "482c1e89-0c9e-42dc-9a74-8deb52f0e4e2",
+    "name": "Paymob Accept Legacy (v2) Accounts Refund API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:33:47.000Z",
+    "updatedAt": "2026-07-28T02:33:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-482c1e89-0c9e-42dc-9a74-8deb52f0e4e2"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "acceptance",
+          "item": [
+            {
+              "name": "capture",
+              "item": [
+                {
+                  "name": "Capture Authorized Transaction",
+                  "id": "7602b22a-2d12-4f4e-a4ea-b3504eb719e8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"transaction_id\": \"<integer>\",\n  \"amount_cents\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/acceptance/capture",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "acceptance",
+                        "capture"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b53fcc8a-948b-4d05-baa7-1cf79252f305",
+                      "name": "Capture result",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"transaction_id\": \"<integer>\",\n  \"amount_cents\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/capture",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "capture"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"pending\": \"<boolean>\",\n  \"amount_cents\": \"<integer>\",\n  \"success\": \"<boolean>\",\n  \"is_auth\": \"<boolean>\",\n  \"is_capture\": \"<boolean>\",\n  \"is_void\": \"<boolean>\",\n  \"is_refund\": \"<boolean>\",\n  \"is_3d_secure\": \"<boolean>\",\n  \"integration_id\": \"<integer>\",\n  \"order\": {\n    \"id\": \"<integer>\",\n    \"amount_cents\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"merchant_order_id\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"items\": [\n      {\n        \"in77\": \"laboris Lorem sed\"\n      },\n      {\n        \"Lorem74\": -96745739,\n        \"sint_c8\": false\n      }\n    ]\n  },\n  \"currency\": \"<string>\",\n  \"source_data\": {\n    \"type\": \"<string>\",\n    \"sub_type\": \"<string>\",\n    \"pan\": \"<string>\"\n  },\n  \"merchant_commission\": \"<integer>\",\n  \"installment\": {\n    \"ea4\": \"reprehenderit Excepteur aliquip exercitation\"\n  },\n  \"created_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:33:47.000Z",
+                      "updatedAt": "2026-07-28T02:33:47.000Z",
+                      "uid": "35240-b53fcc8a-948b-4d05-baa7-1cf79252f305"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:33:47.000Z",
+                  "updatedAt": "2026-07-28T02:33:47.000Z",
+                  "uid": "35240-7602b22a-2d12-4f4e-a4ea-b3504eb719e8"
+                }
+              ],
+              "id": "7b71fe71-a6b3-418b-bdeb-6fd77b814bc6",
+              "createdAt": "2026-07-28T02:33:47.000Z",
+              "updatedAt": "2026-07-28T02:33:47.000Z",
+              "uid": "35240-7b71fe71-a6b3-418b-bdeb-6fd77b814bc6"
+            },
+            {
+              "name": "void_refund",
+              "item": [
+                {
+                  "name": "void",
+                  "item": [
+                    {
+                      "name": "Void Transaction",
+                      "id": "28c84712-ee86-412b-a9e5-7c090a988f83",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"transaction_id\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/void_refund/void",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "void_refund",
+                            "void"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "a69088c7-78d9-44aa-ba94-dfa43816f057",
+                          "name": "Void result",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"transaction_id\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/void_refund/void",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "void_refund",
+                                "void"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"pending\": \"<boolean>\",\n  \"amount_cents\": \"<integer>\",\n  \"success\": \"<boolean>\",\n  \"is_auth\": \"<boolean>\",\n  \"is_capture\": \"<boolean>\",\n  \"is_void\": \"<boolean>\",\n  \"is_refund\": \"<boolean>\",\n  \"is_3d_secure\": \"<boolean>\",\n  \"integration_id\": \"<integer>\",\n  \"order\": {\n    \"id\": \"<integer>\",\n    \"amount_cents\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"merchant_order_id\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"items\": [\n      {\n        \"in77\": \"laboris Lorem sed\"\n      },\n      {\n        \"Lorem74\": -96745739,\n        \"sint_c8\": false\n      }\n    ]\n  },\n  \"currency\": \"<string>\",\n  \"source_data\": {\n    \"type\": \"<string>\",\n    \"sub_type\": \"<string>\",\n    \"pan\": \"<string>\"\n  },\n  \"merchant_commission\": \"<integer>\",\n  \"installment\": {\n    \"ea4\": \"reprehenderit Excepteur aliquip exercitation\"\n  },\n  \"created_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T02:33:47.000Z",
+                          "updatedAt": "2026-07-28T02:33:47.000Z",
+                          "uid": "35240-a69088c7-78d9-44aa-ba94-dfa43816f057"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:33:47.000Z",
+                      "updatedAt": "2026-07-28T02:33:47.000Z",
+                      "uid": "35240-28c84712-ee86-412b-a9e5-7c090a988f83"
+                    }
+                  ],
+                  "id": "d4496cd4-c1b3-42f8-aeb1-b1a844fe7eb6",
+                  "createdAt": "2026-07-28T02:33:47.000Z",
+                  "updatedAt": "2026-07-28T02:33:47.000Z",
+                  "uid": "35240-d4496cd4-c1b3-42f8-aeb1-b1a844fe7eb6"
+                },
+                {
+                  "name": "refund",
+                  "item": [
+                    {
+                      "name": "Refund Transaction",
+                      "id": "9a168f5d-19ce-4916-9af4-9f8804dec5d0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"transaction_id\": \"<integer>\",\n  \"amount_cents\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/void_refund/refund",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "void_refund",
+                            "refund"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "b6fd6d93-8a64-4bad-bb25-de3e723e0906",
+                          "name": "Refund result",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"transaction_id\": \"<integer>\",\n  \"amount_cents\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/void_refund/refund",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "void_refund",
+                                "refund"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"pending\": \"<boolean>\",\n  \"amount_cents\": \"<integer>\",\n  \"success\": \"<boolean>\",\n  \"is_auth\": \"<boolean>\",\n  \"is_capture\": \"<boolean>\",\n  \"is_void\": \"<boolean>\",\n  \"is_refund\": \"<boolean>\",\n  \"is_3d_secure\": \"<boolean>\",\n  \"integration_id\": \"<integer>\",\n  \"order\": {\n    \"id\": \"<integer>\",\n    \"amount_cents\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"merchant_order_id\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"items\": [\n      {\n        \"in77\": \"laboris Lorem sed\"\n      },\n      {\n        \"Lorem74\": -96745739,\n        \"sint_c8\": false\n      }\n    ]\n  },\n  \"currency\": \"<string>\",\n  \"source_data\": {\n    \"type\": \"<string>\",\n    \"sub_type\": \"<string>\",\n    \"pan\": \"<string>\"\n  },\n  \"merchant_commission\": \"<integer>\",\n  \"installment\": {\n    \"ea4\": \"reprehenderit Excepteur aliquip exercitation\"\n  },\n  \"created_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T02:33:47.000Z",
+                          "updatedAt": "2026-07-28T02:33:47.000Z",
+                          "uid": "35240-b6fd6d93-8a64-4bad-bb25-de3e723e0906"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:33:47.000Z",
+                      "updatedAt": "2026-07-28T02:33:47.000Z",
+                      "uid": "35240-9a168f5d-19ce-4916-9af4-9f8804dec5d0"
+                    }
+                  ],
+                  "id": "ff9c4598-9a71-4ce5-b652-8adc72c9566a",
+                  "createdAt": "2026-07-28T02:33:47.000Z",
+                  "updatedAt": "2026-07-28T02:33:47.000Z",
+                  "uid": "35240-ff9c4598-9a71-4ce5-b652-8adc72c9566a"
+                }
+              ],
+              "id": "6b0d48cf-e5fe-4c94-8d09-332e56d8330c",
+              "createdAt": "2026-07-28T02:33:47.000Z",
+              "updatedAt": "2026-07-28T02:33:47.000Z",
+              "uid": "35240-6b0d48cf-e5fe-4c94-8d09-332e56d8330c"
+            }
+          ],
+          "id": "49a7fb2c-a407-46b6-83d1-d5179f7df5d3",
+          "createdAt": "2026-07-28T02:33:47.000Z",
+          "updatedAt": "2026-07-28T02:33:47.000Z",
+          "uid": "35240-49a7fb2c-a407-46b6-83d1-d5179f7df5d3"
+        }
+      ],
+      "id": "b48d21b0-d9d5-4ad3-870a-3b0319704874",
+      "createdAt": "2026-07-28T02:33:47.000Z",
+      "updatedAt": "2026-07-28T02:33:47.000Z",
+      "uid": "35240-b48d21b0-d9d5-4ad3-870a-3b0319704874"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

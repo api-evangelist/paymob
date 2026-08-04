@@ -1,0 +1,173 @@
+{
+  "info": {
+    "_postman_id": "f294d171-318e-49ac-b15b-fcf18084b517",
+    "name": "Paymob Accept Legacy (v2) Accounts Payments API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:33:46.000Z",
+    "updatedAt": "2026-07-28T02:33:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f294d171-318e-49ac-b15b-fcf18084b517"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "acceptance",
+          "item": [
+            {
+              "name": "payments",
+              "item": [
+                {
+                  "name": "pay",
+                  "item": [
+                    {
+                      "name": "Pay With Payment Method",
+                      "id": "9f753fb0-99a7-4daf-af38-e7def69d12a1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"source\": {\n    \"laboris4\": false,\n    \"voluptate3\": false,\n    \"Duis4_e\": \"laboris deserunt esse\"\n  },\n  \"payment_token\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/payments/pay",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "payments",
+                            "pay"
+                          ]
+                        },
+                        "description": "Headless payment endpoint (MOTO / saved card / merchant-initiated transactions). Submit a payment_key plus source object describing the method (card, saved token, wallet, kiosk)."
+                      },
+                      "response": [
+                        {
+                          "id": "e16d9d7a-dbd5-4ca9-93e2-b421231c665b",
+                          "name": "Payment processed",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"source\": {\n    \"laboris4\": false,\n    \"voluptate3\": false,\n    \"Duis4_e\": \"laboris deserunt esse\"\n  },\n  \"payment_token\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/payments/pay",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "payments",
+                                "pay"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"pending\": \"<boolean>\",\n  \"amount_cents\": \"<integer>\",\n  \"success\": \"<boolean>\",\n  \"is_auth\": \"<boolean>\",\n  \"is_capture\": \"<boolean>\",\n  \"is_void\": \"<boolean>\",\n  \"is_refund\": \"<boolean>\",\n  \"is_3d_secure\": \"<boolean>\",\n  \"integration_id\": \"<integer>\",\n  \"order\": {\n    \"id\": \"<integer>\",\n    \"amount_cents\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"merchant_order_id\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"items\": [\n      {\n        \"minime\": false\n      },\n      {\n        \"laborisb9\": -95896216.63320105,\n        \"ad3\": -65338659.066206306\n      }\n    ]\n  },\n  \"currency\": \"<string>\",\n  \"source_data\": {\n    \"type\": \"<string>\",\n    \"sub_type\": \"<string>\",\n    \"pan\": \"<string>\"\n  },\n  \"merchant_commission\": \"<integer>\",\n  \"installment\": {\n    \"occaecat_e0\": false,\n    \"officia_5\": -35115838.88252869\n  },\n  \"created_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T02:33:46.000Z",
+                          "updatedAt": "2026-07-28T02:33:46.000Z",
+                          "uid": "35240-e16d9d7a-dbd5-4ca9-93e2-b421231c665b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:33:46.000Z",
+                      "updatedAt": "2026-07-28T02:33:46.000Z",
+                      "uid": "35240-9f753fb0-99a7-4daf-af38-e7def69d12a1"
+                    }
+                  ],
+                  "id": "76bd33bd-046d-4a3b-839e-2843959dcfac",
+                  "createdAt": "2026-07-28T02:33:46.000Z",
+                  "updatedAt": "2026-07-28T02:33:46.000Z",
+                  "uid": "35240-76bd33bd-046d-4a3b-839e-2843959dcfac"
+                }
+              ],
+              "id": "cff7da10-8572-4cd8-952d-e4994ca976b6",
+              "createdAt": "2026-07-28T02:33:46.000Z",
+              "updatedAt": "2026-07-28T02:33:46.000Z",
+              "uid": "35240-cff7da10-8572-4cd8-952d-e4994ca976b6"
+            }
+          ],
+          "id": "e9d4ca53-aeae-4f4c-96ca-804b8bd2fa03",
+          "createdAt": "2026-07-28T02:33:46.000Z",
+          "updatedAt": "2026-07-28T02:33:46.000Z",
+          "uid": "35240-e9d4ca53-aeae-4f4c-96ca-804b8bd2fa03"
+        }
+      ],
+      "id": "b27a6484-91cd-4147-82f1-0507ba13f80b",
+      "createdAt": "2026-07-28T02:33:46.000Z",
+      "updatedAt": "2026-07-28T02:33:46.000Z",
+      "uid": "35240-b27a6484-91cd-4147-82f1-0507ba13f80b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

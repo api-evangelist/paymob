@@ -1,0 +1,653 @@
+{
+  "info": {
+    "_postman_id": "93396eea-a8d0-427e-b160-49153014d1e2",
+    "name": "Paymob Accept Legacy (v2) Accounts Intentions API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:32:47.000Z",
+    "updatedAt": "2026-07-28T02:32:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-93396eea-a8d0-427e-b160-49153014d1e2"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "intention",
+          "item": [
+            {
+              "name": "{client_secret}",
+              "item": [
+                {
+                  "name": "Update Intention",
+                  "id": "ff80f348-abb7-4507-b3cb-bc59ba0c920a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"consequatf63\": 73529816,\n      \"fugiat_a2a\": 48953127.750178814,\n      \"culpa_6\": 64206083.15946743,\n      \"labore_0d5\": -38607414.774619594\n    }\n  },\n  \"extras\": {\n    \"dolor4\": \"Duis dolore nostrud occaecat culpa\",\n    \"consectetur_e2\": false,\n    \"tempor_e\": -7324763,\n    \"incididunt_d73\": 30006660\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/intention/:client_secret",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "intention",
+                        ":client_secret"
+                      ],
+                      "variable": [
+                        {
+                          "id": "84da6cac-b2af-4615-9c38-e77c7212882b",
+                          "key": "client_secret",
+                          "value": "<string>",
+                          "description": "(Required) Intention-specific client secret returned from create intention."
+                        }
+                      ]
+                    },
+                    "description": "Update an existing intention before it is paid."
+                  },
+                  "response": [
+                    {
+                      "id": "691629fb-5abc-4abe-8bb5-b8f67f9b5226",
+                      "name": "Intention updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"consequatf63\": 73529816,\n      \"fugiat_a2a\": 48953127.750178814,\n      \"culpa_6\": 64206083.15946743,\n      \"labore_0d5\": -38607414.774619594\n    }\n  },\n  \"extras\": {\n    \"dolor4\": \"Duis dolore nostrud occaecat culpa\",\n    \"consectetur_e2\": false,\n    \"tempor_e\": -7324763,\n    \"incididunt_d73\": 30006660\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/intention/:client_secret",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "intention",
+                            ":client_secret"
+                          ],
+                          "variable": [
+                            {
+                              "key": "client_secret"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"intention_order_id\": \"<integer>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"status\": \"intended\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"method_type\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    {\n      \"integration_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"method_type\": \"<string>\",\n      \"currency\": \"<string>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"cupidatat_73b\": \"Duis fugiat aliqua ullamco\",\n      \"cillum3_\": true\n    }\n  },\n  \"created\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:32:47.000Z",
+                      "updatedAt": "2026-07-28T02:32:47.000Z",
+                      "uid": "35240-691629fb-5abc-4abe-8bb5-b8f67f9b5226"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:32:47.000Z",
+                  "updatedAt": "2026-07-28T02:32:47.000Z",
+                  "uid": "35240-ff80f348-abb7-4507-b3cb-bc59ba0c920a"
+                }
+              ],
+              "id": "68b4431f-bd2a-4a71-a42d-a7e76e58fa04",
+              "createdAt": "2026-07-28T02:32:47.000Z",
+              "updatedAt": "2026-07-28T02:32:47.000Z",
+              "uid": "35240-68b4431f-bd2a-4a71-a42d-a7e76e58fa04"
+            },
+            {
+              "name": "element",
+              "item": [
+                {
+                  "name": "{public_key}",
+                  "item": [
+                    {
+                      "name": "{client_secret}",
+                      "item": [
+                        {
+                          "name": "Retrieve Intention",
+                          "id": "f3f70a64-104d-4036-a1c1-45d21765f669",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v1/intention/element/:public_key/:client_secret/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v1",
+                                "intention",
+                                "element",
+                                ":public_key",
+                                ":client_secret",
+                                ""
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a9001946-98ab-473a-87d0-e1459a51564e",
+                                  "key": "public_key",
+                                  "value": "<string>",
+                                  "description": "(Required) Merchant public key."
+                                },
+                                {
+                                  "id": "7728b889-c760-46e8-9fa3-0d23e57c0383",
+                                  "key": "client_secret",
+                                  "value": "<string>",
+                                  "description": "(Required) Intention-specific client secret returned from create intention."
+                                }
+                              ]
+                            },
+                            "description": "Retrieve an intention using the merchant public key and the intention-specific client_secret. Returns the available payment methods, items, totals, and integration list for the intention."
+                          },
+                          "response": [
+                            {
+                              "id": "8d943b98-c9cd-4f5f-8744-567a5839f7e9",
+                              "name": "Intention details",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v1/intention/element/:public_key/:client_secret/",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v1",
+                                    "intention",
+                                    "element",
+                                    ":public_key",
+                                    ":client_secret",
+                                    ""
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "public_key"
+                                    },
+                                    {
+                                      "key": "client_secret"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"intention_order_id\": \"<integer>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"status\": \"intended\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"method_type\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    {\n      \"integration_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"method_type\": \"<string>\",\n      \"currency\": \"<string>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"cupidatat_73b\": \"Duis fugiat aliqua ullamco\",\n      \"cillum3_\": true\n    }\n  },\n  \"created\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T02:32:47.000Z",
+                              "updatedAt": "2026-07-28T02:32:47.000Z",
+                              "uid": "35240-8d943b98-c9cd-4f5f-8744-567a5839f7e9"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:32:47.000Z",
+                          "updatedAt": "2026-07-28T02:32:47.000Z",
+                          "uid": "35240-f3f70a64-104d-4036-a1c1-45d21765f669"
+                        }
+                      ],
+                      "id": "29d3026e-cc4e-4095-814e-65407089c717",
+                      "createdAt": "2026-07-28T02:32:47.000Z",
+                      "updatedAt": "2026-07-28T02:32:47.000Z",
+                      "uid": "35240-29d3026e-cc4e-4095-814e-65407089c717"
+                    }
+                  ],
+                  "id": "357d7dc9-3124-496b-89df-1b8a4fddbb9f",
+                  "createdAt": "2026-07-28T02:32:47.000Z",
+                  "updatedAt": "2026-07-28T02:32:47.000Z",
+                  "uid": "35240-357d7dc9-3124-496b-89df-1b8a4fddbb9f"
+                }
+              ],
+              "id": "a56e1a18-c972-46b7-846c-fbed84cac47d",
+              "createdAt": "2026-07-28T02:32:47.000Z",
+              "updatedAt": "2026-07-28T02:32:47.000Z",
+              "uid": "35240-a56e1a18-c972-46b7-846c-fbed84cac47d"
+            },
+            {
+              "name": "Create Intention",
+              "id": "2876e328-5eea-4eab-988e-d5845bf8caaf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"consequatf63\": 73529816,\n      \"fugiat_a2a\": 48953127.750178814,\n      \"culpa_6\": 64206083.15946743,\n      \"labore_0d5\": -38607414.774619594\n    }\n  },\n  \"extras\": {\n    \"dolor4\": \"Duis dolore nostrud occaecat culpa\",\n    \"consectetur_e2\": false,\n    \"tempor_e\": -7324763,\n    \"incididunt_d73\": 30006660\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/intention/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "intention",
+                    ""
+                  ]
+                },
+                "description": "Create a payment intention from your backend using your Secret Key. Returns a client_secret used to launch Unified Checkout or the Pixel component. The amount must equal the sum of items[].amount."
+              },
+              "response": [
+                {
+                  "id": "48b77744-1098-4fbc-a33b-3701572b5478",
+                  "name": "Intention created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"consequatf63\": 73529816,\n      \"fugiat_a2a\": 48953127.750178814,\n      \"culpa_6\": 64206083.15946743,\n      \"labore_0d5\": -38607414.774619594\n    }\n  },\n  \"extras\": {\n    \"dolor4\": \"Duis dolore nostrud occaecat culpa\",\n    \"consectetur_e2\": false,\n    \"tempor_e\": -7324763,\n    \"incididunt_d73\": 30006660\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/intention/",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "intention",
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"intention_order_id\": \"<integer>\",\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"status\": \"intended\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"method_type\": \"<string>\",\n      \"currency\": \"<string>\"\n    },\n    {\n      \"integration_id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"method_type\": \"<string>\",\n      \"currency\": \"<string>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"cupidatat_73b\": \"Duis fugiat aliqua ullamco\",\n      \"cillum3_\": true\n    }\n  },\n  \"created\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T02:32:47.000Z",
+                  "updatedAt": "2026-07-28T02:32:47.000Z",
+                  "uid": "35240-48b77744-1098-4fbc-a33b-3701572b5478"
+                },
+                {
+                  "id": "21388018-dfd2-49b4-bf1b-04b6396ecd6c",
+                  "name": "Validation error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"consequatf63\": 73529816,\n      \"fugiat_a2a\": 48953127.750178814,\n      \"culpa_6\": 64206083.15946743,\n      \"labore_0d5\": -38607414.774619594\n    }\n  },\n  \"extras\": {\n    \"dolor4\": \"Duis dolore nostrud occaecat culpa\",\n    \"consectetur_e2\": false,\n    \"tempor_e\": -7324763,\n    \"incididunt_d73\": 30006660\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/intention/",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "intention",
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"detail\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:32:47.000Z",
+                  "updatedAt": "2026-07-28T02:32:47.000Z",
+                  "uid": "35240-21388018-dfd2-49b4-bf1b-04b6396ecd6c"
+                },
+                {
+                  "id": "b40da190-a11a-417a-87a7-9734ebc6e0ed",
+                  "name": "Missing or invalid credentials",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"consequatf63\": 73529816,\n      \"fugiat_a2a\": 48953127.750178814,\n      \"culpa_6\": 64206083.15946743,\n      \"labore_0d5\": -38607414.774619594\n    }\n  },\n  \"extras\": {\n    \"dolor4\": \"Duis dolore nostrud occaecat culpa\",\n    \"consectetur_e2\": false,\n    \"tempor_e\": -7324763,\n    \"incididunt_d73\": 30006660\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/intention/",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "intention",
+                        ""
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"detail\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:32:47.000Z",
+                  "updatedAt": "2026-07-28T02:32:47.000Z",
+                  "uid": "35240-b40da190-a11a-417a-87a7-9734ebc6e0ed"
+                }
+              ],
+              "createdAt": "2026-07-28T02:32:47.000Z",
+              "updatedAt": "2026-07-28T02:32:47.000Z",
+              "uid": "35240-2876e328-5eea-4eab-988e-d5845bf8caaf"
+            }
+          ],
+          "id": "797ca195-0cc5-4bdc-8cd2-eae78ed44b0a",
+          "createdAt": "2026-07-28T02:32:47.000Z",
+          "updatedAt": "2026-07-28T02:32:47.000Z",
+          "uid": "35240-797ca195-0cc5-4bdc-8cd2-eae78ed44b0a"
+        },
+        {
+          "name": "intentions",
+          "item": [
+            {
+              "name": "confirm",
+              "item": [
+                {
+                  "name": "Confirm Payment Intention",
+                  "id": "c8d70d6f-5f82-4c4d-a15f-df6538c4d33b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"client_secret\": \"<string>\",\n  \"payment_method\": \"<string>\",\n  \"payload\": {\n    \"doc\": false,\n    \"labore_ef4\": 31511966\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/intentions/confirm/",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "intentions",
+                        "confirm",
+                        ""
+                      ]
+                    },
+                    "description": "Confirm an intention from a Pixel or headless integration. Submits the selected payment method and the supporting payload (card, wallet, BNPL, Apple Pay token, etc.) to complete the payment."
+                  },
+                  "response": [
+                    {
+                      "id": "b2e846ae-70a6-421e-8441-cbec26b3f46c",
+                      "name": "Confirmation result",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"client_secret\": \"<string>\",\n  \"payment_method\": \"<string>\",\n  \"payload\": {\n    \"doc\": false,\n    \"labore_ef4\": 31511966\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/intentions/confirm/",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "intentions",
+                            "confirm",
+                            ""
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"pending\": \"<boolean>\",\n  \"amount_cents\": \"<integer>\",\n  \"success\": \"<boolean>\",\n  \"is_auth\": \"<boolean>\",\n  \"is_capture\": \"<boolean>\",\n  \"is_void\": \"<boolean>\",\n  \"is_refund\": \"<boolean>\",\n  \"order\": {\n    \"minim_bc\": true,\n    \"ut_4\": \"dolor nisi cillum aliqua fugiat\"\n  },\n  \"currency\": \"<string>\",\n  \"source_data\": {\n    \"adaa\": false,\n    \"officia_b\": 82295444,\n    \"Lorem_2\": -49320309\n  },\n  \"integration_id\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:32:47.000Z",
+                      "updatedAt": "2026-07-28T02:32:47.000Z",
+                      "uid": "35240-b2e846ae-70a6-421e-8441-cbec26b3f46c"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:32:47.000Z",
+                  "updatedAt": "2026-07-28T02:32:47.000Z",
+                  "uid": "35240-c8d70d6f-5f82-4c4d-a15f-df6538c4d33b"
+                }
+              ],
+              "id": "79940214-ac6f-4cb1-9832-0487d9625fb7",
+              "createdAt": "2026-07-28T02:32:47.000Z",
+              "updatedAt": "2026-07-28T02:32:47.000Z",
+              "uid": "35240-79940214-ac6f-4cb1-9832-0487d9625fb7"
+            }
+          ],
+          "id": "ea521b62-28e3-4691-a607-ea763404b86c",
+          "createdAt": "2026-07-28T02:32:47.000Z",
+          "updatedAt": "2026-07-28T02:32:47.000Z",
+          "uid": "35240-ea521b62-28e3-4691-a607-ea763404b86c"
+        }
+      ],
+      "id": "5ccfff08-8b3d-4b85-8fb0-2a9bf8566db8",
+      "createdAt": "2026-07-28T02:32:47.000Z",
+      "updatedAt": "2026-07-28T02:32:47.000Z",
+      "uid": "35240-5ccfff08-8b3d-4b85-8fb0-2a9bf8566db8"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

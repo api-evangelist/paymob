@@ -1,0 +1,305 @@
+{
+  "info": {
+    "_postman_id": "33b92326-4723-48f6-8aac-0b5ac30d0bc2",
+    "name": "Paymob Accept Legacy (v2) Accounts Topup API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:17.000Z",
+    "updatedAt": "2026-07-28T02:34:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-33b92326-4723-48f6-8aac-0b5ac30d0bc2"
+  },
+  "item": [
+    {
+      "name": "disburse",
+      "item": [
+        {
+          "name": "api",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "topup",
+                  "item": [
+                    {
+                      "name": "request",
+                      "item": [
+                        {
+                          "name": "Topup Request",
+                          "id": "2264453c-2e35-4fa5-b527-1c9677ca8715",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"amount\": \"<number>\",\n  \"transfer_type\": \"bank_transfer\",\n  \"reference\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/disburse/api/v1/topup/request/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "disburse",
+                                "api",
+                                "v1",
+                                "topup",
+                                "request",
+                                ""
+                              ]
+                            },
+                            "description": "Initiate a topup via bank transfer or Accept balance transfer."
+                          },
+                          "response": [
+                            {
+                              "id": "b0dd4317-a6b6-4fd9-8712-903cda3ecda6",
+                              "name": "Topup created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"amount\": \"<number>\",\n  \"transfer_type\": \"bank_transfer\",\n  \"reference\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/disburse/api/v1/topup/request/",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "disburse",
+                                    "api",
+                                    "v1",
+                                    "topup",
+                                    "request",
+                                    ""
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"topup_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"transfer_type\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:34:18.000Z",
+                              "updatedAt": "2026-07-28T02:34:18.000Z",
+                              "uid": "35240-b0dd4317-a6b6-4fd9-8712-903cda3ecda6"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:34:18.000Z",
+                          "updatedAt": "2026-07-28T02:34:18.000Z",
+                          "uid": "35240-2264453c-2e35-4fa5-b527-1c9677ca8715"
+                        }
+                      ],
+                      "id": "88ad6db6-5120-4f95-a02a-1b89e5ed5aec",
+                      "createdAt": "2026-07-28T02:34:18.000Z",
+                      "updatedAt": "2026-07-28T02:34:18.000Z",
+                      "uid": "35240-88ad6db6-5120-4f95-a02a-1b89e5ed5aec"
+                    },
+                    {
+                      "name": "inquire",
+                      "item": [
+                        {
+                          "name": "Topup Inquiry",
+                          "id": "bd5bc4c2-019f-46a0-bff4-b0c8cf70b6f4",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"reference\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/disburse/api/v1/topup/inquire/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "disburse",
+                                "api",
+                                "v1",
+                                "topup",
+                                "inquire",
+                                ""
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "f1c267e5-f8c5-42d8-a7cb-4e1883a81688",
+                              "name": "Topup status",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"reference\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/disburse/api/v1/topup/inquire/",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "disburse",
+                                    "api",
+                                    "v1",
+                                    "topup",
+                                    "inquire",
+                                    ""
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"topup_id\": \"<string>\",\n  \"status\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"transfer_type\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:34:18.000Z",
+                              "updatedAt": "2026-07-28T02:34:18.000Z",
+                              "uid": "35240-f1c267e5-f8c5-42d8-a7cb-4e1883a81688"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:34:18.000Z",
+                          "updatedAt": "2026-07-28T02:34:18.000Z",
+                          "uid": "35240-bd5bc4c2-019f-46a0-bff4-b0c8cf70b6f4"
+                        }
+                      ],
+                      "id": "ee90ed2e-aa69-4ca3-81fb-031ad6a02e24",
+                      "createdAt": "2026-07-28T02:34:18.000Z",
+                      "updatedAt": "2026-07-28T02:34:18.000Z",
+                      "uid": "35240-ee90ed2e-aa69-4ca3-81fb-031ad6a02e24"
+                    }
+                  ],
+                  "id": "137ca118-25c2-4eb9-9220-d3a9de571de0",
+                  "createdAt": "2026-07-28T02:34:18.000Z",
+                  "updatedAt": "2026-07-28T02:34:18.000Z",
+                  "uid": "35240-137ca118-25c2-4eb9-9220-d3a9de571de0"
+                }
+              ],
+              "id": "561e2559-a47c-4e0d-9a65-0af8423c3c47",
+              "createdAt": "2026-07-28T02:34:18.000Z",
+              "updatedAt": "2026-07-28T02:34:18.000Z",
+              "uid": "35240-561e2559-a47c-4e0d-9a65-0af8423c3c47"
+            }
+          ],
+          "id": "41f8e359-f518-4342-89ef-ca747746bb82",
+          "createdAt": "2026-07-28T02:34:18.000Z",
+          "updatedAt": "2026-07-28T02:34:18.000Z",
+          "uid": "35240-41f8e359-f518-4342-89ef-ca747746bb82"
+        }
+      ],
+      "id": "92a4b4d9-17fe-4332-8cc0-8965b899d2ae",
+      "createdAt": "2026-07-28T02:34:18.000Z",
+      "updatedAt": "2026-07-28T02:34:18.000Z",
+      "uid": "35240-92a4b4d9-17fe-4332-8cc0-8965b899d2ae"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

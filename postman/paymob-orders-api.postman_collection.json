@@ -1,0 +1,162 @@
+{
+  "info": {
+    "_postman_id": "a647bc7e-43d0-4d66-acb7-0685ccfa0ba4",
+    "name": "Paymob Accept Legacy (v2) Accounts Orders API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:33:35.000Z",
+    "updatedAt": "2026-07-28T02:33:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a647bc7e-43d0-4d66-acb7-0685ccfa0ba4"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "ecommerce",
+          "item": [
+            {
+              "name": "orders",
+              "item": [
+                {
+                  "name": "Register Order",
+                  "id": "c5fb33a3-2412-4cae-8636-f2c9f369ad10",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"auth_token\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"merchant_order_id\": \"<string>\",\n  \"items\": [\n    {\n      \"dolore_2\": \"incididunt exercitation\",\n      \"cupidatatd57\": -29852257,\n      \"incididunt8\": \"irure non sit voluptate\"\n    },\n    {\n      \"consequat_085\": false,\n      \"in6\": false,\n      \"adipisicing86f\": \"occaecat veniam\",\n      \"reprehenderitc08\": true\n    }\n  ],\n  \"delivery_needed\": \"<boolean>\",\n  \"shipping_data\": {\n    \"in_785\": \"reprehenderit qui\",\n    \"eu27\": \"enim ex\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/ecommerce/orders",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "ecommerce",
+                        "orders"
+                      ]
+                    },
+                    "description": "Register an order on Paymob and obtain an order id for the payment key request."
+                  },
+                  "response": [
+                    {
+                      "id": "b38f3bd0-096b-4ea7-bb9f-84cc6d6f2e01",
+                      "name": "Order created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"auth_token\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"merchant_order_id\": \"<string>\",\n  \"items\": [\n    {\n      \"dolore_2\": \"incididunt exercitation\",\n      \"cupidatatd57\": -29852257,\n      \"incididunt8\": \"irure non sit voluptate\"\n    },\n    {\n      \"consequat_085\": false,\n      \"in6\": false,\n      \"adipisicing86f\": \"occaecat veniam\",\n      \"reprehenderitc08\": true\n    }\n  ],\n  \"delivery_needed\": \"<boolean>\",\n  \"shipping_data\": {\n    \"in_785\": \"reprehenderit qui\",\n    \"eu27\": \"enim ex\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ecommerce/orders",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ecommerce",
+                            "orders"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"amount_cents\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"merchant_order_id\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"items\": [\n    {\n      \"elitb\": -90756695\n    },\n    {\n      \"adab\": \"eiusmod minim velit enim\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:33:35.000Z",
+                      "updatedAt": "2026-07-28T02:33:35.000Z",
+                      "uid": "35240-b38f3bd0-096b-4ea7-bb9f-84cc6d6f2e01"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:33:35.000Z",
+                  "updatedAt": "2026-07-28T02:33:35.000Z",
+                  "uid": "35240-c5fb33a3-2412-4cae-8636-f2c9f369ad10"
+                }
+              ],
+              "id": "61ec203c-c16c-48b2-b3e5-3965276f95fa",
+              "createdAt": "2026-07-28T02:33:35.000Z",
+              "updatedAt": "2026-07-28T02:33:35.000Z",
+              "uid": "35240-61ec203c-c16c-48b2-b3e5-3965276f95fa"
+            }
+          ],
+          "id": "9816c222-d2e7-48c5-b147-3171e7175319",
+          "createdAt": "2026-07-28T02:33:35.000Z",
+          "updatedAt": "2026-07-28T02:33:35.000Z",
+          "uid": "35240-9816c222-d2e7-48c5-b147-3171e7175319"
+        }
+      ],
+      "id": "9178904f-85f8-4b98-a506-c14f7b2d69c8",
+      "createdAt": "2026-07-28T02:33:35.000Z",
+      "updatedAt": "2026-07-28T02:33:35.000Z",
+      "uid": "35240-9178904f-85f8-4b98-a506-c14f7b2d69c8"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

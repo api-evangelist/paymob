@@ -1,0 +1,219 @@
+{
+  "info": {
+    "_postman_id": "7f501ea9-7773-4d49-b6c4-ea09d04c76d9",
+    "name": "Paymob Accept Legacy (v2) Accounts Card Tokens API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:32:50.000Z",
+    "updatedAt": "2026-07-28T02:32:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7f501ea9-7773-4d49-b6c4-ea09d04c76d9"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "acceptance",
+          "item": [
+            {
+              "name": "card_tokens",
+              "item": [
+                {
+                  "name": "{token_id}",
+                  "item": [
+                    {
+                      "name": "Delete Card Token",
+                      "id": "39e36b55-a634-4d65-a78f-b75571705769",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/card_tokens/:token_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "card_tokens",
+                            ":token_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1df815ba-4f8e-4ee0-b80d-25950c4e7f21",
+                              "key": "token_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "67e1741f-09d6-40da-9bb1-31e4adb5cfeb",
+                          "name": "Token deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/card_tokens/:token_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "card_tokens",
+                                ":token_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "token_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:32:51.000Z",
+                          "updatedAt": "2026-07-28T02:32:51.000Z",
+                          "uid": "35240-67e1741f-09d6-40da-9bb1-31e4adb5cfeb"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:32:51.000Z",
+                      "updatedAt": "2026-07-28T02:32:51.000Z",
+                      "uid": "35240-39e36b55-a634-4d65-a78f-b75571705769"
+                    }
+                  ],
+                  "id": "7e9037b0-7544-49df-b78a-05e8735c2ba3",
+                  "createdAt": "2026-07-28T02:32:51.000Z",
+                  "updatedAt": "2026-07-28T02:32:51.000Z",
+                  "uid": "35240-7e9037b0-7544-49df-b78a-05e8735c2ba3"
+                },
+                {
+                  "name": "List Card Tokens",
+                  "id": "c90b6849-5188-49b1-9364-89e8693b1954",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/acceptance/card_tokens",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "acceptance",
+                        "card_tokens"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "280e76c6-98d6-4ac2-ae78-66cd1a656267",
+                      "name": "Card tokens",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/card_tokens",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "card_tokens"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"token\": \"<string>\",\n    \"masked_pan\": \"<string>\",\n    \"card_subtype\": \"<string>\",\n    \"email\": \"<string>\",\n    \"order_id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"token\": \"<string>\",\n    \"masked_pan\": \"<string>\",\n    \"card_subtype\": \"<string>\",\n    \"email\": \"<string>\",\n    \"order_id\": \"<integer>\",\n    \"created_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:32:51.000Z",
+                      "updatedAt": "2026-07-28T02:32:51.000Z",
+                      "uid": "35240-280e76c6-98d6-4ac2-ae78-66cd1a656267"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:32:51.000Z",
+                  "updatedAt": "2026-07-28T02:32:51.000Z",
+                  "uid": "35240-c90b6849-5188-49b1-9364-89e8693b1954"
+                }
+              ],
+              "id": "ee8a9363-bd7d-43ad-9a3e-8beda9890028",
+              "createdAt": "2026-07-28T02:32:51.000Z",
+              "updatedAt": "2026-07-28T02:32:51.000Z",
+              "uid": "35240-ee8a9363-bd7d-43ad-9a3e-8beda9890028"
+            }
+          ],
+          "id": "9cb78d32-1b77-4bda-8d6c-d741e24380af",
+          "createdAt": "2026-07-28T02:32:51.000Z",
+          "updatedAt": "2026-07-28T02:32:51.000Z",
+          "uid": "35240-9cb78d32-1b77-4bda-8d6c-d741e24380af"
+        }
+      ],
+      "id": "32b1aa29-c044-4920-8ea2-ca18f9154629",
+      "createdAt": "2026-07-28T02:32:51.000Z",
+      "updatedAt": "2026-07-28T02:32:51.000Z",
+      "uid": "35240-32b1aa29-c044-4920-8ea2-ca18f9154629"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

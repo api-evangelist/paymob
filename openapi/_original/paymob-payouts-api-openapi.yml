@@ -1,0 +1,321 @@
+openapi: 3.0.3
+info:
+  title: Paymob Payouts (Send) API
+  version: "1.0"
+  description: >-
+    Paymob Send is the mass-payout product used to disburse funds to suppliers,
+    employees, gig workers, and consumers via mobile wallets, bank cards, and
+    bank transfers across the MENAP region. The API uses OAuth2 (Generate &
+    Refresh Token) to mint a 60-minute bearer token, supports instant cash-in,
+    bulk transfer, topup, budget inquiry, and bulk transaction inquiry by
+    reference, and delivers status updates via callback URLs.
+  contact:
+    name: Paymob Payouts
+    url: https://payouts.paymobsolutions.com/docs/
+servers:
+- url: https://payouts.paymobsolutions.com
+  description: Production
+- url: https://stg-payouts.paymobsolutions.com
+  description: Staging
+security:
+- BearerAuth: []
+paths:
+  /api/auth/token/:
+    post:
+      summary: Generate Access Token
+      operationId: generatePayoutsToken
+      tags: [Authentication]
+      description: Generate an OAuth2 access token. Token must be refreshed every 60 minutes.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [username, password, grant_type, client_id, client_secret]
+              properties:
+                grant_type:
+                  type: string
+                  enum: [password]
+                username:
+                  type: string
+                password:
+                  type: string
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+      responses:
+        '200':
+          description: Token issued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+  /api/auth/token/refresh/:
+    post:
+      summary: Refresh Access Token
+      operationId: refreshPayoutsToken
+      tags: [Authentication]
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [refresh_token, grant_type, client_id, client_secret]
+              properties:
+                grant_type:
+                  type: string
+                  enum: [refresh_token]
+                refresh_token:
+                  type: string
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+      responses:
+        '200':
+          description: Token refreshed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Token'
+  /disburse/api/v1/disburse/instant_cashin/:
+    post:
+      summary: Instant Cashin
+      operationId: instantCashin
+      tags: [Disbursement]
+      description: >-
+        Disburse e-money to anonymous recipients. Issuer choices include
+        vodafone, etisalat, orange, bank_wallet, bank_card, and instant_bank.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InstantCashinRequest'
+      responses:
+        '200':
+          description: Disbursement accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DisbursementResponse'
+  /disburse/api/v1/disburse/bulk_transaction/:
+    post:
+      summary: Bulk Disbursement
+      operationId: bulkDisbursement
+      tags: [Disbursement]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [transactions]
+              properties:
+                transactions:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/InstantCashinRequest'
+      responses:
+        '200':
+          description: Bulk accepted
+  /disburse/api/v1/budget/inquire/:
+    get:
+      summary: Budget Inquiry
+      operationId: budgetInquiry
+      tags: [Accounts]
+      description: Inquire current balance/budget available to the merchant for payouts.
+      responses:
+        '200':
+          description: Budget details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  current_balance:
+                    type: number
+                  currency:
+                    type: string
+  /disburse/api/v1/topup/request/:
+    post:
+      summary: Topup Request
+      operationId: topupRequest
+      tags: [Topup]
+      description: Initiate a topup via bank transfer or Accept balance transfer.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [amount, transfer_type]
+              properties:
+                amount:
+                  type: number
+                transfer_type:
+                  type: string
+                  enum: [bank_transfer, accept_balance]
+                reference:
+                  type: string
+      responses:
+        '200':
+          description: Topup created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopupResponse'
+  /disburse/api/v1/topup/inquire/:
+    post:
+      summary: Topup Inquiry
+      operationId: topupInquiry
+      tags: [Topup]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reference:
+                  type: string
+      responses:
+        '200':
+          description: Topup status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TopupResponse'
+  /disburse/api/v1/bulk_transaction/inquire/:
+    post:
+      summary: Bulk Transaction Inquiry
+      operationId: bulkTransactionInquiry
+      tags: [Disbursement]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [transactions_ids]
+              properties:
+                transactions_ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Status list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DisbursementResponse'
+  /disburse/api/v1/bulk_transaction/inquire_by_reference/:
+    post:
+      summary: Bulk Transaction Inquiry By Reference
+      operationId: bulkTransactionInquiryByReference
+      tags: [Disbursement]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [references]
+              properties:
+                references:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Status list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DisbursementResponse'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    Token:
+      type: object
+      properties:
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+        expires_in:
+          type: integer
+        token_type:
+          type: string
+        scope:
+          type: string
+    InstantCashinRequest:
+      type: object
+      required: [issuer, amount, msisdn]
+      properties:
+        issuer:
+          type: string
+          enum: [vodafone, etisalat, orange, bank_wallet, bank_card, instant_bank]
+        amount:
+          type: number
+        msisdn:
+          type: string
+          description: Mobile number for wallet issuers.
+        full_name:
+          type: string
+        bank_card_number:
+          type: string
+        bank_code:
+          type: string
+        bank_transaction_type:
+          type: string
+          enum: [salary, credit_card, prepaid_card, cash_transfer]
+        reference:
+          type: string
+        callback_url:
+          type: string
+    DisbursementResponse:
+      type: object
+      properties:
+        transaction_id:
+          type: string
+        status:
+          type: string
+          enum: [pending, successful, failed]
+        amount:
+          type: number
+        msisdn:
+          type: string
+        reference:
+          type: string
+        disbursement_status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    TopupResponse:
+      type: object
+      properties:
+        topup_id:
+          type: string
+        status:
+          type: string
+        amount:
+          type: number
+        transfer_type:
+          type: string
+        reference:
+          type: string

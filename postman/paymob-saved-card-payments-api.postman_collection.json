@@ -1,0 +1,289 @@
+{
+  "info": {
+    "_postman_id": "32f1b76a-d5f1-49ee-b591-d3646461cc47",
+    "name": "Paymob Accept Legacy (v2) Accounts Saved Card Payments API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:33:54.000Z",
+    "updatedAt": "2026-07-28T02:33:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-32f1b76a-d5f1-49ee-b591-d3646461cc47"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "acceptance",
+          "item": [
+            {
+              "name": "payments",
+              "item": [
+                {
+                  "name": "cit",
+                  "item": [
+                    {
+                      "name": "Customer-Initiated Transaction",
+                      "id": "44edccc0-a3a6-4ed1-b0e5-d4592fab12e5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"payment_token\": \"<string>\",\n  \"source\": {\n    \"identifier\": \"<string>\",\n    \"subtype\": \"TOKEN\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/payments/cit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "payments",
+                            "cit"
+                          ]
+                        },
+                        "description": "Charge a saved card with the cardholder present (CIT)."
+                      },
+                      "response": [
+                        {
+                          "id": "b3fc7813-c037-4148-8bfe-975e19d4ac23",
+                          "name": "Charge result",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"payment_token\": \"<string>\",\n  \"source\": {\n    \"identifier\": \"<string>\",\n    \"subtype\": \"TOKEN\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/payments/cit",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "payments",
+                                "cit"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"success\": \"<boolean>\",\n  \"amount_cents\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"is_3d_secure\": \"<boolean>\",\n  \"source_data\": {\n    \"type\": \"<string>\",\n    \"sub_type\": \"<string>\",\n    \"pan\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:33:55.000Z",
+                          "updatedAt": "2026-07-28T02:33:55.000Z",
+                          "uid": "35240-b3fc7813-c037-4148-8bfe-975e19d4ac23"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:33:55.000Z",
+                      "updatedAt": "2026-07-28T02:33:55.000Z",
+                      "uid": "35240-44edccc0-a3a6-4ed1-b0e5-d4592fab12e5"
+                    }
+                  ],
+                  "id": "9748f039-0b16-4700-bce8-21f1195af6c4",
+                  "createdAt": "2026-07-28T02:33:55.000Z",
+                  "updatedAt": "2026-07-28T02:33:55.000Z",
+                  "uid": "35240-9748f039-0b16-4700-bce8-21f1195af6c4"
+                },
+                {
+                  "name": "mit",
+                  "item": [
+                    {
+                      "name": "Merchant-Initiated Transaction",
+                      "id": "0c98a214-dfd8-401d-be9b-6c349b8ba972",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"payment_token\": \"<string>\",\n  \"source\": {\n    \"identifier\": \"<string>\",\n    \"subtype\": \"TOKEN\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/payments/mit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "payments",
+                            "mit"
+                          ]
+                        },
+                        "description": "Charge a saved card without the cardholder present (MIT)."
+                      },
+                      "response": [
+                        {
+                          "id": "3f8421a2-34bf-41cb-b057-2b46d7a2784c",
+                          "name": "Charge result",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"payment_token\": \"<string>\",\n  \"source\": {\n    \"identifier\": \"<string>\",\n    \"subtype\": \"TOKEN\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/payments/mit",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "payments",
+                                "mit"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"success\": \"<boolean>\",\n  \"amount_cents\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"is_3d_secure\": \"<boolean>\",\n  \"source_data\": {\n    \"type\": \"<string>\",\n    \"sub_type\": \"<string>\",\n    \"pan\": \"<string>\"\n  }\n}",
+                          "createdAt": "2026-07-28T02:33:55.000Z",
+                          "updatedAt": "2026-07-28T02:33:55.000Z",
+                          "uid": "35240-3f8421a2-34bf-41cb-b057-2b46d7a2784c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:33:55.000Z",
+                      "updatedAt": "2026-07-28T02:33:55.000Z",
+                      "uid": "35240-0c98a214-dfd8-401d-be9b-6c349b8ba972"
+                    }
+                  ],
+                  "id": "dc35c64d-be91-42b6-ac8f-1517cb0c6ce7",
+                  "createdAt": "2026-07-28T02:33:55.000Z",
+                  "updatedAt": "2026-07-28T02:33:55.000Z",
+                  "uid": "35240-dc35c64d-be91-42b6-ac8f-1517cb0c6ce7"
+                }
+              ],
+              "id": "3c39e4da-b630-4678-89bc-b0a4c3b51e1e",
+              "createdAt": "2026-07-28T02:33:55.000Z",
+              "updatedAt": "2026-07-28T02:33:55.000Z",
+              "uid": "35240-3c39e4da-b630-4678-89bc-b0a4c3b51e1e"
+            }
+          ],
+          "id": "b2cf209f-58bb-4750-b756-2a1c8505d78c",
+          "createdAt": "2026-07-28T02:33:55.000Z",
+          "updatedAt": "2026-07-28T02:33:55.000Z",
+          "uid": "35240-b2cf209f-58bb-4750-b756-2a1c8505d78c"
+        }
+      ],
+      "id": "a5ad6ea3-91cd-4689-83c1-fb5b8ab24a44",
+      "createdAt": "2026-07-28T02:33:55.000Z",
+      "updatedAt": "2026-07-28T02:33:55.000Z",
+      "uid": "35240-a5ad6ea3-91cd-4689-83c1-fb5b8ab24a44"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

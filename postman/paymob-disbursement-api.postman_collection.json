@@ -1,0 +1,539 @@
+{
+  "info": {
+    "_postman_id": "4f5ca886-7095-4a67-a4b4-0e1e855667b1",
+    "name": "Paymob Accept Legacy (v2) Accounts Disbursement API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:33:34.000Z",
+    "updatedAt": "2026-07-28T02:33:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4f5ca886-7095-4a67-a4b4-0e1e855667b1"
+  },
+  "item": [
+    {
+      "name": "disburse",
+      "item": [
+        {
+          "name": "api",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "disburse",
+                  "item": [
+                    {
+                      "name": "instant_cashin",
+                      "item": [
+                        {
+                          "name": "Instant Cashin",
+                          "id": "d0288007-da9e-4cd4-95b4-49217b01b3d0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"issuer\": \"bank_wallet\",\n  \"amount\": \"<number>\",\n  \"msisdn\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"bank_card_number\": \"<string>\",\n  \"bank_code\": \"<string>\",\n  \"bank_transaction_type\": \"cash_transfer\",\n  \"reference\": \"<string>\",\n  \"callback_url\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/disburse/api/v1/disburse/instant_cashin/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "disburse",
+                                "api",
+                                "v1",
+                                "disburse",
+                                "instant_cashin",
+                                ""
+                              ]
+                            },
+                            "description": "Disburse e-money to anonymous recipients. Issuer choices include vodafone, etisalat, orange, bank_wallet, bank_card, and instant_bank."
+                          },
+                          "response": [
+                            {
+                              "id": "878afc9d-acc6-451b-8a4f-c470ac77b11b",
+                              "name": "Disbursement accepted",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"issuer\": \"bank_wallet\",\n  \"amount\": \"<number>\",\n  \"msisdn\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"bank_card_number\": \"<string>\",\n  \"bank_code\": \"<string>\",\n  \"bank_transaction_type\": \"cash_transfer\",\n  \"reference\": \"<string>\",\n  \"callback_url\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/disburse/api/v1/disburse/instant_cashin/",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "disburse",
+                                    "api",
+                                    "v1",
+                                    "disburse",
+                                    "instant_cashin",
+                                    ""
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"transaction_id\": \"<string>\",\n  \"status\": \"failed\",\n  \"amount\": \"<number>\",\n  \"msisdn\": \"<string>\",\n  \"reference\": \"<string>\",\n  \"disbursement_status\": \"<string>\",\n  \"created_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-07-28T02:33:34.000Z",
+                              "updatedAt": "2026-07-28T02:33:34.000Z",
+                              "uid": "35240-878afc9d-acc6-451b-8a4f-c470ac77b11b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:33:34.000Z",
+                          "updatedAt": "2026-07-28T02:33:34.000Z",
+                          "uid": "35240-d0288007-da9e-4cd4-95b4-49217b01b3d0"
+                        }
+                      ],
+                      "id": "d206c823-82d1-4dc6-9836-4514b6261731",
+                      "createdAt": "2026-07-28T02:33:34.000Z",
+                      "updatedAt": "2026-07-28T02:33:34.000Z",
+                      "uid": "35240-d206c823-82d1-4dc6-9836-4514b6261731"
+                    },
+                    {
+                      "name": "bulk_transaction",
+                      "item": [
+                        {
+                          "name": "Bulk Disbursement",
+                          "id": "5445c690-2096-487a-bdbc-bf89dff4fb1a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"transactions\": [\n    {\n      \"issuer\": \"bank_wallet\",\n      \"amount\": \"<number>\",\n      \"msisdn\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"bank_card_number\": \"<string>\",\n      \"bank_code\": \"<string>\",\n      \"bank_transaction_type\": \"prepaid_card\",\n      \"reference\": \"<string>\",\n      \"callback_url\": \"<string>\"\n    },\n    {\n      \"issuer\": \"vodafone\",\n      \"amount\": \"<number>\",\n      \"msisdn\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"bank_card_number\": \"<string>\",\n      \"bank_code\": \"<string>\",\n      \"bank_transaction_type\": \"salary\",\n      \"reference\": \"<string>\",\n      \"callback_url\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/disburse/api/v1/disburse/bulk_transaction/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "disburse",
+                                "api",
+                                "v1",
+                                "disburse",
+                                "bulk_transaction",
+                                ""
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "6cc9dcca-ed52-4c3c-9fe4-554fb817009a",
+                              "name": "Bulk accepted",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"transactions\": [\n    {\n      \"issuer\": \"bank_wallet\",\n      \"amount\": \"<number>\",\n      \"msisdn\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"bank_card_number\": \"<string>\",\n      \"bank_code\": \"<string>\",\n      \"bank_transaction_type\": \"prepaid_card\",\n      \"reference\": \"<string>\",\n      \"callback_url\": \"<string>\"\n    },\n    {\n      \"issuer\": \"vodafone\",\n      \"amount\": \"<number>\",\n      \"msisdn\": \"<string>\",\n      \"full_name\": \"<string>\",\n      \"bank_card_number\": \"<string>\",\n      \"bank_code\": \"<string>\",\n      \"bank_transaction_type\": \"salary\",\n      \"reference\": \"<string>\",\n      \"callback_url\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/disburse/api/v1/disburse/bulk_transaction/",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "disburse",
+                                    "api",
+                                    "v1",
+                                    "disburse",
+                                    "bulk_transaction",
+                                    ""
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:33:34.000Z",
+                              "updatedAt": "2026-07-28T02:33:34.000Z",
+                              "uid": "35240-6cc9dcca-ed52-4c3c-9fe4-554fb817009a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:33:34.000Z",
+                          "updatedAt": "2026-07-28T02:33:34.000Z",
+                          "uid": "35240-5445c690-2096-487a-bdbc-bf89dff4fb1a"
+                        }
+                      ],
+                      "id": "a46efc76-c51c-4be7-918d-8a730bb875a6",
+                      "createdAt": "2026-07-28T02:33:34.000Z",
+                      "updatedAt": "2026-07-28T02:33:34.000Z",
+                      "uid": "35240-a46efc76-c51c-4be7-918d-8a730bb875a6"
+                    }
+                  ],
+                  "id": "37743699-8653-4b76-ae38-4fcd56869565",
+                  "createdAt": "2026-07-28T02:33:34.000Z",
+                  "updatedAt": "2026-07-28T02:33:34.000Z",
+                  "uid": "35240-37743699-8653-4b76-ae38-4fcd56869565"
+                },
+                {
+                  "name": "bulk_transaction",
+                  "item": [
+                    {
+                      "name": "inquire",
+                      "item": [
+                        {
+                          "name": "Bulk Transaction Inquiry",
+                          "id": "88ca28cb-742f-46d5-ad04-2579d225130a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"transactions_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/disburse/api/v1/bulk_transaction/inquire/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "disburse",
+                                "api",
+                                "v1",
+                                "bulk_transaction",
+                                "inquire",
+                                ""
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "8d33bb36-98ce-4f55-82e1-a285f4d2fce4",
+                              "name": "Status list",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"transactions_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/disburse/api/v1/bulk_transaction/inquire/",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "disburse",
+                                    "api",
+                                    "v1",
+                                    "bulk_transaction",
+                                    "inquire",
+                                    ""
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"transaction_id\": \"<string>\",\n    \"status\": \"pending\",\n    \"amount\": \"<number>\",\n    \"msisdn\": \"<string>\",\n    \"reference\": \"<string>\",\n    \"disbursement_status\": \"<string>\",\n    \"created_at\": \"<dateTime>\"\n  },\n  {\n    \"transaction_id\": \"<string>\",\n    \"status\": \"failed\",\n    \"amount\": \"<number>\",\n    \"msisdn\": \"<string>\",\n    \"reference\": \"<string>\",\n    \"disbursement_status\": \"<string>\",\n    \"created_at\": \"<dateTime>\"\n  }\n]",
+                              "createdAt": "2026-07-28T02:33:34.000Z",
+                              "updatedAt": "2026-07-28T02:33:34.000Z",
+                              "uid": "35240-8d33bb36-98ce-4f55-82e1-a285f4d2fce4"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:33:34.000Z",
+                          "updatedAt": "2026-07-28T02:33:34.000Z",
+                          "uid": "35240-88ca28cb-742f-46d5-ad04-2579d225130a"
+                        }
+                      ],
+                      "id": "603f2c9f-6a4e-4cdf-a9f9-c9d700204765",
+                      "createdAt": "2026-07-28T02:33:34.000Z",
+                      "updatedAt": "2026-07-28T02:33:34.000Z",
+                      "uid": "35240-603f2c9f-6a4e-4cdf-a9f9-c9d700204765"
+                    },
+                    {
+                      "name": "inquire_by_reference",
+                      "item": [
+                        {
+                          "name": "Bulk Transaction Inquiry By Reference",
+                          "id": "550a96db-35c4-4ba9-8caf-d14956600a63",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"references\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/disburse/api/v1/bulk_transaction/inquire_by_reference/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "disburse",
+                                "api",
+                                "v1",
+                                "bulk_transaction",
+                                "inquire_by_reference",
+                                ""
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "4393cde0-2a04-4f66-b808-d69d4792e3cd",
+                              "name": "Status list",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"references\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/disburse/api/v1/bulk_transaction/inquire_by_reference/",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "disburse",
+                                    "api",
+                                    "v1",
+                                    "bulk_transaction",
+                                    "inquire_by_reference",
+                                    ""
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"transaction_id\": \"<string>\",\n    \"status\": \"pending\",\n    \"amount\": \"<number>\",\n    \"msisdn\": \"<string>\",\n    \"reference\": \"<string>\",\n    \"disbursement_status\": \"<string>\",\n    \"created_at\": \"<dateTime>\"\n  },\n  {\n    \"transaction_id\": \"<string>\",\n    \"status\": \"failed\",\n    \"amount\": \"<number>\",\n    \"msisdn\": \"<string>\",\n    \"reference\": \"<string>\",\n    \"disbursement_status\": \"<string>\",\n    \"created_at\": \"<dateTime>\"\n  }\n]",
+                              "createdAt": "2026-07-28T02:33:34.000Z",
+                              "updatedAt": "2026-07-28T02:33:34.000Z",
+                              "uid": "35240-4393cde0-2a04-4f66-b808-d69d4792e3cd"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:33:34.000Z",
+                          "updatedAt": "2026-07-28T02:33:34.000Z",
+                          "uid": "35240-550a96db-35c4-4ba9-8caf-d14956600a63"
+                        }
+                      ],
+                      "id": "96d45404-a628-4cd3-a10d-6ff914924875",
+                      "createdAt": "2026-07-28T02:33:34.000Z",
+                      "updatedAt": "2026-07-28T02:33:34.000Z",
+                      "uid": "35240-96d45404-a628-4cd3-a10d-6ff914924875"
+                    }
+                  ],
+                  "id": "d3da62b2-9437-416b-abfa-3878b4d5c49f",
+                  "createdAt": "2026-07-28T02:33:34.000Z",
+                  "updatedAt": "2026-07-28T02:33:34.000Z",
+                  "uid": "35240-d3da62b2-9437-416b-abfa-3878b4d5c49f"
+                }
+              ],
+              "id": "c3ad7e24-222d-4d43-a9d6-888e5e45a81a",
+              "createdAt": "2026-07-28T02:33:34.000Z",
+              "updatedAt": "2026-07-28T02:33:34.000Z",
+              "uid": "35240-c3ad7e24-222d-4d43-a9d6-888e5e45a81a"
+            }
+          ],
+          "id": "5dd3d01a-2d99-4fe6-bc69-826b62b3eb6a",
+          "createdAt": "2026-07-28T02:33:34.000Z",
+          "updatedAt": "2026-07-28T02:33:34.000Z",
+          "uid": "35240-5dd3d01a-2d99-4fe6-bc69-826b62b3eb6a"
+        }
+      ],
+      "id": "3b99f45f-b4c9-4748-a927-b696923805f9",
+      "createdAt": "2026-07-28T02:33:34.000Z",
+      "updatedAt": "2026-07-28T02:33:34.000Z",
+      "uid": "35240-3b99f45f-b4c9-4748-a927-b696923805f9"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

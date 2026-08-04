@@ -1,0 +1,264 @@
+{
+  "info": {
+    "_postman_id": "291e3450-925b-4305-8249-be380e5545e7",
+    "name": "Paymob Accept Legacy (v2) Accounts Payment Links API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:33:45.000Z",
+    "updatedAt": "2026-07-28T02:33:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-291e3450-925b-4305-8249-be380e5545e7"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "ecommerce",
+          "item": [
+            {
+              "name": "payment-links",
+              "item": [
+                {
+                  "name": "cancel",
+                  "item": [
+                    {
+                      "name": "Cancel Payment Link",
+                      "id": "dd9a654c-ba1f-4553-8c97-094e1073e33a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ecommerce/payment-links/cancel",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ecommerce",
+                            "payment-links",
+                            "cancel"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "95ab051b-fac3-4d8a-aae6-d5077b69e866",
+                          "name": "Link cancelled",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/ecommerce/payment-links/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "ecommerce",
+                                "payment-links",
+                                "cancel"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:33:45.000Z",
+                          "updatedAt": "2026-07-28T02:33:45.000Z",
+                          "uid": "35240-95ab051b-fac3-4d8a-aae6-d5077b69e866"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:33:45.000Z",
+                      "updatedAt": "2026-07-28T02:33:45.000Z",
+                      "uid": "35240-dd9a654c-ba1f-4553-8c97-094e1073e33a"
+                    }
+                  ],
+                  "id": "3da2e586-7e5c-49f9-bdaf-aaa64cdbba35",
+                  "createdAt": "2026-07-28T02:33:45.000Z",
+                  "updatedAt": "2026-07-28T02:33:45.000Z",
+                  "uid": "35240-3da2e586-7e5c-49f9-bdaf-aaa64cdbba35"
+                },
+                {
+                  "name": "Create Payment Link",
+                  "id": "23a832e4-da50-4fbf-8017-adf8e8cba4a5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"amount_cents\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"integrations\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"description\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"redirection_url\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/ecommerce/payment-links",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "ecommerce",
+                        "payment-links"
+                      ]
+                    },
+                    "description": "Create a sharable Quick Link (V2 Quick Link API) that customers can pay through a hosted URL."
+                  },
+                  "response": [
+                    {
+                      "id": "015e5371-f899-4ef9-a079-81d009c60650",
+                      "name": "Link created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"amount_cents\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"integrations\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"description\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"redirection_url\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ecommerce/payment-links",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ecommerce",
+                            "payment-links"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"client_url\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:33:45.000Z",
+                      "updatedAt": "2026-07-28T02:33:45.000Z",
+                      "uid": "35240-015e5371-f899-4ef9-a079-81d009c60650"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:33:45.000Z",
+                  "updatedAt": "2026-07-28T02:33:45.000Z",
+                  "uid": "35240-23a832e4-da50-4fbf-8017-adf8e8cba4a5"
+                }
+              ],
+              "id": "b85d80b8-1cda-423f-bfb3-f8120543df8f",
+              "createdAt": "2026-07-28T02:33:45.000Z",
+              "updatedAt": "2026-07-28T02:33:45.000Z",
+              "uid": "35240-b85d80b8-1cda-423f-bfb3-f8120543df8f"
+            }
+          ],
+          "id": "d4294edd-beb8-4dcc-aea1-0ed3ca36ce12",
+          "createdAt": "2026-07-28T02:33:45.000Z",
+          "updatedAt": "2026-07-28T02:33:45.000Z",
+          "uid": "35240-d4294edd-beb8-4dcc-aea1-0ed3ca36ce12"
+        }
+      ],
+      "id": "05dc91d3-f798-46a0-a687-46edc5113f08",
+      "createdAt": "2026-07-28T02:33:45.000Z",
+      "updatedAt": "2026-07-28T02:33:45.000Z",
+      "uid": "35240-05dc91d3-f798-46a0-a687-46edc5113f08"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "info": {
+    "_postman_id": "d676b7e6-04b3-4a5f-915e-638b66b9d90d",
+    "name": "Paymob Accept Legacy (v2) Accounts Checkout API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:33:32.000Z",
+    "updatedAt": "2026-07-28T02:33:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d676b7e6-04b3-4a5f-915e-638b66b9d90d"
+  },
+  "item": [
+    {
+      "name": "unifiedcheckout",
+      "item": [
+        {
+          "name": "Launch Unified Checkout",
+          "id": "5af80919-74cf-46cf-bcc2-0fb4e4fca831",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/unifiedcheckout/?publicKey=<string>&clientSecret=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "unifiedcheckout",
+                ""
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "publicKey",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "clientSecret",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Redirect the customer to the hosted Unified Checkout page for the given intention."
+          },
+          "response": [
+            {
+              "id": "059a1732-ef37-4db2-876e-f48dca928de4",
+              "name": "Redirect to checkout",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/unifiedcheckout/?publicKey=<string>&clientSecret=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "unifiedcheckout",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "publicKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "clientSecret",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Found",
+              "code": 302,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T02:33:33.000Z",
+              "updatedAt": "2026-07-28T02:33:33.000Z",
+              "uid": "35240-059a1732-ef37-4db2-876e-f48dca928de4"
+            }
+          ],
+          "createdAt": "2026-07-28T02:33:33.000Z",
+          "updatedAt": "2026-07-28T02:33:33.000Z",
+          "uid": "35240-5af80919-74cf-46cf-bcc2-0fb4e4fca831"
+        }
+      ],
+      "id": "4dd9aaca-05fc-4fe5-b33e-5c3f4e3f2264",
+      "createdAt": "2026-07-28T02:33:33.000Z",
+      "updatedAt": "2026-07-28T02:33:33.000Z",
+      "uid": "35240-4dd9aaca-05fc-4fe5-b33e-5c3f4e3f2264"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

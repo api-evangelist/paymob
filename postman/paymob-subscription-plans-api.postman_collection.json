@@ -1,0 +1,541 @@
+{
+  "info": {
+    "_postman_id": "a050b847-8c51-416d-a721-67e4f7bb5d98",
+    "name": "Paymob Accept Legacy (v2) Accounts Subscription Plans API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:16.000Z",
+    "updatedAt": "2026-07-28T02:34:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a050b847-8c51-416d-a721-67e4f7bb5d98"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "acceptance",
+          "item": [
+            {
+              "name": "subscription-plans",
+              "item": [
+                {
+                  "name": "{subscription_plan_id}",
+                  "item": [
+                    {
+                      "name": "suspend",
+                      "item": [
+                        {
+                          "name": "Suspend Subscription Plan",
+                          "id": "19130edf-bfdd-461a-97f8-7a2ec08ed27f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/subscription-plans/:subscription_plan_id/suspend",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "subscription-plans",
+                                ":subscription_plan_id",
+                                "suspend"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7698083a-05d0-44bc-b9a8-2342e4492400",
+                                  "key": "subscription_plan_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "f7d12bc9-4594-4997-ac14-236aafda99c8",
+                              "name": "Plan suspended",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/acceptance/subscription-plans/:subscription_plan_id/suspend",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "acceptance",
+                                    "subscription-plans",
+                                    ":subscription_plan_id",
+                                    "suspend"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "subscription_plan_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:34:17.000Z",
+                              "updatedAt": "2026-07-28T02:34:17.000Z",
+                              "uid": "35240-f7d12bc9-4594-4997-ac14-236aafda99c8"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:34:17.000Z",
+                          "updatedAt": "2026-07-28T02:34:17.000Z",
+                          "uid": "35240-19130edf-bfdd-461a-97f8-7a2ec08ed27f"
+                        }
+                      ],
+                      "id": "934ff3ee-985d-4c23-bd5c-74512b926bfb",
+                      "createdAt": "2026-07-28T02:34:17.000Z",
+                      "updatedAt": "2026-07-28T02:34:17.000Z",
+                      "uid": "35240-934ff3ee-985d-4c23-bd5c-74512b926bfb"
+                    },
+                    {
+                      "name": "resume",
+                      "item": [
+                        {
+                          "name": "Resume Subscription Plan",
+                          "id": "81d2744d-d64b-4a29-88b6-01402b9dee4f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/subscription-plans/:subscription_plan_id/resume",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "subscription-plans",
+                                ":subscription_plan_id",
+                                "resume"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "827e10c8-1589-43f1-9b3d-08eca5e89582",
+                                  "key": "subscription_plan_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "9a7b67b4-d690-4aa8-83cd-10c8be825e35",
+                              "name": "Plan resumed",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/acceptance/subscription-plans/:subscription_plan_id/resume",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "acceptance",
+                                    "subscription-plans",
+                                    ":subscription_plan_id",
+                                    "resume"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "subscription_plan_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T02:34:17.000Z",
+                              "updatedAt": "2026-07-28T02:34:17.000Z",
+                              "uid": "35240-9a7b67b4-d690-4aa8-83cd-10c8be825e35"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:34:17.000Z",
+                          "updatedAt": "2026-07-28T02:34:17.000Z",
+                          "uid": "35240-81d2744d-d64b-4a29-88b6-01402b9dee4f"
+                        }
+                      ],
+                      "id": "bd5d2477-c585-45f1-b658-9f8819fd9104",
+                      "createdAt": "2026-07-28T02:34:17.000Z",
+                      "updatedAt": "2026-07-28T02:34:17.000Z",
+                      "uid": "35240-bd5d2477-c585-45f1-b658-9f8819fd9104"
+                    },
+                    {
+                      "name": "Update Subscription Plan",
+                      "id": "86797863-3e86-4456-969b-66f61eb67f90",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"frequency\": \"week\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"installment\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/subscription-plans/:subscription_plan_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "subscription-plans",
+                            ":subscription_plan_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "cb016e8c-97b7-4b8e-a34c-1411bcb591d9",
+                              "key": "subscription_plan_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "da202c77-11f3-4fd7-ac8a-7f7e206a3c23",
+                          "name": "Plan updated",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"frequency\": \"week\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"installment\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/subscription-plans/:subscription_plan_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "subscription-plans",
+                                ":subscription_plan_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "subscription_plan_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frequency\": \"year\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"renew\",\n  \"id\": \"<string>\",\n  \"status\": \"active\",\n  \"created_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T02:34:17.000Z",
+                          "updatedAt": "2026-07-28T02:34:17.000Z",
+                          "uid": "35240-da202c77-11f3-4fd7-ac8a-7f7e206a3c23"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:34:17.000Z",
+                      "updatedAt": "2026-07-28T02:34:17.000Z",
+                      "uid": "35240-86797863-3e86-4456-969b-66f61eb67f90"
+                    }
+                  ],
+                  "id": "87540cee-3316-46ca-811c-0fbf481b32a1",
+                  "createdAt": "2026-07-28T02:34:17.000Z",
+                  "updatedAt": "2026-07-28T02:34:17.000Z",
+                  "uid": "35240-87540cee-3316-46ca-811c-0fbf481b32a1"
+                },
+                {
+                  "name": "Create Subscription Plan",
+                  "id": "0b173ada-36e6-441a-a791-9d2c91a66607",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"frequency\": \"week\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"installment\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/acceptance/subscription-plans",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "acceptance",
+                        "subscription-plans"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "d13ae8b4-a9e4-482e-bd06-a6b436fee1d3",
+                      "name": "Plan created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"frequency\": \"week\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"installment\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/subscription-plans",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "subscription-plans"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"frequency\": \"year\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"renew\",\n  \"id\": \"<string>\",\n  \"status\": \"active\",\n  \"created_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T02:34:17.000Z",
+                      "updatedAt": "2026-07-28T02:34:17.000Z",
+                      "uid": "35240-d13ae8b4-a9e4-482e-bd06-a6b436fee1d3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:34:17.000Z",
+                  "updatedAt": "2026-07-28T02:34:17.000Z",
+                  "uid": "35240-0b173ada-36e6-441a-a791-9d2c91a66607"
+                },
+                {
+                  "name": "List Subscription Plans",
+                  "id": "1a42e050-1cc0-4d5e-bdc7-aafeb5b4eca9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/acceptance/subscription-plans",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "acceptance",
+                        "subscription-plans"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2c6632e9-f947-4b33-8627-dc18f35dbb77",
+                      "name": "List of plans",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/subscription-plans",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "subscription-plans"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"frequency\": \"month\",\n    \"amount_cents\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"integration\": \"<integer>\",\n    \"reminder_days\": \"<integer>\",\n    \"retrial_days\": \"<integer>\",\n    \"number_of_deductions\": \"<integer>\",\n    \"plan_type\": \"installment\",\n    \"id\": \"<string>\",\n    \"status\": \"active\",\n    \"created_at\": \"<dateTime>\"\n  },\n  {\n    \"frequency\": \"year\",\n    \"amount_cents\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"integration\": \"<integer>\",\n    \"reminder_days\": \"<integer>\",\n    \"retrial_days\": \"<integer>\",\n    \"number_of_deductions\": \"<integer>\",\n    \"plan_type\": \"renew\",\n    \"id\": \"<string>\",\n    \"status\": \"suspended\",\n    \"created_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:34:17.000Z",
+                      "updatedAt": "2026-07-28T02:34:17.000Z",
+                      "uid": "35240-2c6632e9-f947-4b33-8627-dc18f35dbb77"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:34:17.000Z",
+                  "updatedAt": "2026-07-28T02:34:17.000Z",
+                  "uid": "35240-1a42e050-1cc0-4d5e-bdc7-aafeb5b4eca9"
+                }
+              ],
+              "id": "ce6f74ba-a801-4c2a-8f87-8a808d2bb39b",
+              "createdAt": "2026-07-28T02:34:17.000Z",
+              "updatedAt": "2026-07-28T02:34:17.000Z",
+              "uid": "35240-ce6f74ba-a801-4c2a-8f87-8a808d2bb39b"
+            }
+          ],
+          "id": "b488f440-bdec-4966-8f93-d1766d591568",
+          "createdAt": "2026-07-28T02:34:17.000Z",
+          "updatedAt": "2026-07-28T02:34:17.000Z",
+          "uid": "35240-b488f440-bdec-4966-8f93-d1766d591568"
+        }
+      ],
+      "id": "bf4dab44-3e87-435d-afcc-86923ac82279",
+      "createdAt": "2026-07-28T02:34:17.000Z",
+      "updatedAt": "2026-07-28T02:34:17.000Z",
+      "uid": "35240-bf4dab44-3e87-435d-afcc-86923ac82279"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}

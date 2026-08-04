@@ -1,0 +1,290 @@
+{
+  "info": {
+    "_postman_id": "fa610356-9b72-48a0-9130-4f5c16f4534a",
+    "name": "Paymob Accept Legacy (v2) Accounts Transactions API",
+    "description": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:34:18.000Z",
+    "updatedAt": "2026-07-28T02:34:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fa610356-9b72-48a0-9130-4f5c16f4534a"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "acceptance",
+          "item": [
+            {
+              "name": "transactions",
+              "item": [
+                {
+                  "name": "{transaction_id}",
+                  "item": [
+                    {
+                      "name": "Retrieve Transaction By ID",
+                      "id": "ef9bf7e7-879a-4e90-ad95-0266a5c9228b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/acceptance/transactions/:transaction_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "acceptance",
+                            "transactions",
+                            ":transaction_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c97ff108-1dbd-4b05-a2af-e7fb82c9006e",
+                              "key": "transaction_id",
+                              "value": "<integer>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "324a4709-a828-4c76-8fd1-627e5b11ad51",
+                          "name": "Transaction details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/acceptance/transactions/:transaction_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "acceptance",
+                                "transactions",
+                                ":transaction_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "transaction_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"pending\": \"<boolean>\",\n  \"amount_cents\": \"<integer>\",\n  \"success\": \"<boolean>\",\n  \"is_auth\": \"<boolean>\",\n  \"is_capture\": \"<boolean>\",\n  \"is_void\": \"<boolean>\",\n  \"is_refund\": \"<boolean>\",\n  \"is_3d_secure\": \"<boolean>\",\n  \"integration_id\": \"<integer>\",\n  \"order\": {\n    \"id\": \"<integer>\",\n    \"amount_cents\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"merchant_order_id\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"items\": [\n      {\n        \"est__3\": \"magna est reprehenderit irure\"\n      },\n      {\n        \"Ut_e0\": -35494269.318386704\n      }\n    ]\n  },\n  \"currency\": \"<string>\",\n  \"source_data\": {\n    \"type\": \"<string>\",\n    \"sub_type\": \"<string>\",\n    \"pan\": \"<string>\"\n  },\n  \"merchant_commission\": \"<integer>\",\n  \"installment\": {\n    \"nisi__9\": true,\n    \"nisiba0\": true,\n    \"aliquip_2b_\": true\n  },\n  \"created_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T02:34:19.000Z",
+                          "updatedAt": "2026-07-28T02:34:19.000Z",
+                          "uid": "35240-324a4709-a828-4c76-8fd1-627e5b11ad51"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:34:19.000Z",
+                      "updatedAt": "2026-07-28T02:34:19.000Z",
+                      "uid": "35240-ef9bf7e7-879a-4e90-ad95-0266a5c9228b"
+                    }
+                  ],
+                  "id": "a160bfe3-1229-4a9f-8675-7044e24c0b47",
+                  "createdAt": "2026-07-28T02:34:19.000Z",
+                  "updatedAt": "2026-07-28T02:34:19.000Z",
+                  "uid": "35240-a160bfe3-1229-4a9f-8675-7044e24c0b47"
+                }
+              ],
+              "id": "81b85047-0198-431a-86df-8177bb4683de",
+              "createdAt": "2026-07-28T02:34:19.000Z",
+              "updatedAt": "2026-07-28T02:34:19.000Z",
+              "uid": "35240-81b85047-0198-431a-86df-8177bb4683de"
+            }
+          ],
+          "id": "749d11c0-6ddf-47d8-bb27-1c925ed66c16",
+          "createdAt": "2026-07-28T02:34:19.000Z",
+          "updatedAt": "2026-07-28T02:34:19.000Z",
+          "uid": "35240-749d11c0-6ddf-47d8-bb27-1c925ed66c16"
+        },
+        {
+          "name": "ecommerce",
+          "item": [
+            {
+              "name": "orders",
+              "item": [
+                {
+                  "name": "transaction_inquiry",
+                  "item": [
+                    {
+                      "name": "Transaction Inquiry By Merchant Order ID",
+                      "id": "64af42bc-30d1-424f-a3a7-b45708ba9b21",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"merchant_order_id\": \"<string>\",\n  \"order_id\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/ecommerce/orders/transaction_inquiry",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "ecommerce",
+                            "orders",
+                            "transaction_inquiry"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9aaf3e4b-a523-425a-a1c8-40b79b5b564c",
+                          "name": "Transaction details",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"merchant_order_id\": \"<string>\",\n  \"order_id\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/ecommerce/orders/transaction_inquiry",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "ecommerce",
+                                "orders",
+                                "transaction_inquiry"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"pending\": \"<boolean>\",\n  \"amount_cents\": \"<integer>\",\n  \"success\": \"<boolean>\",\n  \"is_auth\": \"<boolean>\",\n  \"is_capture\": \"<boolean>\",\n  \"is_void\": \"<boolean>\",\n  \"is_refund\": \"<boolean>\",\n  \"is_3d_secure\": \"<boolean>\",\n  \"integration_id\": \"<integer>\",\n  \"order\": {\n    \"id\": \"<integer>\",\n    \"amount_cents\": \"<integer>\",\n    \"currency\": \"<string>\",\n    \"merchant_order_id\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"items\": [\n      {\n        \"est__3\": \"magna est reprehenderit irure\"\n      },\n      {\n        \"Ut_e0\": -35494269.318386704\n      }\n    ]\n  },\n  \"currency\": \"<string>\",\n  \"source_data\": {\n    \"type\": \"<string>\",\n    \"sub_type\": \"<string>\",\n    \"pan\": \"<string>\"\n  },\n  \"merchant_commission\": \"<integer>\",\n  \"installment\": {\n    \"nisi__9\": true,\n    \"nisiba0\": true,\n    \"aliquip_2b_\": true\n  },\n  \"created_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T02:34:19.000Z",
+                          "updatedAt": "2026-07-28T02:34:19.000Z",
+                          "uid": "35240-9aaf3e4b-a523-425a-a1c8-40b79b5b564c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:34:19.000Z",
+                      "updatedAt": "2026-07-28T02:34:19.000Z",
+                      "uid": "35240-64af42bc-30d1-424f-a3a7-b45708ba9b21"
+                    }
+                  ],
+                  "id": "79131781-00fd-409f-8862-fcd448ff4d87",
+                  "createdAt": "2026-07-28T02:34:19.000Z",
+                  "updatedAt": "2026-07-28T02:34:19.000Z",
+                  "uid": "35240-79131781-00fd-409f-8862-fcd448ff4d87"
+                }
+              ],
+              "id": "ea632552-d198-41bb-92bc-720b70ae82e0",
+              "createdAt": "2026-07-28T02:34:19.000Z",
+              "updatedAt": "2026-07-28T02:34:19.000Z",
+              "uid": "35240-ea632552-d198-41bb-92bc-720b70ae82e0"
+            }
+          ],
+          "id": "8e7f01ec-df9f-4354-b06b-81d7fc0b660b",
+          "createdAt": "2026-07-28T02:34:19.000Z",
+          "updatedAt": "2026-07-28T02:34:19.000Z",
+          "uid": "35240-8e7f01ec-df9f-4354-b06b-81d7fc0b660b"
+        }
+      ],
+      "id": "71bd9638-bfd9-4ef4-b779-fde1c661d8c2",
+      "createdAt": "2026-07-28T02:34:19.000Z",
+      "updatedAt": "2026-07-28T02:34:19.000Z",
+      "uid": "35240-71bd9638-bfd9-4ef4-b779-fde1c661d8c2"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://accept.paymob.com"
+    }
+  ]
+}
