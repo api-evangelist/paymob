@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "d14da60a-a8e7-41fc-9260-e4e1ef54cd88",
+      "name": "Payment Keys",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6002e51a-a1a8-4110-aeaf-2b1a4fb52c79",
+          "name": "Request Payment Key",
+          "request": {
+            "name": "Request Payment Key",
+            "description": {
+              "content": "Request a payment_key for an order. The payment_key is bound to a single integration_id and used by the iframe or the headless pay endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "payment_keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"auth_token\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"order_id\": \"<integer>\",\n  \"integration_id\": \"<integer>\",\n  \"billing_data\": {\n    \"key_0\": 5468,\n    \"key_1\": 274.31302040687444\n  },\n  \"currency\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"lock_order_when_paid\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf9388aa-0973-46fe-bb3c-a0660d38124b",
+              "name": "Payment key issued",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "payment_keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"auth_token\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"order_id\": \"<integer>\",\n  \"integration_id\": \"<integer>\",\n  \"billing_data\": {\n    \"key_0\": \"string\"\n  },\n  \"currency\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"lock_order_when_paid\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://accept.paymob.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "138405cb-04b7-41de-a06d-86a200b2fb9b",
+    "name": "Paymob Accept Legacy (v2) Accounts Payment Keys API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+      "type": "text/plain"
+    }
+  }
+}

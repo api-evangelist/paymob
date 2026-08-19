@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Accept Legacy (v2) Accounts Capture API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Capture",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Capture Authorized Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/capture",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Capture Authorized Transaction"
+        },
+        {
+          "info": {
+            "name": "Void Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/void_refund/void",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Void Transaction"
+        },
+        {
+          "info": {
+            "name": "Refund Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/void_refund/refund",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Refund Transaction"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

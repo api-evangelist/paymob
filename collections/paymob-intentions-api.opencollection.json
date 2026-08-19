@@ -1,15 +1,13 @@
 {
   "opencollection": "1.0.0",
   "info": {
-    "name": "Paymob Intentions API",
-    "version": "1.0"
+    "name": "Paymob Accept Legacy (v2) Accounts Intentions API",
+    "version": "2.0"
   },
   "request": {
     "auth": {
-      "type": "apikey",
-      "key": "Authorization",
-      "value": "{{Authorization}}",
-      "placement": "header"
+      "type": "bearer",
+      "token": "{{bearerToken}}"
     }
   },
   "items": [
@@ -96,37 +94,6 @@
             }
           },
           "docs": "Confirm an intention from a Pixel or headless integration. Submits the selected payment method and the supporting payload (card, wallet, BNPL, Apple Pay token, etc.) to complete the payment."
-        }
-      ]
-    },
-    {
-      "info": {
-        "name": "Checkout",
-        "type": "folder"
-      },
-      "items": [
-        {
-          "info": {
-            "name": "Launch Unified Checkout",
-            "type": "http"
-          },
-          "http": {
-            "method": "GET",
-            "url": "https://accept.paymob.com/unifiedcheckout/",
-            "params": [
-              {
-                "name": "publicKey",
-                "value": "",
-                "type": "query"
-              },
-              {
-                "name": "clientSecret",
-                "value": "",
-                "type": "query"
-              }
-            ]
-          },
-          "docs": "Redirect the customer to the hosted Unified Checkout page for the given intention."
         }
       ]
     }

@@ -1,0 +1,251 @@
+{
+  "item": [
+    {
+      "id": "34367a3f-1d8e-4f00-a925-f166e966fd3d",
+      "name": "Saved Card Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3fdbf69b-0b20-4adb-96e9-6c2d57848ddb",
+          "name": "Customer-Initiated Transaction",
+          "request": {
+            "name": "Customer-Initiated Transaction",
+            "description": {
+              "content": "Charge a saved card with the cardholder present (CIT).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "payments",
+                "cit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment_token\": \"<string>\",\n  \"source\": {\n    \"identifier\": \"<string>\",\n    \"subtype\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8df6f052-0069-45c3-85bb-da736acd1725",
+              "name": "Charge result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "payments",
+                    "cit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_token\": \"<string>\",\n  \"source\": {\n    \"identifier\": \"<string>\",\n    \"subtype\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 922,\n  \"success\": true,\n  \"amount_cents\": 5361,\n  \"currency\": \"string\",\n  \"is_3d_secure\": true,\n  \"source_data\": {\n    \"type\": \"string\",\n    \"sub_type\": \"string\",\n    \"pan\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "81533e5e-d795-4fea-898a-69074611bcc3",
+          "name": "Merchant-Initiated Transaction",
+          "request": {
+            "name": "Merchant-Initiated Transaction",
+            "description": {
+              "content": "Charge a saved card without the cardholder present (MIT).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "payments",
+                "mit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment_token\": \"<string>\",\n  \"source\": {\n    \"identifier\": \"<string>\",\n    \"subtype\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5dffaa81-a26f-40e2-aa1a-d5dce7368f6d",
+              "name": "Charge result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "payments",
+                    "mit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"payment_token\": \"<string>\",\n  \"source\": {\n    \"identifier\": \"<string>\",\n    \"subtype\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 922,\n  \"success\": true,\n  \"amount_cents\": 5361,\n  \"currency\": \"string\",\n  \"is_3d_secure\": true,\n  \"source_data\": {\n    \"type\": \"string\",\n    \"sub_type\": \"string\",\n    \"pan\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://accept.paymob.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6f41a3fe-f50d-4607-8567-7e0a2debe793",
+    "name": "Paymob Accept Legacy (v2) Accounts Saved Card Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+      "type": "text/plain"
+    }
+  }
+}

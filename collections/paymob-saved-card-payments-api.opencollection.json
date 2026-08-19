@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Accept Legacy (v2) Accounts Saved Card Payments API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Saved Card Payments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Customer-Initiated Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/payments/cit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Charge a saved card with the cardholder present (CIT)."
+        },
+        {
+          "info": {
+            "name": "Merchant-Initiated Transaction",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/payments/mit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Charge a saved card without the cardholder present (MIT)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

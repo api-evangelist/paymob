@@ -1,0 +1,516 @@
+{
+  "item": [
+    {
+      "id": "5b99d746-416b-4422-8ae4-213960251275",
+      "name": "Subscription Plans",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "656fb589-2fdb-4b40-b177-a9dfe15f4551",
+          "name": "Create Subscription Plan",
+          "request": {
+            "name": "Create Subscription Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "subscription-plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"frequency\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f086946-c880-49d2-9498-dfd9dd8ce0d3",
+              "name": "Plan created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "subscription-plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"frequency\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"frequency\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"<string>\",\n  \"id\": \"string\",\n  \"status\": \"suspended\",\n  \"created_at\": \"1962-01-20T09:04:23.604Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4993dd63-8358-470c-a363-0e61bd0efce4",
+          "name": "List Subscription Plans",
+          "request": {
+            "name": "List Subscription Plans",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "subscription-plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9bdfe9c3-e9f9-49da-b23d-eedd77f1fb32",
+              "name": "List of plans",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "subscription-plans"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"frequency\": \"<string>\",\n    \"amount_cents\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"integration\": \"<integer>\",\n    \"reminder_days\": \"<integer>\",\n    \"retrial_days\": \"<integer>\",\n    \"number_of_deductions\": \"<integer>\",\n    \"plan_type\": \"<string>\",\n    \"id\": \"string\",\n    \"status\": \"active\",\n    \"created_at\": \"1960-02-16T13:52:48.741Z\"\n  },\n  {\n    \"frequency\": \"<string>\",\n    \"amount_cents\": \"<integer>\",\n    \"name\": \"<string>\",\n    \"integration\": \"<integer>\",\n    \"reminder_days\": \"<integer>\",\n    \"retrial_days\": \"<integer>\",\n    \"number_of_deductions\": \"<integer>\",\n    \"plan_type\": \"<string>\",\n    \"id\": \"string\",\n    \"status\": \"suspended\",\n    \"created_at\": \"2009-02-10T02:02:38.636Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "569e5fcf-4810-4f9d-b387-4c0e46c97ab1",
+          "name": "Update Subscription Plan",
+          "request": {
+            "name": "Update Subscription Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "subscription-plans",
+                ":subscription_plan_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscription_plan_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"frequency\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "367ac70c-b9f4-4b73-875b-fafd717bf0ee",
+              "name": "Plan updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "subscription-plans",
+                    ":subscription_plan_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_plan_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"frequency\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"frequency\": \"<string>\",\n  \"amount_cents\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"integration\": \"<integer>\",\n  \"reminder_days\": \"<integer>\",\n  \"retrial_days\": \"<integer>\",\n  \"number_of_deductions\": \"<integer>\",\n  \"plan_type\": \"<string>\",\n  \"id\": \"string\",\n  \"status\": \"suspended\",\n  \"created_at\": \"1962-01-20T09:04:23.604Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d68e92db-2cfa-4e84-80c7-45145d63aea6",
+          "name": "Suspend Subscription Plan",
+          "request": {
+            "name": "Suspend Subscription Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "subscription-plans",
+                ":subscription_plan_id",
+                "suspend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscription_plan_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "992627c8-0385-4334-961d-98c0c313f361",
+              "name": "Plan suspended",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "subscription-plans",
+                    ":subscription_plan_id",
+                    "suspend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_plan_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6a05a59-a6ed-4963-88c9-a1e5b99f19d9",
+          "name": "Resume Subscription Plan",
+          "request": {
+            "name": "Resume Subscription Plan",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "subscription-plans",
+                ":subscription_plan_id",
+                "resume"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "subscription_plan_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d2d5f19-d3b7-486d-9ffc-d81c5c8eb39a",
+              "name": "Plan resumed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "subscription-plans",
+                    ":subscription_plan_id",
+                    "resume"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "subscription_plan_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://accept.paymob.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c1522b0a-0972-4be5-83f7-2b36059ba0f5",
+    "name": "Paymob Accept Legacy (v2) Accounts Subscription Plans API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+      "type": "text/plain"
+    }
+  }
+}

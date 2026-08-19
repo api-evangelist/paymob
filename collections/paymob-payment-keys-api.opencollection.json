@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Accept Legacy (v2) Accounts Payment Keys API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payment Keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Request Payment Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/acceptance/payment_keys",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a payment_key for an order. The payment_key is bound to a single integration_id and used by the iframe or the headless pay endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "87fd8f66-64ce-4a5c-b268-503a93122d88",
+      "id": "c4a13553-ebd2-4cc3-b677-0ac498da8201",
       "name": "Intentions",
       "description": {
         "content": "",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "c46090d4-3aa8-488c-a7f6-c760dee85f3f",
+          "id": "1b2588be-03c7-430e-b1a2-d4d0369e9794",
           "name": "Create Intention",
           "request": {
             "name": "Create Intention",
@@ -43,7 +43,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 2291,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": 2458.028183825073\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+              "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 6564.880688436887,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": 393.7549421267916\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -53,7 +53,7 @@
           },
           "response": [
             {
-              "id": "bf25e5f0-6d9a-4cb6-a4f4-88d574d10991",
+              "id": "496683b7-01a4-4508-b610-2b9561f74efd",
               "name": "Intention created",
               "originalRequest": {
                 "url": {
@@ -71,11 +71,11 @@
                 "header": [
                   {
                     "description": {
-                      "content": "Added as a part of security scheme: apikey",
+                      "content": "Added as a part of security scheme: bearer",
                       "type": "text/plain"
                     },
                     "key": "Authorization",
-                    "value": "<API Key>"
+                    "value": "Bearer <token>"
                   },
                   {
                     "key": "Accept",
@@ -85,7 +85,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 9817,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 3378.6502266727134\n    }\n  },\n  \"extras\": {\n    \"key_0\": 2394.2137537121853,\n    \"key_1\": 7582.186454764297\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -101,12 +101,12 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"client_secret\": \"string\",\n  \"intention_order_id\": 8157,\n  \"amount\": 3406,\n  \"currency\": \"string\",\n  \"status\": \"voided\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": 4575,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"integration_id\": 7725,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": true\n    }\n  },\n  \"created\": \"2019-04-08T00:13:21.770Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"client_secret\": \"string\",\n  \"intention_order_id\": 4133,\n  \"amount\": 6475,\n  \"currency\": \"string\",\n  \"status\": \"voided\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": 7487,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"integration_id\": 6367,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": \"string\",\n      \"key_1\": 4929,\n      \"key_2\": true,\n      \"key_3\": 9323\n    }\n  },\n  \"created\": \"1978-07-21T02:48:08.201Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "f4cbff19-c7ac-475b-8fea-9cb568bb3cf7",
+              "id": "aaf12334-f637-4565-9851-5df39987b0a5",
               "name": "Validation error",
               "originalRequest": {
                 "url": {
@@ -124,11 +124,11 @@
                 "header": [
                   {
                     "description": {
-                      "content": "Added as a part of security scheme: apikey",
+                      "content": "Added as a part of security scheme: bearer",
                       "type": "text/plain"
                     },
                     "key": "Authorization",
-                    "value": "<API Key>"
+                    "value": "Bearer <token>"
                   },
                   {
                     "key": "Accept",
@@ -138,7 +138,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 9817,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 3378.6502266727134\n    }\n  },\n  \"extras\": {\n    \"key_0\": 2394.2137537121853,\n    \"key_1\": 7582.186454764297\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -159,7 +159,7 @@
               "_postman_previewlanguage": "json"
             },
             {
-              "id": "80bec1e6-0ede-4199-b5f1-460e47082e24",
+              "id": "0620bf7a-93f9-4ce5-aaa8-84f7fa4891de",
               "name": "Missing or invalid credentials",
               "originalRequest": {
                 "url": {
@@ -177,11 +177,11 @@
                 "header": [
                   {
                     "description": {
-                      "content": "Added as a part of security scheme: apikey",
+                      "content": "Added as a part of security scheme: bearer",
                       "type": "text/plain"
                     },
                     "key": "Authorization",
-                    "value": "<API Key>"
+                    "value": "Bearer <token>"
                   },
                   {
                     "key": "Accept",
@@ -191,7 +191,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 9817,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 3378.6502266727134\n    }\n  },\n  \"extras\": {\n    \"key_0\": 2394.2137537121853,\n    \"key_1\": 7582.186454764297\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -218,7 +218,7 @@
           }
         },
         {
-          "id": "b108b946-2fd8-495c-8d95-3f328f5f279c",
+          "id": "3ee8d1ce-e786-4788-9334-d30375811f74",
           "name": "Update Intention",
           "request": {
             "name": "Update Intention",
@@ -260,7 +260,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": \"string\",\n      \"key_1\": false,\n      \"key_2\": 1744\n    }\n  },\n  \"extras\": {\n    \"key_0\": 4483\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+              "raw": "{\n  \"amount\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 4673.49757588862\n    }\n  },\n  \"extras\": {\n    \"key_0\": false,\n    \"key_1\": \"string\",\n    \"key_2\": true,\n    \"key_3\": \"string\"\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -270,7 +270,7 @@
           },
           "response": [
             {
-              "id": "df00a178-7790-4808-85d2-724d7923253c",
+              "id": "ead3dc69-f751-46c0-9185-a1da90585e82",
               "name": "Intention updated",
               "originalRequest": {
                 "url": {
@@ -296,11 +296,11 @@
                 "header": [
                   {
                     "description": {
-                      "content": "Added as a part of security scheme: apikey",
+                      "content": "Added as a part of security scheme: bearer",
                       "type": "text/plain"
                     },
                     "key": "Authorization",
-                    "value": "<API Key>"
+                    "value": "Bearer <token>"
                   },
                   {
                     "key": "Accept",
@@ -310,7 +310,7 @@
                 "method": "PUT",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 9817,\n      \"key_1\": true\n    }\n  },\n  \"extras\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
+                  "raw": "{\n  \"amount\": 25000,\n  \"currency\": \"EGP\",\n  \"payment_methods\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 3378.6502266727134\n    }\n  },\n  \"extras\": {\n    \"key_0\": 2394.2137537121853,\n    \"key_1\": 7582.186454764297\n  },\n  \"special_reference\": \"<string>\",\n  \"expiration\": \"<integer>\",\n  \"notification_url\": \"<uri>\",\n  \"redirection_url\": \"<uri>\"\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -326,7 +326,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"client_secret\": \"string\",\n  \"intention_order_id\": 4959,\n  \"amount\": 5177,\n  \"currency\": \"string\",\n  \"status\": \"paid\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": 4550,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"integration_id\": 1708,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  },\n  \"created\": \"2015-01-23T03:02:27.058Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"client_secret\": \"string\",\n  \"intention_order_id\": 4464,\n  \"amount\": 1598,\n  \"currency\": \"string\",\n  \"status\": \"paid\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": 9150,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"integration_id\": 8310,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 8746.517807354021,\n      \"key_1\": 220.47556519409594,\n      \"key_2\": false\n    }\n  },\n  \"created\": \"1949-08-03T20:27:57.775Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -337,7 +337,7 @@
           }
         },
         {
-          "id": "7a537f99-fc34-4b9e-83e1-93c185871bd3",
+          "id": "148d7c6c-7137-4a72-82ff-ce13c855aa19",
           "name": "Retrieve Intention",
           "request": {
             "name": "Retrieve Intention",
@@ -386,7 +386,7 @@
           },
           "response": [
             {
-              "id": "d4745777-b116-480e-8fad-d849e8cb97f1",
+              "id": "e59ba263-001a-42ce-b51d-5fd0fee2512c",
               "name": "Intention details",
               "originalRequest": {
                 "url": {
@@ -422,11 +422,11 @@
                 "header": [
                   {
                     "description": {
-                      "content": "Added as a part of security scheme: apikey",
+                      "content": "Added as a part of security scheme: bearer",
                       "type": "text/plain"
                     },
                     "key": "Authorization",
-                    "value": "<API Key>"
+                    "value": "Bearer <token>"
                   },
                   {
                     "key": "Accept",
@@ -444,7 +444,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": \"string\",\n  \"client_secret\": \"string\",\n  \"intention_order_id\": 4959,\n  \"amount\": 5177,\n  \"currency\": \"string\",\n  \"status\": \"paid\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": 4550,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"integration_id\": 1708,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    }\n  },\n  \"created\": \"2015-01-23T03:02:27.058Z\"\n}",
+              "body": "{\n  \"id\": \"string\",\n  \"client_secret\": \"string\",\n  \"intention_order_id\": 4464,\n  \"amount\": 1598,\n  \"currency\": \"string\",\n  \"status\": \"paid\",\n  \"items\": [\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amount\": \"<integer>\",\n      \"description\": \"<string>\",\n      \"quantity\": 1,\n      \"image\": \"<uri>\"\n    }\n  ],\n  \"payment_methods\": [\n    {\n      \"integration_id\": 9150,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    },\n    {\n      \"integration_id\": 8310,\n      \"name\": \"string\",\n      \"method_type\": \"string\",\n      \"currency\": \"string\"\n    }\n  ],\n  \"billing_data\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"phone_number\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"state\": \"<string>\",\n    \"postal_code\": \"<string>\",\n    \"street\": \"<string>\",\n    \"building\": \"<string>\",\n    \"floor\": \"<string>\",\n    \"apartment\": \"<string>\"\n  },\n  \"customer\": {\n    \"first_name\": \"<string>\",\n    \"last_name\": \"<string>\",\n    \"email\": \"<email>\",\n    \"extras\": {\n      \"key_0\": 8746.517807354021,\n      \"key_1\": 220.47556519409594,\n      \"key_2\": false\n    }\n  },\n  \"created\": \"1949-08-03T20:27:57.775Z\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -455,7 +455,7 @@
           }
         },
         {
-          "id": "3e09555f-3686-4cab-8c10-e3f6e83a6f65",
+          "id": "096508a3-206b-4f70-a297-215050b2926f",
           "name": "Confirm Payment Intention",
           "request": {
             "name": "Confirm Payment Intention",
@@ -490,7 +490,7 @@
             "auth": null,
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"client_secret\": \"<string>\",\n  \"payment_method\": \"<string>\",\n  \"payload\": {\n    \"key_0\": 6203,\n    \"key_1\": 3154,\n    \"key_2\": 9550.525087023896\n  }\n}",
+              "raw": "{\n  \"client_secret\": \"<string>\",\n  \"payment_method\": \"<string>\",\n  \"payload\": {\n    \"key_0\": true,\n    \"key_1\": 7957,\n    \"key_2\": 1960\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -500,7 +500,7 @@
           },
           "response": [
             {
-              "id": "504cb0b9-db29-4b46-b89b-8de5db21d22c",
+              "id": "2aa7d40c-698b-4ab3-9c09-cff8ba8c7fc1",
               "name": "Confirmation result",
               "originalRequest": {
                 "url": {
@@ -519,11 +519,11 @@
                 "header": [
                   {
                     "description": {
-                      "content": "Added as a part of security scheme: apikey",
+                      "content": "Added as a part of security scheme: bearer",
                       "type": "text/plain"
                     },
                     "key": "Authorization",
-                    "value": "<API Key>"
+                    "value": "Bearer <token>"
                   },
                   {
                     "key": "Accept",
@@ -533,7 +533,7 @@
                 "method": "POST",
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n  \"client_secret\": \"<string>\",\n  \"payment_method\": \"<string>\",\n  \"payload\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  }\n}",
+                  "raw": "{\n  \"client_secret\": \"<string>\",\n  \"payment_method\": \"<string>\",\n  \"payload\": {\n    \"key_0\": 2476,\n    \"key_1\": 8631,\n    \"key_2\": \"string\"\n  }\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -549,112 +549,9 @@
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"id\": 338,\n  \"pending\": false,\n  \"amount_cents\": 7406,\n  \"success\": true,\n  \"is_auth\": false,\n  \"is_capture\": false,\n  \"is_void\": true,\n  \"is_refund\": true,\n  \"order\": {\n    \"key_0\": false,\n    \"key_1\": 8337.995958612435\n  },\n  \"currency\": \"string\",\n  \"source_data\": {\n    \"key_0\": 1145.1496931579775,\n    \"key_1\": true\n  },\n  \"integration_id\": 7921\n}",
+              "body": "{\n  \"id\": 1028,\n  \"pending\": false,\n  \"amount_cents\": 7095,\n  \"success\": false,\n  \"is_auth\": false,\n  \"is_capture\": true,\n  \"is_void\": true,\n  \"is_refund\": false,\n  \"order\": {\n    \"key_0\": 8009,\n    \"key_1\": \"string\"\n  },\n  \"currency\": \"string\",\n  \"source_data\": {\n    \"key_0\": false\n  },\n  \"integration_id\": 7953\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        }
-      ],
-      "event": []
-    },
-    {
-      "id": "1d7ddb0d-e9fe-428f-a6b0-a96ed1c48c32",
-      "name": "Checkout",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
-      "item": [
-        {
-          "id": "ebe13447-11f9-435d-bbbc-33a59c71af8e",
-          "name": "Launch Unified Checkout",
-          "request": {
-            "name": "Launch Unified Checkout",
-            "description": {
-              "content": "Redirect the customer to the hosted Unified Checkout page for the given intention.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "unifiedcheckout",
-                ""
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "publicKey",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "clientSecret",
-                  "value": "<string>",
-                  "description": "(Required) "
-                }
-              ],
-              "variable": []
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b1332b7b-3ba5-46a9-98ab-f7ddf760e6b0",
-              "name": "Redirect to checkout",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "unifiedcheckout",
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "publicKey",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "clientSecret",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Found",
-              "code": 302,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
             }
           ],
           "event": [],
@@ -675,28 +572,20 @@
     }
   ],
   "auth": {
-    "type": "apikey",
-    "apikey": [
+    "type": "bearer",
+    "bearer": [
       {
-        "key": "key",
-        "value": "Authorization"
-      },
-      {
-        "key": "value",
-        "value": "{{apiKey}}"
-      },
-      {
-        "key": "in",
-        "value": "header"
+        "key": "token",
+        "value": "{{bearerToken}}"
       }
     ]
   },
   "info": {
-    "_postman_id": "82528b94-e11a-4e67-a3a0-785a10618970",
-    "name": "Paymob Intentions API",
+    "_postman_id": "66efa093-3006-43ab-bded-918f1513ba41",
+    "name": "Paymob Accept Legacy (v2) Accounts Intentions API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "The Paymob Intentions API is the recommended (v1) entry point for the Accept platform. An intention is created from the merchant backend with the secret API key and returns a client_secret used to redirect the customer to the Unified Checkout, the Pixel component, or any other Accept payment experience. Intentions support multiple payment methods (cards, mobile wallets, Apple Pay, Google Pay, BNPL providers, STC Pay, EasyPaisa, JazzCash, Oman Net, etc.) selected by integration_id and can be updated or retrieved before payment completion.\n\nContact Support:\n Name: Paymob Developers",
+      "content": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
       "type": "text/plain"
     }
   }

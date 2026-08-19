@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Accept Legacy (v2) Accounts Topup API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Topup",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Topup Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/disburse/api/v1/topup/request/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Initiate a topup via bank transfer or Accept balance transfer."
+        },
+        {
+          "info": {
+            "name": "Topup Inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/disburse/api/v1/topup/inquire/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Topup Inquiry"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

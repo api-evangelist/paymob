@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Accept Legacy (v2) Accounts Transactions API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve Transaction By ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/api/acceptance/transactions/:transaction_id",
+            "params": [
+              {
+                "name": "transaction_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve Transaction By ID"
+        },
+        {
+          "info": {
+            "name": "Transaction Inquiry By Merchant Order ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/api/ecommerce/orders/transaction_inquiry",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transaction Inquiry By Merchant Order ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

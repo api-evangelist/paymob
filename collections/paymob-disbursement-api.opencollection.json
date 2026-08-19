@@ -1,0 +1,84 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Accept Legacy (v2) Accounts Disbursement API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Disbursement",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Instant Cashin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/disburse/api/v1/disburse/instant_cashin/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disburse e-money to anonymous recipients. Issuer choices include vodafone, etisalat, orange, bank_wallet, bank_card, and instant_bank."
+        },
+        {
+          "info": {
+            "name": "Bulk Disbursement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/disburse/api/v1/disburse/bulk_transaction/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Disbursement"
+        },
+        {
+          "info": {
+            "name": "Bulk Transaction Inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/disburse/api/v1/bulk_transaction/inquire/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Transaction Inquiry"
+        },
+        {
+          "info": {
+            "name": "Bulk Transaction Inquiry By Reference",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://accept.paymob.com/disburse/api/v1/bulk_transaction/inquire_by_reference/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk Transaction Inquiry By Reference"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

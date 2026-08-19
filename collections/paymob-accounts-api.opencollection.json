@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Accept Legacy (v2) Accounts API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Budget Inquiry",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/disburse/api/v1/budget/inquire/"
+          },
+          "docs": "Inquire current balance/budget available to the merchant for payouts."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

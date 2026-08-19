@@ -1,0 +1,146 @@
+{
+  "item": [
+    {
+      "id": "e7cbb487-2c32-4c7b-a649-acccd60690dd",
+      "name": "Payments",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c631f9f7-6ae6-4ee5-bccd-0a0895c83524",
+          "name": "Pay With Payment Method",
+          "request": {
+            "name": "Pay With Payment Method",
+            "description": {
+              "content": "Headless payment endpoint (MOTO / saved card / merchant-initiated transactions). Submit a payment_key plus source object describing the method (card, saved token, wallet, kiosk).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "payments",
+                "pay"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"source\": {\n    \"key_0\": 4603\n  },\n  \"payment_token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ec8382a-0b5c-4a31-88b4-8d3c0f5b8b1b",
+              "name": "Payment processed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "payments",
+                    "pay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source\": {\n    \"key_0\": 3825\n  },\n  \"payment_token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2125,\n  \"pending\": true,\n  \"amount_cents\": 8113,\n  \"success\": true,\n  \"is_auth\": true,\n  \"is_capture\": true,\n  \"is_void\": false,\n  \"is_refund\": false,\n  \"is_3d_secure\": false,\n  \"integration_id\": 5767,\n  \"order\": {\n    \"id\": 3062,\n    \"amount_cents\": 6118,\n    \"currency\": \"string\",\n    \"merchant_order_id\": \"string\",\n    \"created_at\": \"2004-08-30T13:14:58.597Z\",\n    \"items\": [\n      {\n        \"key_0\": 3108,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": 4957,\n        \"key_1\": \"string\"\n      }\n    ]\n  },\n  \"currency\": \"string\",\n  \"source_data\": {\n    \"type\": \"string\",\n    \"sub_type\": \"string\",\n    \"pan\": \"string\"\n  },\n  \"merchant_commission\": 9284,\n  \"installment\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"created_at\": \"2010-10-30T18:41:06.670Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://accept.paymob.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1f05efa8-9673-4976-af92-6d3fffd595aa",
+    "name": "Paymob Accept Legacy (v2) Accounts Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+      "type": "text/plain"
+    }
+  }
+}

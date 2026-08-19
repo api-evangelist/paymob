@@ -1,0 +1,345 @@
+{
+  "item": [
+    {
+      "id": "73db3774-96d3-421b-993b-8cef72a36a12",
+      "name": "Refund",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "43b1a4a3-0e8e-4bee-972b-7fc45b0dcdec",
+          "name": "Capture Authorized Transaction",
+          "request": {
+            "name": "Capture Authorized Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "capture"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transaction_id\": \"<integer>\",\n  \"amount_cents\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d375346-cea0-493d-b04e-6c8d8374f00a",
+              "name": "Capture result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "capture"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transaction_id\": \"<integer>\",\n  \"amount_cents\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5020,\n  \"pending\": false,\n  \"amount_cents\": 701,\n  \"success\": true,\n  \"is_auth\": true,\n  \"is_capture\": true,\n  \"is_void\": false,\n  \"is_refund\": false,\n  \"is_3d_secure\": true,\n  \"integration_id\": 969,\n  \"order\": {\n    \"id\": 7337,\n    \"amount_cents\": 1045,\n    \"currency\": \"string\",\n    \"merchant_order_id\": \"string\",\n    \"created_at\": \"2006-06-07T10:08:26.791Z\",\n    \"items\": [\n      {\n        \"key_0\": true,\n        \"key_1\": \"string\"\n      },\n      {\n        \"key_0\": 321.7250394092708,\n        \"key_1\": \"string\"\n      }\n    ]\n  },\n  \"currency\": \"string\",\n  \"source_data\": {\n    \"type\": \"string\",\n    \"sub_type\": \"string\",\n    \"pan\": \"string\"\n  },\n  \"merchant_commission\": 8749,\n  \"installment\": {\n    \"key_0\": \"string\",\n    \"key_1\": 8676,\n    \"key_2\": true\n  },\n  \"created_at\": \"1946-12-28T03:15:49.022Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e0e257c-77c2-46e2-ba8b-ebb782b6f067",
+          "name": "Void Transaction",
+          "request": {
+            "name": "Void Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "void_refund",
+                "void"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transaction_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "97526e99-5cd1-4917-8645-9db294ef7c71",
+              "name": "Void result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "void_refund",
+                    "void"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transaction_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9699,\n  \"pending\": false,\n  \"amount_cents\": 6027,\n  \"success\": true,\n  \"is_auth\": true,\n  \"is_capture\": true,\n  \"is_void\": false,\n  \"is_refund\": false,\n  \"is_3d_secure\": false,\n  \"integration_id\": 2513,\n  \"order\": {\n    \"id\": 1710,\n    \"amount_cents\": 9851,\n    \"currency\": \"string\",\n    \"merchant_order_id\": \"string\",\n    \"created_at\": \"1982-06-04T17:24:55.465Z\",\n    \"items\": [\n      {\n        \"key_0\": 3072,\n        \"key_1\": 3734.241383163257\n      },\n      {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    ]\n  },\n  \"currency\": \"string\",\n  \"source_data\": {\n    \"type\": \"string\",\n    \"sub_type\": \"string\",\n    \"pan\": \"string\"\n  },\n  \"merchant_commission\": 346,\n  \"installment\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"created_at\": \"1985-11-26T10:52:24.805Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c993207-b08c-4a89-b439-0fc47f24e08c",
+          "name": "Refund Transaction",
+          "request": {
+            "name": "Refund Transaction",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "acceptance",
+                "void_refund",
+                "refund"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transaction_id\": \"<integer>\",\n  \"amount_cents\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90326822-d212-4190-8c0e-987a8c8398ef",
+              "name": "Refund result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "acceptance",
+                    "void_refund",
+                    "refund"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transaction_id\": \"<integer>\",\n  \"amount_cents\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9699,\n  \"pending\": false,\n  \"amount_cents\": 6027,\n  \"success\": true,\n  \"is_auth\": true,\n  \"is_capture\": true,\n  \"is_void\": false,\n  \"is_refund\": false,\n  \"is_3d_secure\": false,\n  \"integration_id\": 2513,\n  \"order\": {\n    \"id\": 1710,\n    \"amount_cents\": 9851,\n    \"currency\": \"string\",\n    \"merchant_order_id\": \"string\",\n    \"created_at\": \"1982-06-04T17:24:55.465Z\",\n    \"items\": [\n      {\n        \"key_0\": 3072,\n        \"key_1\": 3734.241383163257\n      },\n      {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    ]\n  },\n  \"currency\": \"string\",\n  \"source_data\": {\n    \"type\": \"string\",\n    \"sub_type\": \"string\",\n    \"pan\": \"string\"\n  },\n  \"merchant_commission\": 346,\n  \"installment\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"created_at\": \"1985-11-26T10:52:24.805Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://accept.paymob.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6bc4a147-f1be-445b-a8cf-cec95689412c",
+    "name": "Paymob Accept Legacy (v2) Accounts Refund API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
+      "type": "text/plain"
+    }
+  }
+}

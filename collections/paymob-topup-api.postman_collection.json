@@ -1,24 +1,30 @@
 {
   "item": [
     {
-      "id": "eb77019a-58ea-4046-9b72-ce757c21739a",
-      "name": "Card Tokens",
+      "id": "43d42a09-658a-448f-89d0-a802c4c4fabe",
+      "name": "Topup",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "c19f01be-b22d-42e2-8486-d9744308d754",
-          "name": "List Card Tokens",
+          "id": "c4e258a3-dc45-4eb0-9813-d681f1b4f2a1",
+          "name": "Topup Request",
           "request": {
-            "name": "List Card Tokens",
-            "description": {},
+            "name": "Topup Request",
+            "description": {
+              "content": "Initiate a topup via bank transfer or Accept balance transfer.",
+              "type": "text/plain"
+            },
             "url": {
               "path": [
+                "disburse",
                 "api",
-                "acceptance",
-                "card_tokens"
+                "v1",
+                "topup",
+                "request",
+                ""
               ],
               "host": [
                 "{{baseUrl}}"
@@ -28,23 +34,39 @@
             },
             "header": [
               {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount\": \"<number>\",\n  \"transfer_type\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "a49f02f4-0677-4396-ada8-1f204521061c",
-              "name": "Card tokens",
+              "id": "1e2fc72a-33d8-4966-9d7e-680670424395",
+              "name": "Topup created",
               "originalRequest": {
                 "url": {
                   "path": [
+                    "disburse",
                     "api",
-                    "acceptance",
-                    "card_tokens"
+                    "v1",
+                    "topup",
+                    "request",
+                    ""
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -66,8 +88,16 @@
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount\": \"<number>\",\n  \"transfer_type\": \"<string>\",\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
               "status": "OK",
               "code": 200,
@@ -77,7 +107,7 @@
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"token\": \"string\",\n    \"masked_pan\": \"string\",\n    \"card_subtype\": \"string\",\n    \"email\": \"string\",\n    \"order_id\": 2655,\n    \"created_at\": \"2001-02-14T05:59:05.462Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"token\": \"string\",\n    \"masked_pan\": \"string\",\n    \"card_subtype\": \"string\",\n    \"email\": \"string\",\n    \"order_id\": 5041,\n    \"created_at\": \"1965-05-07T21:16:03.986Z\"\n  }\n]",
+              "body": "{\n  \"topup_id\": \"string\",\n  \"status\": \"string\",\n  \"amount\": 4919.228723310006,\n  \"transfer_type\": \"string\",\n  \"reference\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -88,60 +118,67 @@
           }
         },
         {
-          "id": "1448b62d-1238-46de-b2bf-91703229bdb1",
-          "name": "Delete Card Token",
+          "id": "17e67334-d3b3-4c8b-a8c2-ee3135cec346",
+          "name": "Topup Inquiry",
           "request": {
-            "name": "Delete Card Token",
+            "name": "Topup Inquiry",
             "description": {},
             "url": {
               "path": [
+                "disburse",
                 "api",
-                "acceptance",
-                "card_tokens",
-                ":token_id"
+                "v1",
+                "topup",
+                "inquire",
+                ""
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "token_id",
-                  "description": "(Required) "
-                }
-              ]
+              "variable": []
             },
-            "method": "DELETE",
-            "auth": null
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"reference\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "44aef3ad-8592-43df-8d28-586d7bedd7d5",
-              "name": "Token deleted",
+              "id": "423dbb13-ad82-41cd-85d3-d38d25fdeaf6",
+              "name": "Topup status",
               "originalRequest": {
                 "url": {
                   "path": [
+                    "disburse",
                     "api",
-                    "acceptance",
-                    "card_tokens",
-                    ":token_id"
+                    "v1",
+                    "topup",
+                    "inquire",
+                    ""
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "token_id",
-                      "description": "(Required) "
-                    }
-                  ]
+                  "variable": []
                 },
                 "header": [
                   {
@@ -151,22 +188,34 @@
                     },
                     "key": "Authorization",
                     "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
                   }
                 ],
-                "method": "DELETE",
-                "body": {}
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"reference\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
-              "status": "No Content",
-              "code": 204,
+              "status": "OK",
+              "code": 200,
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "text/plain"
+                  "value": "application/json"
                 }
               ],
-              "body": "",
+              "body": "{\n  \"topup_id\": \"string\",\n  \"status\": \"string\",\n  \"amount\": 4919.228723310006,\n  \"transfer_type\": \"string\",\n  \"reference\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "_postman_previewlanguage": "json"
             }
           ],
           "event": [],
@@ -196,8 +245,8 @@
     ]
   },
   "info": {
-    "_postman_id": "2c926415-c713-4376-9178-c1f9af0a190d",
-    "name": "Paymob Accept Legacy (v2) Accounts Card Tokens API",
+    "_postman_id": "a2bad40f-f28e-45ab-bb18-1ceb9e42c2fe",
+    "name": "Paymob Accept Legacy (v2) Accounts Topup API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",

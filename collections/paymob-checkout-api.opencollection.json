@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Paymob Accept Legacy (v2) Accounts Checkout API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Checkout",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Launch Unified Checkout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://accept.paymob.com/unifiedcheckout/",
+            "params": [
+              {
+                "name": "publicKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "clientSecret",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Redirect the customer to the hosted Unified Checkout page for the given intention."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

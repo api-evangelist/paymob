@@ -1,24 +1,27 @@
 {
   "item": [
     {
-      "id": "eb77019a-58ea-4046-9b72-ce757c21739a",
-      "name": "Card Tokens",
+      "id": "15ea3903-2484-4846-9d92-1c279b96ebf5",
+      "name": "Payment Links",
       "description": {
         "content": "",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "c19f01be-b22d-42e2-8486-d9744308d754",
-          "name": "List Card Tokens",
+          "id": "b6f97752-60d7-4513-8628-4578518ac51a",
+          "name": "Create Payment Link",
           "request": {
-            "name": "List Card Tokens",
-            "description": {},
+            "name": "Create Payment Link",
+            "description": {
+              "content": "Create a sharable Quick Link (V2 Quick Link API) that customers can pay through a hosted URL.",
+              "type": "text/plain"
+            },
             "url": {
               "path": [
                 "api",
-                "acceptance",
-                "card_tokens"
+                "ecommerce",
+                "payment-links"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -28,23 +31,36 @@
             },
             "header": [
               {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amount_cents\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"integrations\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"description\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"redirection_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "a49f02f4-0677-4396-ada8-1f204521061c",
-              "name": "Card tokens",
+              "id": "cdf8c7b5-1572-4ea2-8aae-587d56a98017",
+              "name": "Link created",
               "originalRequest": {
                 "url": {
                   "path": [
                     "api",
-                    "acceptance",
-                    "card_tokens"
+                    "ecommerce",
+                    "payment-links"
                   ],
                   "host": [
                     "{{baseUrl}}"
@@ -66,18 +82,26 @@
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"amount_cents\": \"<integer>\",\n  \"currency\": \"<string>\",\n  \"integrations\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"description\": \"<string>\",\n  \"full_name\": \"<string>\",\n  \"email\": \"<string>\",\n  \"phone_number\": \"<string>\",\n  \"redirection_url\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
-              "status": "OK",
-              "code": 200,
+              "status": "Created",
+              "code": 201,
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "[\n  {\n    \"id\": \"string\",\n    \"token\": \"string\",\n    \"masked_pan\": \"string\",\n    \"card_subtype\": \"string\",\n    \"email\": \"string\",\n    \"order_id\": 2655,\n    \"created_at\": \"2001-02-14T05:59:05.462Z\"\n  },\n  {\n    \"id\": \"string\",\n    \"token\": \"string\",\n    \"masked_pan\": \"string\",\n    \"card_subtype\": \"string\",\n    \"email\": \"string\",\n    \"order_id\": 5041,\n    \"created_at\": \"1965-05-07T21:16:03.986Z\"\n  }\n]",
+              "body": "{\n  \"id\": \"string\",\n  \"url\": \"string\",\n  \"client_url\": \"string\"\n}",
               "cookie": [],
               "_postman_previewlanguage": "json"
             }
@@ -88,60 +112,59 @@
           }
         },
         {
-          "id": "1448b62d-1238-46de-b2bf-91703229bdb1",
-          "name": "Delete Card Token",
+          "id": "b7a1798b-5e3c-4dd6-bf92-fa9828c537c2",
+          "name": "Cancel Payment Link",
           "request": {
-            "name": "Delete Card Token",
+            "name": "Cancel Payment Link",
             "description": {},
             "url": {
               "path": [
                 "api",
-                "acceptance",
-                "card_tokens",
-                ":token_id"
+                "ecommerce",
+                "payment-links",
+                "cancel"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "token_id",
-                  "description": "(Required) "
-                }
-              ]
+              "variable": []
             },
-            "method": "DELETE",
-            "auth": null
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
           },
           "response": [
             {
-              "id": "44aef3ad-8592-43df-8d28-586d7bedd7d5",
-              "name": "Token deleted",
+              "id": "fec94ed8-9f15-4e3e-acb4-5f25fdf00a92",
+              "name": "Link cancelled",
               "originalRequest": {
                 "url": {
                   "path": [
                     "api",
-                    "acceptance",
-                    "card_tokens",
-                    ":token_id"
+                    "ecommerce",
+                    "payment-links",
+                    "cancel"
                   ],
                   "host": [
                     "{{baseUrl}}"
                   ],
                   "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "token_id",
-                      "description": "(Required) "
-                    }
-                  ]
+                  "variable": []
                 },
                 "header": [
                   {
@@ -153,11 +176,19 @@
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "DELETE",
-                "body": {}
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
               },
-              "status": "No Content",
-              "code": 204,
+              "status": "OK",
+              "code": 200,
               "header": [
                 {
                   "key": "Content-Type",
@@ -196,8 +227,8 @@
     ]
   },
   "info": {
-    "_postman_id": "2c926415-c713-4376-9178-c1f9af0a190d",
-    "name": "Paymob Accept Legacy (v2) Accounts Card Tokens API",
+    "_postman_id": "a377b865-593f-45dc-acb6-c57e691cd988",
+    "name": "Paymob Accept Legacy (v2) Accounts Payment Links API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
       "content": "The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.\n\nContact Support:\n Name: Paymob Developers",
