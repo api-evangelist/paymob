@@ -29,6 +29,10 @@ apis:
   name: Paymob Subscriptions API
   tags:
   - Payments
+  - Subscription
+  - Recurring Billing
+  tags_raw:
+  - Payments
   - Subscriptions
   - Recurring Billing
   humanURL: https://developers.paymob.com
@@ -65,6 +69,8 @@ apis:
   description: The Accounts API from Paymob — 1 operation(s) for accounts.
   humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -200,6 +206,8 @@ apis:
   description: The Orders API from Paymob — 1 operation(s) for orders.
   humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
@@ -389,6 +397,8 @@ apis:
   description: The Topup API from Paymob — 2 operation(s) for topup.
   humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
   tags:
+  - Top-Up
+  tags_raw:
   - Topup
   properties:
   - type: OpenAPI
@@ -416,6 +426,8 @@ apis:
   description: The Transactions API from Paymob — 2 operation(s) for transactions.
   humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
@@ -467,6 +479,22 @@ apis:
     url: examples/paymob-instant-cashin-example.json
 name: Paymob
 tags:
+  - Payments
+  - Payment Gateway
+  - Fintech
+  - MENA
+  - MENAP
+  - Egypt
+  - Saudi Arabia
+  - UAE
+  - Pakistan
+  - Oman
+  - Card Payments
+  - Mobile Wallets
+  - BNPL
+  - Payouts
+  - Subscription
+tags_raw:
   - Payments
   - Payment Gateway
   - Fintech
