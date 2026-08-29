@@ -1,22 +1,16 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Paymob Accept Legacy (v2) Accounts Disbursement API
-  version: '2.0'
-  description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
+  title: Paymob Payouts (Send) Disbursement API
+  version: '1.0'
+  description: Paymob Send is the mass-payout product used to disburse funds to suppliers, employees, gig workers, and consumers via mobile wallets, bank cards, and bank transfers across the MENAP region. The API uses OAuth2 (Generate & Refresh Token) to mint a 60-minute bearer token, supports instant cash-in, bulk transfer, topup, budget inquiry, and bulk transaction inquiry by reference, and delivers status updates via callback URLs.
   contact:
-    name: Paymob Developers
-    url: https://developers.paymob.com
+    name: Paymob Payouts
+    url: https://payouts.paymobsolutions.com/docs/
 servers:
-- url: https://accept.paymob.com
-  description: Egypt production
-- url: https://ksa.paymob.com
-  description: Saudi Arabia production
-- url: https://uae.paymob.com
-  description: UAE production
-- url: https://oman.paymob.com
-  description: Oman production
-- url: https://pakistan.paymob.com
-  description: Pakistan production
+- url: https://payouts.paymobsolutions.com
+  description: Production
+- url: https://stg-payouts.paymobsolutions.com
+  description: Staging
 security:
 - BearerAuth: []
 tags:
@@ -186,4 +180,3 @@ components:
     BearerAuth:
       type: http
       scheme: bearer
-      description: Bearer auth_token from /api/auth/tokens (60-minute TTL).

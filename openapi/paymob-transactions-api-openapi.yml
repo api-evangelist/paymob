@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Paymob Accept Legacy (v2) Accounts Transactions API
+  title: Paymob Accept Legacy (v2) Transactions API
   version: '2.0'
   description: 'The legacy Paymob Accept API uses a three-step flow: authenticate to receive a bearer auth_token, register an order, then request a payment_key. The payment_key is used either with the iframe redirect or the headless /payments/pay endpoint. Refund, void, capture, transaction inquiry, and saved-card MOTO operations are exposed on this surface.'
   contact:
@@ -67,6 +67,25 @@ paths:
                 $ref: '#/components/schemas/Transaction'
 components:
   schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        amount_cents:
+          type: integer
+        currency:
+          type: string
+        merchant_order_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
     Transaction:
       type: object
       properties:
@@ -111,25 +130,6 @@ components:
         created_at:
           type: string
           format: date-time
-    Order:
-      type: object
-      properties:
-        id:
-          type: integer
-        amount_cents:
-          type: integer
-        currency:
-          type: string
-        merchant_order_id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        items:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
   securitySchemes:
     BearerAuth:
       type: http
