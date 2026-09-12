@@ -342,6 +342,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paymob.png
 access: 3rd-Party
 common:
+  - type: Website
+    url: https://www.paymob.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/paymob/overview
   - type: AgenticAccess
