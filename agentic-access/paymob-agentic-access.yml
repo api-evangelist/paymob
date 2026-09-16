@@ -1,21 +1,33 @@
-generated: '2026-07-15'
+generated: '2026-09-16'
 method: generated
-source: openapi/paymob-accept-api-openapi.yml, openapi/paymob-card-tokens-api-openapi.yml, openapi/paymob-intentions-api-openapi.yml,
-  openapi/paymob-payouts-api-openapi.yml, openapi/paymob-subscriptions-api-openapi.yml
+source: openapi/paymob-accounts-api-openapi.yml, openapi/paymob-authentication-api-openapi.yml,
+  openapi/paymob-capture-api-openapi.yml, openapi/paymob-disbursement-api-openapi.yml, openapi/paymob-orders-api-openapi.yml,
+  openapi/paymob-payment-keys-api-openapi.yml, openapi/paymob-payment-links-api-openapi.yml,
+  openapi/paymob-payments-api-openapi.yml, openapi/paymob-top-up-api-openapi.yml, openapi/paymob-transactions-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 42
+  operations: 20
   by_action_class:
-    acting: 32
-    connected: 10
+    connected: 2
+    acting: 18
   by_consequence:
-    write: 18
-    physical: 14
-    read: 10
+    read: 2
+    write: 8
+    physical: 10
   human_in_the_loop_required: 0
 operations:
+- path: /disburse/api/v1/budget/inquire/
+  method: get
+  operationId: budgetInquiry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /api/auth/tokens
   method: post
   operationId: createAuthToken
@@ -32,9 +44,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/ecommerce/orders
+- path: /api/auth/token/
   method: post
-  operationId: registerOrder
+  operationId: generatePayoutsToken
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -50,27 +62,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/acceptance/payment_keys
+- path: /api/auth/token/refresh/
   method: post
-  operationId: requestPaymentKey
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/payments/pay
-  method: post
-  operationId: payWithPaymentMethod
+  operationId: refreshPayoutsToken
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -91,13 +85,11 @@ operations:
   operationId: captureTransaction
   x-agentic-access:
     action-class: acting
-    consequence: physical
+    consequence: write
     subject: required
     audience: null
     token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
+      max-ttl: 900
     escalation:
       human-in-the-loop: conditional
       triggers:
@@ -140,19 +132,91 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/acceptance/transactions/{transaction_id}
-  method: get
-  operationId: retrieveTransactionById
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/ecommerce/orders/transaction_inquiry
+- path: /disburse/api/v1/disburse/instant_cashin/
   method: post
-  operationId: transactionInquiryByOrderId
+  operationId: instantCashin
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /disburse/api/v1/disburse/bulk_transaction/
+  method: post
+  operationId: bulkDisbursement
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /disburse/api/v1/bulk_transaction/inquire/
+  method: post
+  operationId: bulkTransactionInquiry
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /disburse/api/v1/bulk_transaction/inquire_by_reference/
+  method: post
+  operationId: bulkTransactionInquiryByReference
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/ecommerce/orders
+  method: post
+  operationId: registerOrder
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/acceptance/payment_keys
+  method: post
+  operationId: requestPaymentKey
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -204,35 +268,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/acceptance/card_tokens
-  method: get
-  operationId: listCardTokens
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/acceptance/card_tokens/{token_id}
-  method: delete
-  operationId: deleteCardToken
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/payments/cit
+- path: /api/acceptance/payments/pay
   method: post
-  operationId: customerInitiatedTransaction
+  operationId: payWithPaymentMethod
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -248,172 +286,6 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /api/acceptance/payments/mit
-  method: post
-  operationId: merchantInitiatedTransaction
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v1/intention/
-  method: post
-  operationId: createIntention
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v1/intention/{client_secret}
-  method: put
-  operationId: updateIntention
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /v1/intention/element/{public_key}/{client_secret}/
-  method: get
-  operationId: retrieveIntention
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v1/intentions/confirm/
-  method: post
-  operationId: confirmIntention
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /unifiedcheckout/
-  method: get
-  operationId: launchUnifiedCheckout
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/auth/token/
-  method: post
-  operationId: generatePayoutsToken
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/auth/token/refresh/
-  method: post
-  operationId: refreshPayoutsToken
-  x-agentic-access:
-    action-class: acting
-    consequence: physical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /disburse/api/v1/disburse/instant_cashin/
-  method: post
-  operationId: instantCashin
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /disburse/api/v1/disburse/bulk_transaction/
-  method: post
-  operationId: bulkDisbursement
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /disburse/api/v1/budget/inquire/
-  method: get
-  operationId: budgetInquiry
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /disburse/api/v1/topup/request/
   method: post
   operationId: topupRequest
@@ -446,57 +318,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /disburse/api/v1/bulk_transaction/inquire/
-  method: post
-  operationId: bulkTransactionInquiry
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /disburse/api/v1/bulk_transaction/inquire_by_reference/
-  method: post
-  operationId: bulkTransactionInquiryByReference
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/subscription-plans
-  method: post
-  operationId: createSubscriptionPlan
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/subscription-plans
+- path: /api/acceptance/transactions/{transaction_id}
   method: get
-  operationId: listSubscriptionPlans
+  operationId: retrieveTransactionById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -504,155 +328,21 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /api/acceptance/subscription-plans/{subscription_plan_id}
-  method: put
-  operationId: updateSubscriptionPlan
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/subscription-plans/{subscription_plan_id}/suspend
+- path: /api/ecommerce/orders/transaction_inquiry
   method: post
-  operationId: suspendSubscriptionPlan
+  operationId: transactionInquiryByOrderId
   x-agentic-access:
     action-class: acting
-    consequence: write
+    consequence: physical
     subject: required
     audience: null
     token:
-      max-ttl: 900
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
     escalation:
       human-in-the-loop: conditional
       triggers:
       - abnormal
       - high-value
     audit: required
-- path: /api/acceptance/subscription-plans/{subscription_plan_id}/resume
-  method: post
-  operationId: resumeSubscriptionPlan
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/subscriptions/{subscription_id}
-  method: get
-  operationId: retrieveSubscription
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/acceptance/subscriptions/{subscription_id}
-  method: put
-  operationId: updateSubscription
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/subscriptions/{subscription_id}/suspend
-  method: post
-  operationId: suspendSubscription
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/subscriptions/{subscription_id}/resume
-  method: post
-  operationId: resumeSubscription
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/subscriptions/{subscription_id}/cancel
-  method: post
-  operationId: cancelSubscription
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /api/acceptance/subscriptions/{subscription_id}/last-transaction
-  method: get
-  operationId: getLastSubscriptionTransaction
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/acceptance/subscriptions/{subscription_id}/transactions
-  method: get
-  operationId: listSubscriptionTransactions
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /api/acceptance/subscriptions/{subscription_id}/card-tokens
-  method: get
-  operationId: listSubscriptionCardTokens
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
