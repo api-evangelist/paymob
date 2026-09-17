@@ -221,17 +221,17 @@ apis:
     url: json-schema/paymob-disbursement-schema.json
   - type: Examples
     url: examples/paymob-instant-cashin-example.json
-- aid: paymob:paymob-topup-api
-  name: Paymob Topup API
-  description: The Topup API from Paymob — 2 operation(s) for topup.
+- aid: paymob:paymob-transactions-api
+  name: Paymob Transactions API
+  description: The Transactions API from Paymob — 2 operation(s) for transactions.
   humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
   tags:
-  - Top-Up
+  - Transaction
   tags_raw:
-  - Topup
+  - Transactions
   properties:
   - type: OpenAPI
-    url: openapi/paymob-topup-api-openapi.yml
+    url: openapi/paymob-transactions-api-openapi.yml
   - type: Documentation
     url: https://developers.paymob.com/paymob-docs/integration-paths/apis
   - type: Documentation
@@ -250,17 +250,15 @@ apis:
     url: json-schema/paymob-disbursement-schema.json
   - type: Examples
     url: examples/paymob-instant-cashin-example.json
-- aid: paymob:paymob-transactions-api
-  name: Paymob Transactions API
-  description: The Transactions API from Paymob — 2 operation(s) for transactions.
+- aid: paymob:paymob-top-up-api
+  name: Paymob Top Up API
+  description: The Top Up API from Paymob — 2 operation(s) for top up.
   humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
   tags:
-  - Transaction
-  tags_raw:
-  - Transactions
+  - Top Up
   properties:
   - type: OpenAPI
-    url: openapi/paymob-transactions-api-openapi.yml
+    url: openapi/paymob-top-up-api-openapi.yml
   - type: Documentation
     url: https://developers.paymob.com/paymob-docs/integration-paths/apis
   - type: Documentation
