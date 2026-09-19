@@ -89,6 +89,8 @@ apis:
   description: The Disbursement API from Paymob — 4 operation(s) for disbursement.
   humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
   tags:
+  - Disbursements
+  tags_raw:
   - Disbursement
   properties:
   - type: OpenAPI
@@ -255,6 +257,8 @@ apis:
   description: The Top Up API from Paymob — 2 operation(s) for top up.
   humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
   tags:
+  - Top-Up
+  tags_raw:
   - Top Up
   properties:
   - type: OpenAPI
@@ -286,7 +290,7 @@ tags:
   - MENAP
   - Egypt
   - Saudi Arabia
-  - UAE
+  - United Arab Emirates
   - Pakistan
   - Oman
   - Card Payments
