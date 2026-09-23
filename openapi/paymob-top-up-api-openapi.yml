@@ -14,14 +14,14 @@ servers:
 security:
 - BearerAuth: []
 tags:
-- name: Topup
+- name: Top Up
 paths:
   /disburse/api/v1/topup/request/:
     post:
       summary: Topup Request
       operationId: topupRequest
       tags:
-      - Topup
+      - Top Up
       description: Initiate a topup via bank transfer or Accept balance transfer.
       requestBody:
         required: true
@@ -54,7 +54,7 @@ paths:
       summary: Topup Inquiry
       operationId: topupInquiry
       tags:
-      - Topup
+      - Top Up
       requestBody:
         required: true
         content:

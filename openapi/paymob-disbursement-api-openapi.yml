@@ -116,28 +116,6 @@ paths:
                   $ref: '#/components/schemas/DisbursementResponse'
 components:
   schemas:
-    DisbursementResponse:
-      type: object
-      properties:
-        transaction_id:
-          type: string
-        status:
-          type: string
-          enum:
-          - pending
-          - successful
-          - failed
-        amount:
-          type: number
-        msisdn:
-          type: string
-        reference:
-          type: string
-        disbursement_status:
-          type: string
-        created_at:
-          type: string
-          format: date-time
     InstantCashinRequest:
       type: object
       required:
@@ -176,6 +154,28 @@ components:
           type: string
         callback_url:
           type: string
+    DisbursementResponse:
+      type: object
+      properties:
+        transaction_id:
+          type: string
+        status:
+          type: string
+          enum:
+          - pending
+          - successful
+          - failed
+        amount:
+          type: number
+        msisdn:
+          type: string
+        reference:
+          type: string
+        disbursement_status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
   securitySchemes:
     BearerAuth:
       type: http

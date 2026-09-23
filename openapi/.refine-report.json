@@ -16,7 +16,9 @@
     "paymob-disbursement-api-openapi.yml",
     "paymob-topup-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -37,26 +39,20 @@
     "paymob-payouts-api-openapi.yml: declared missing tag: Authentication",
     "paymob-payouts-api-openapi.yml: declared missing tag: Disbursement",
     "paymob-payouts-api-openapi.yml: declared missing tag: Topup",
-    "tag 'Authentication' spans 2 source specs (paymob-accept-api-openapi.yml, paymob-payouts-api-openapi.yml): per-path servers applied"
+    "tag 'Authentication' spans 2 source specs (paymob-accept-api-openapi.yml, paymob-payouts-api-openapi.yml): per-path servers applied",
+    "superseded outputs removed: paymob-top-up-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 10 total)"
   ],
   "skipped": [
     "paymob-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "paymob-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "paymob-capture-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-card-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-checkout-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "paymob-disbursement-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-intentions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "paymob-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "paymob-payment-keys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "paymob-payment-links-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "paymob-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-refund-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-saved-card-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-subscription-plans-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-subscriptions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-topup-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "paymob-void-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "paymob-top-up-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "paymob-transactions-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }
