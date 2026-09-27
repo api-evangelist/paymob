@@ -257,8 +257,6 @@ apis:
   description: The Top Up API from Paymob — 2 operation(s) for top up.
   humanURL: https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention
   tags:
-  - Top-Up
-  tags_raw:
   - Top Up
   properties:
   - type: OpenAPI
