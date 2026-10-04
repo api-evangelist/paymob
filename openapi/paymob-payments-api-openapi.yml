@@ -53,6 +53,25 @@ paths:
                 $ref: '#/components/schemas/Transaction'
 components:
   schemas:
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+        amount_cents:
+          type: integer
+        currency:
+          type: string
+        merchant_order_id:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
     Transaction:
       type: object
       properties:
@@ -97,25 +116,6 @@ components:
         created_at:
           type: string
           format: date-time
-    Order:
-      type: object
-      properties:
-        id:
-          type: integer
-        amount_cents:
-          type: integer
-        currency:
-          type: string
-        merchant_order_id:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-        items:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
   securitySchemes:
     BearerAuth:
       type: http
