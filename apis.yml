@@ -342,6 +342,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/paymob.png
 access: 3rd-Party
 common:
+  - url: https://www.paymob.com/en/blog
+    type: Blog
   - type: Website
     url: https://www.paymob.com/
   - type: PostmanWorkspace
@@ -558,7 +560,7 @@ common:
     name: FinOps
     url: finops/paymob-finops.yml
 created: '2026-05-24'
-modified: '2026-05-24'
+modified: '2026-10-06'
 position: Consuming
 description: >-
   Paymob is a Cairo-headquartered, licensed payment infrastructure provider for the MENAP region. Serving roughly
