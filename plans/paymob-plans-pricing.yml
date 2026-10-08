@@ -118,3 +118,39 @@ plans:
       - name: Multi-region settlement
       - name: Marketplace and split payouts
       - name: Custom SLA and integrations
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - negotiated
+  units:
+  - period
+  - transaction
+  plans:
+  - name: Standard (Egypt)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - transaction
+    periods:
+    - per-use
+  - name: Standard (UAE)
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - period
+    - transaction
+    periods:
+    - month
+    - per-use
+  - name: Enterprise
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units:
+    - transaction
+    periods:
+    - per-use
