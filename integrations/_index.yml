@@ -27,3 +27,16 @@
     detected: '2026-10-13'
   status: not-a-workflow
   arazzo: null
+- slug: paymob-woocommerce-own
+  label: WooCommerce (own)
+  partner: woocommerce
+  partner_name: WooCommerce (own)
+  category: extension
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://woocommerce.com/products/paymob/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null

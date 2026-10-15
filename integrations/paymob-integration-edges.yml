@@ -2,6 +2,7 @@ generated: '2026-10-13'
 method: searched
 checked:
 - https://openid.net/developers/certified-openid-connect-implementations/
+- woocommerce/integrations/woocommerce-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: OpenID Foundation certification
@@ -28,3 +29,22 @@ edges:
     detected: '2026-10-13'
   detected_by: sweep-identity.py
   detected: '2026-10-13'
+- partner_name: WooCommerce (own)
+  partner: woocommerce
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://woocommerce.com/products/paymob/
+  mirror_of: woocommerce/integrations/woocommerce-integration-edges.yml
+  apps:
+  - Paymob Checkout
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: extension
+source:
+- woocommerce/integrations/woocommerce-integration-edges.yml
