@@ -1,8 +1,19 @@
-generated: '2026-10-13'
+generated: '2026-10-20'
 method: searched
+source:
+- woocommerce/integrations/woocommerce-integration-edges.yml
+- https://zapier.com/apps/paymob/integrations
+- https://n8n.io/integrations/paymob/
+- https://composio.dev/toolkits/paymob
+- https://monid.ai/tools/paymob
 checked:
 - https://openid.net/developers/certified-openid-connect-implementations/
 - woocommerce/integrations/woocommerce-integration-edges.yml
+- https://composio.dev/toolkits/paymob
+- https://monid.ai/tools/paymob
+- https://n8n.io/integrations/paymob/
+- https://zapier.com/apps/paymob/integrations
+summary: null
 marketplace_apps: []
 edges:
 - partner_name: OpenID Foundation certification
@@ -46,5 +57,4 @@ edges:
   detected: '2026-10-15'
   detected_by: mirror-platform-listings.py
   category: extension
-source:
-- woocommerce/integrations/woocommerce-integration-edges.yml
+templates: []
