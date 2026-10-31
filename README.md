@@ -1,4 +1,4 @@
-# Paymob (paymob)
+# Paymob
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,198 +66,197 @@
 
 Paymob is a Cairo-headquartered, licensed payment infrastructure provider for the MENAP region. Serving roughly 390,000 merchants across Egypt, Saudi Arabia, the United Arab Emirates, Oman, and Pakistan (with Qatar announced), Paymob unifies card acquiring, regional mobile wallets (Vodafone Cash, Etisalat Cash, Orange Money, STC Pay, Oman Net, EasyPaisa, JazzCash), BNPL rails (Tabby, Tamara, valU, Souhoola, Forsa, Aman), Apple Pay, Google Pay, POS terminals, subscriptions, installments, marketplace payouts, mass disbursement (Paymob Send), and an end-to-end cashless commerce platform (Paymob Sync) behind a single Accept / Intentions API surface.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/paymob/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/paymob/refs/heads/main/apis.yml)
+**Areas:** Payments · Payment Gateway · Fintech · MENA · MENAP · Egypt · Saudi Arabia · United Arab Emirates · Pakistan · Oman · Card Payments · Mobile Wallets
 
-## Scope
+## Paymob on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Paymob is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/paymob/](https://apis.io/providers/paymob/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- Payments
-- Payment Gateway
-- Fintech
-- MENA
-- MENAP
-- Egypt
-- Saudi Arabia
-- UAE
-- Pakistan
-- Oman
-- Card Payments
-- Mobile Wallets
-- BNPL
-- Payouts
-- Subscriptions
+- [Paymob Accounts API](https://apis.io/apis/paymob/paymob-accounts-api/) — The Accounts API from Paymob — 1 operation(s) for accounts.
+- [Paymob Authentication API](https://apis.io/apis/paymob/paymob-authentication-api/) — The Authentication API from Paymob — 3 operation(s) for authentication.
+- [Paymob Capture API](https://apis.io/apis/paymob/paymob-capture-api/) — The Capture API from Paymob — 3 operation(s) for capture.
+- [Paymob Disbursement API](https://apis.io/apis/paymob/paymob-disbursement-api/) — The Disbursement API from Paymob — 4 operation(s) for disbursement.
+- [Paymob Orders API](https://apis.io/apis/paymob/paymob-orders-api/) — The Orders API from Paymob — 1 operation(s) for orders.
+- [Paymob Payment Keys API](https://apis.io/apis/paymob/paymob-payment-keys-api/) — The Payment Keys API from Paymob — 1 operation(s) for payment keys.
+- [Paymob Payment Links API](https://apis.io/apis/paymob/paymob-payment-links-api/) — The Payment Links API from Paymob — 2 operation(s) for payment links.
+- [Paymob Payments API](https://apis.io/apis/paymob/paymob-payments-api/) — The Payments API from Paymob — 1 operation(s) for payments.
+- [Paymob Transactions API](https://apis.io/apis/paymob/paymob-transactions-api/) — The Transactions API from Paymob — 2 operation(s) for transactions.
+- [Paymob Top Up API](https://apis.io/apis/paymob/paymob-top-up-api/) — The Top Up API from Paymob — 2 operation(s) for top up.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-24
-- **Modified:** 2026-05-24
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### Paymob Intentions API
+Model Context Protocol servers that expose the API to agents.
 
-The v1 Intentions API is Paymob's modern entry point for payment acceptance. The merchant backend creates an intention with the secret key and an array of payment_methods (integration IDs or named methods like apple_pay, tabby, tamara, stc_pay, easypaisa, jazzcash). Paymob returns a client_secret used to launch the Unified Checkout, render the Pixel component, or confirm the payment headlessly.
+- [paymob](https://apis.io/servers/paymob/paymob/)
 
-- **Human URL:** [https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention](https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention)
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Payments
-- Intentions
-- Checkout
-- MENA
+- [Paymob Agentic Access](https://apis.io/agentic-access/paymob/paymob-agentic-access/)
 
-#### Properties
+#### JSON Schema (3)
 
-- [Documentation](https://developers.paymob.com/paymob-docs/developers/intention-apis/create-intention)
-- [API Reference](https://docs.paymob.com/reference/next_v1_intentions_confirm_create)
-- [OpenAPI](openapi/paymob-intentions-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paymob-intentions-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paymob-intentions-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paymob-intention-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/paymob-create-intention-example.json)
+The data models the API reads and writes.
 
-### Paymob Accept API
+- [Paymob Disbursement](https://apis.io/schemas/paymob/paymob-disbursement/)
+- [Paymob Intention](https://apis.io/schemas/paymob/paymob-intention/)
+- [Paymob Transaction](https://apis.io/schemas/paymob/paymob-transaction/)
 
-The legacy v2 Accept API uses the three-step authentication-order-payment key flow plus operations for capture, void, refund, transaction inquiry by id or merchant order id, and the V2 Quick Link API for sharable payment links. Still actively used by merchants on the standard redirect, iframe, and headless MOTO integrations.
+#### JSON-LD (1)
 
-- **Human URL:** [https://developers.paymob.com/paymob-docs/integration-paths/apis](https://developers.paymob.com/paymob-docs/integration-paths/apis)
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Paymob Context](https://apis.io/jsonld/paymob/paymob-context/)
 
-- Payments
-- Accept
-- Transactions
-- MENA
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://developers.paymob.com/paymob-docs/integration-paths/apis)
-- [Documentation](https://docs.paymob.com/docs/accept-standard-redirect)
-- [OpenAPI](openapi/paymob-accept-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paymob-accept-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paymob-accept-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paymob-transaction-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/paymob-refund-transaction-example.json)
+- [Paymob Vocabulary](https://apis.io/vocabularies/paymob/paymob-vocabulary/)
 
-### Paymob Subscriptions API
+#### Examples (3)
 
-The Subscriptions Module manages subscription plans (create, list, update, suspend, resume) and per-customer subscriptions billed against tokenised cards. Lifecycle operations cover suspend, resume, cancel, secondary card attachment, and transaction inspection. Initial subscription creation flows through /v1/intention/ for card capture.
+Example requests and responses.
 
-- **Human URL:** [https://developers.paymob.com](https://developers.paymob.com)
+- [Paymob Create Intention Example](https://apis.io/examples/paymob/paymob-create-intention-example/)
+- [Paymob Instant Cashin Example](https://apis.io/examples/paymob/paymob-instant-cashin-example/)
+- [Paymob Refund Transaction Example](https://apis.io/examples/paymob/paymob-refund-transaction-example/)
 
-#### Tags
+#### Collections (38)
 
-- Payments
-- Subscriptions
-- Recurring Billing
+Postman and Open Collection request collections.
 
-#### Properties
+- [Paymob Accept Legacy (v2) API](https://apis.io/collections/paymob/open-paymob-accept-api/)
+- [Paymob Accept Legacy (v2) Accounts API](https://apis.io/collections/paymob/open-paymob-accounts-api/)
+- [Paymob Accept Legacy (v2) Accounts Authentication API](https://apis.io/collections/paymob/open-paymob-authentication-api/)
+- [Paymob Accept Legacy (v2) Accounts Capture API](https://apis.io/collections/paymob/open-paymob-capture-api/)
+- [Paymob Accept Legacy (v2) Accounts Card Tokens API](https://apis.io/collections/paymob/open-paymob-card-tokens-api/)
+- [Paymob Accept Legacy (v2) Accounts Checkout API](https://apis.io/collections/paymob/open-paymob-checkout-api/)
+- [Paymob Accept Legacy (v2) Accounts Disbursement API](https://apis.io/collections/paymob/open-paymob-disbursement-api/)
+- [Paymob Accept Legacy (v2) Accounts Intentions API](https://apis.io/collections/paymob/open-paymob-intentions-api/)
+- [Paymob Accept Legacy (v2) Accounts Orders API](https://apis.io/collections/paymob/open-paymob-orders-api/)
+- [Paymob Accept Legacy (v2) Accounts Payment Keys API](https://apis.io/collections/paymob/open-paymob-payment-keys-api/)
+- [Paymob Accept Legacy (v2) Accounts Payment Links API](https://apis.io/collections/paymob/open-paymob-payment-links-api/)
+- [Paymob Accept Legacy (v2) Accounts Payments API](https://apis.io/collections/paymob/open-paymob-payments-api/)
+- [Paymob Payouts (Send) API](https://apis.io/collections/paymob/open-paymob-payouts-api/)
+- [Paymob Accept Legacy (v2) Accounts Refund API](https://apis.io/collections/paymob/open-paymob-refund-api/)
+- [Paymob Accept Legacy (v2) Accounts Saved Card Payments API](https://apis.io/collections/paymob/open-paymob-saved-card-payments-api/)
+- [Paymob Accept Legacy (v2) Accounts Subscription Plans API](https://apis.io/collections/paymob/open-paymob-subscription-plans-api/)
+- [Paymob Accept Legacy (v2) Accounts Subscriptions API](https://apis.io/collections/paymob/open-paymob-subscriptions-api/)
+- [Paymob Accept Legacy (v2) Accounts Topup API](https://apis.io/collections/paymob/open-paymob-topup-api/)
+- [Paymob Accept Legacy (v2) Accounts Transactions API](https://apis.io/collections/paymob/open-paymob-transactions-api/)
+- [Paymob Accept Legacy (v2) Accounts Void API](https://apis.io/collections/paymob/open-paymob-void-api/)
+- [Paymob Accept Legacy (v2) Accounts API](https://apis.io/collections/paymob/postman-paymob-accounts-api/)
+- [Paymob Accept Legacy (v2) Accounts Authentication API](https://apis.io/collections/paymob/postman-paymob-authentication-api/)
+- [Paymob Accept Legacy (v2) Accounts Capture API](https://apis.io/collections/paymob/postman-paymob-capture-api/)
+- [Paymob Accept Legacy (v2) Accounts Card Tokens API](https://apis.io/collections/paymob/postman-paymob-card-tokens-api/)
+- [Paymob Accept Legacy (v2) Accounts Checkout API](https://apis.io/collections/paymob/postman-paymob-checkout-api/)
+- …and 13 more published on APIs.io
 
-- [Documentation](https://developers.paymob.com)
-- [OpenAPI](openapi/paymob-subscriptions-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paymob-subscriptions-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paymob-subscriptions-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Governance rules (2)
 
-### Paymob Card Tokens API
+Spectral rulesets for the provider's contracts.
 
-Tokenisation surface for the Paymob "Pay with saved card" flow. Lists and deletes tokenised cards and runs both customer-initiated (CIT) and merchant-initiated (MIT) transactions against saved tokens for recurring, on-demand, and one-click payments.
+- [Paymob — jsonschema rules](https://apis.io/rules/paymob/paymob-jsonschema-spectral-rules/)
+- [Paymob API Rules](https://apis.io/rules/paymob/paymob-rules/)
 
-- **Human URL:** [https://developers.paymob.com](https://developers.paymob.com)
+#### Security (2)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- Payments
-- Card Tokens
-- Saved Cards
-- CIT
-- MIT
+- [Paymob Authentication](https://apis.io/security/paymob/paymob-authentication/)
+- [Paymob Domain Security](https://apis.io/security/paymob/paymob-domain-security/)
 
-#### Properties
+#### Plans and pricing (1)
 
-- [Documentation](https://developers.paymob.com)
-- [OpenAPI](openapi/paymob-card-tokens-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paymob-card-tokens-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paymob-card-tokens-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published plans, tiers and prices.
 
-### Paymob Payouts (Send) API
+- [Paymob Plans Pricing](https://apis.io/plans/paymob/paymob-plans-pricing/)
 
-Paymob Send is the mass-payout product used to disburse funds to suppliers, employees, gig workers, and consumers via mobile wallets (Vodafone Cash, Etisalat Cash, Orange Money), bank wallets, bank cards, and instant bank rails. OAuth2 password-grant authentication; supports instant cashin, bulk disbursement, budget inquiry, topup request/inquiry, and bulk transaction inquiry by id or reference.
+#### Rate limits (1)
 
-- **Human URL:** [https://payouts.paymobsolutions.com/docs/](https://payouts.paymobsolutions.com/docs/)
+Published request limits.
 
-#### Tags
+- [Paymob Rate Limits](https://apis.io/rate-limits/paymob/paymob-rate-limits/)
 
-- Payouts
-- Disbursement
-- Mass Payments
-- MENA
+#### FinOps (1)
 
-#### Properties
+What the API costs to run, by operation.
 
-- [Documentation](https://payouts.paymobsolutions.com/docs/)
-- [API Reference](https://payouts.paymobsolutions.com/docs/swagger-ui/)
-- [Authentication](https://payouts.paymobsolutions.com/docs/generate_and_refresh_token_api/)
-- [OpenAPI](openapi/paymob-payouts-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/paymob-payouts-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/paymob-payouts-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/paymob-disbursement-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [Example](examples/paymob-instant-cashin-example.json)
+- [Paymob Finops](https://apis.io/finops/paymob/paymob-finops/)
 
-## Common Properties
+## Where to find this API
 
-- [Portal](https://paymob.com)
-- [Developer Portal](https://developers.paymob.com)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.paymob.com/)
 - [Documentation](https://developers.paymob.com/paymob-docs)
-- [Getting Started](https://developers.paymob.com/paymob-docs/getting-started/overview)
-- [Hub](https://developers.paymob.com/hub/egypt)
-- [Hub](https://developers.paymob.com/hub/sa)
-- [Hub](https://paymob.ae)
-- [API Reference](https://docs.paymob.com)
-- [Console](https://accept.paymob.com/portal2/en/login)
-- [Sign Up](https://accept.paymob.com/portal2/en/register)
+- [Getting started](https://developers.paymob.com/paymob-docs/getting-started/overview)
+- [API reference](https://docs.paymob.com)
 - [Pricing](https://www.paymob.com/en/pricing)
-- [Pricing](https://paymob.ae/en/pricing)
-- [Plans](plans/paymob-plans-pricing.yml)
-- [Rate Limits](rate-limits/paymob-rate-limits.yml)
-- [Documentation](finops/paymob-finops.yml)
-- [Documentation](rules/paymob-rules.yml)
-- [Documentation](vocabulary/paymob-vocabulary.yml)
-- [JSON-LD](json-ld/paymob-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [GitHub Organization](https://github.com/PaymobAccept)
-- [SDK](https://github.com/PaymobAccept/paymob-node)
-- [SDK](https://github.com/PaymobAccept/paymob-php)
-- [SDK](https://github.com/PaymobAccept/paymob-python)
-- [SDK](https://github.com/PaymobAccept/paymob-java)
-- [SDK](https://github.com/PaymobAccept/paymob-js)
-- [SDK](https://github.com/PaymobAccept/flutter_sdk)
-- [SDK](https://github.com/PaymobAccept/paymob-reactnative-sdk)
-- [SDK](https://github.com/PaymobAccept/Android-SDK)
-- [SDK](https://github.com/PaymobAccept/Swift-iOS)
-- [SDK](https://github.com/PaymobAccept/accept-woocommerce)
-- [SDK](https://github.com/PaymobAccept/accept-magento2)
-- [SDK](https://github.com/PaymobAccept/accept-opencart)
-- [Documentation](https://github.com/PaymobAccept/API-Postman-Collections)
-- [SDK](https://github.com/PaymobAccept/Paymob-Claude-Integration-Skill)
-- [LinkedIn](https://www.linkedin.com/company/paymobcompany)
-- [Portal](https://paymob.com/en/about-us)
-- [Contact](https://paymob.com/en/contact-us)
-- [Terms of Service](https://paymob.com/en/terms-conditions)
-- [Privacy Policy](https://paymob.com/en/privacy-policy)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Solutions](undefined)
-- [Plans](plans/paymob-plans-pricing.yml)
-- [Rate Limits](rate-limits/paymob-rate-limits.yml)
-- [Documentation](finops/paymob-finops.yml)
+- [Blog](https://www.paymob.com/en/blog)
+- [Terms of service](https://paymob.com/en/terms-conditions)
+- [Privacy policy](https://paymob.com/en/privacy-policy)
+- [GitHub](https://github.com/PaymobAccept)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 51.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 60.0 |
+| Contract quality | 58.2 |
+| Contract governance | 13.6 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 77.4 |
+| Access clarity | 60.5 |
+
+**Agent readiness 46.8** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 22.3** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/paymob/](https://apis.io/providers/paymob/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Paymob: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/paymob/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
